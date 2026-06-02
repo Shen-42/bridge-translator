@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Python environments
+venv/
+.env/
+.venv/
+
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary files
+tmp/
+*.zip

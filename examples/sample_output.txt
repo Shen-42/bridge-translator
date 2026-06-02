@@ -1,0 +1,12 @@
+Artificial language:
+OPEN(North, 1NT, balanced, 15-17_HCP)
+PASS(East)
+RAISE_TO_GAME(South, 3NT)
+PASS(West)
+PASS(North)
+PASS(East)
+CONTRACT(3NT, declarer=North)
+LEAD(West, S4)
+
+English:
+North opens 1NT, showing a balanced hand with about 15–17 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. West leads the four of spades to begin the play.

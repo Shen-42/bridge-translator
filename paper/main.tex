@@ -1,0 +1,348 @@
+
+% This file is adapted from the official ACL LaTeX template uploaded by the user.
+% Main file for Overleaf: main.tex
+
+\documentclass[11pt]{article}
+
+\usepackage[final]{acl}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+
+\lstdefinestyle{bridgecode}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible,
+    frame=single,
+    framerule=0.3pt,
+    xleftmargin=0.5em,
+    xrightmargin=0.5em
+}
+
+\title{Translating Bridge Game Records into English Through a Controlled Artificial Language}
+
+\author{
+Kevin Chen \\
+New York University \\
+Natural Language Processing \\
+\texttt{kevin734626@gmail.com}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Bridge game records encode auctions, contracts, opening leads, and play events in a compact notation that is difficult for beginners to interpret. This project treats Bridge notation as a formal source language and studies whether a controlled artificial Bridge language can improve translation into English explanations. I implement a rule-based parser, a predicate-style meaning representation, template-based generators in beginner and expert styles, simulated model-based generation systems, and several baselines. The dataset contains 90 aligned examples split into 60 training, 15 development, and 15 test examples. Results on the test set show that the template system using the artificial language achieves the strongest overall performance, with 4.766 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model is readable but less faithful, reaching only 0.743 factual preservation and reconstructability. These results suggest that an explicit intermediate representation helps preserve game structure while producing readable Bridge commentary.
+\end{abstract}
+
+\section{Introduction}
+
+Bridge is a card game with a highly compressed notation system. A short sequence such as \texttt{North 1NT -- East Pass -- South 3NT -- All Pass} can encode player roles, partnership structure, hand-strength implications, final contract level, and the opening goal of the hand. For expert players this notation is efficient. For beginners, however, it is opaque: it assumes knowledge of bidding conventions, suits, no-trump contracts, declarer and dummy roles, opening leads, and trick-taking play.
+
+This project asks whether Bridge records can be translated into English more accurately by first converting them into a controlled artificial language. The central research question is:
+
+\begin{quote}
+Does using a controlled artificial Bridge language as an intermediate representation improve the factual accuracy, Bridge meaning, beginner readability, and reconstructability of English explanations generated from Bridge game records?
+\end{quote}
+
+The project is a small system-oriented natural language generation (NLG) study. It implements a full pipeline from raw Bridge notation to English explanation, compares several systems and baselines, and evaluates outputs using automatic proxies for the rubric categories. The main contribution is not a state-of-the-art Bridge commentator, but a controlled and inspectable architecture that separates parsing, meaning representation, generation, and evaluation.
+
+The results support the usefulness of the intermediate representation. On the test set, the template system using the artificial language achieves the strongest overall result: 4.766 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model remains readable but loses more information, with 0.743 factual preservation and reconstructability. These results show that an intermediate symbolic representation can make a structured game record easier to verbalize reliably.
+
+\section{Related Work}
+
+This project draws on work in data-to-text generation, meaning representation, natural language generation evaluation, and machine translation evaluation.
+
+Data-to-text generation converts structured records into natural-language text. The WebNLG challenge generates text from RDF triples \citep{gardent2017webnlg}, which is conceptually close to this project: Bridge events such as \texttt{OPEN}, \texttt{CONTRACT}, and \texttt{LEAD} act like structured meaning units that must be verbalized. Similarly, the E2E dataset pairs structured meaning representations with restaurant descriptions \citep{novikova2017e2e}, motivating the alignment of artificial-language predicates with gold English explanations.
+
+Sports and game summarization also provide a useful comparison. \citet{wiseman2017challenges} show that neural data-to-document systems can produce fluent text while still making factual errors. That observation is directly relevant here because a Bridge explanation can sound natural while changing the declarer, suit, trick winner, or meaning of a bid. Work on sports-news generation, such as \citet{kanerva2019template}, similarly treats structured event data as the input to natural-language commentary.
+
+Evaluation of NLG and machine translation also informs the project. BLEU \citep{papineni2002bleu} and METEOR \citep{banerjee2005meteor} are useful as secondary similarity metrics, but they cannot fully judge whether Bridge facts and strategic meanings are correct. \citet{belz2006comparing} argue that automatic and human evaluation may diverge in NLG, motivating my use of task-specific criteria such as factual preservation, Bridge meaning correctness, beginner readability, and reconstructability.
+
+Finally, the project follows the general NLP idea that formal or semi-formal meaning representations can support downstream language tasks \citep{jurafsky2008speech}. The artificial Bridge language is therefore not only a formatting device. It is the central semantic representation used by the generator.
+
+\section{Task Definition}
+
+The input is a short Bridge game segment containing some combination of auction, final contract, opening lead, simple play record, and optional strategic note. The output is a beginner-readable English explanation.
+
+For example, the raw input may be:
+
+\begin{lstlisting}[style=bridgecode]
+Auction: North 1NT - East Pass - South 3NT - West Pass - North Pass - East Pass
+Contract: 3NT by North
+Opening lead: West S4
+\end{lstlisting}
+
+The artificial-language representation is:
+
+\begin{lstlisting}[style=bridgecode]
+OPEN(North, 1NT, balanced, 15-17_HCP)
+PASS(East)
+RAISE_TO_GAME(South, 3NT)
+PASS(West)
+PASS(North)
+PASS(East)
+CONTRACT(3NT, declarer=North)
+LEAD(West, S4)
+\end{lstlisting}
+
+The generated English is:
+
+\begin{quote}
+North opens 1NT, showing a balanced hand with about 15--17 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. West leads the four of spades to begin the play.
+\end{quote}
+
+The task is deliberately narrower than full Bridge commentary. The implemented system handles common auctions, final contracts, opening leads, selected trick outcomes, and simple finesse notes. The goal is to evaluate the value of a structured intermediate representation, not to solve all Bridge interpretation.
+
+\section{Data}
+
+The dataset contains 90 examples, divided into 60 training, 15 development, and 15 test examples. Each example contains five fields: raw Bridge notation, gold artificial-language representation, gold English explanation, fact dictionary for evaluation, and metadata marking the auction pattern and whether the example includes play, doubles, redoubles, or finesse.
+
+The dataset covers 1NT and 2NT openings, one-level suit openings, strong 2C openings, game contracts such as 3NT, 4H, 4S, 5C, and 5D, passes, doubles, redoubles, opening leads, simple trick-by-trick play, trick winners, and simple finesse attempts. Because the dataset is manually constructed and rule-oriented, it should be understood as a controlled evaluation set rather than a naturally occurring corpus of Bridge records. This is appropriate for the project goal: testing whether an artificial language improves controlled generation.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+Split & Examples & Purpose \\
+\midrule
+Train & 60 & Rule/template design \\
+Development & 15 & Debugging/error analysis \\
+Test & 15 & Final evaluation \\
+\bottomrule
+\end{tabular}
+\caption{Dataset split used in the Bridge translation project.}
+\label{tab:data}
+\end{table}
+
+\section{Methodology}
+
+\subsection{System Architecture}
+
+The system uses a four-stage pipeline:
+
+\begin{center}
+\begin{tabular}{c}
+Raw Bridge notation \\
+$\downarrow$ \\
+Bridge parser \\
+$\downarrow$ \\
+Controlled artificial Bridge language \\
+$\downarrow$ \\
+English generator
+\end{tabular}
+\end{center}
+
+This decomposition makes the system interpretable. If the output is wrong, the error can be traced to parsing, artificial-language conversion, template generation, or evaluation.
+
+\subsection{Bridge Parser}
+
+The parser is rule-based. It uses regular-expression-like patterns to identify players, bids, passes, doubles, redoubles, contracts, opening leads, play events, and finesse notes. For example, it recognizes bids such as \texttt{1NT}, \texttt{4S}, and \texttt{5D}, player names such as \texttt{North} and \texttt{West}, and card strings such as \texttt{S4} or \texttt{HA}.
+
+The parser normalizes suit symbols and card notation so that equivalent records are represented consistently. This is important because the generator should not treat \texttt{S4} and ``four of spades'' as unrelated facts.
+
+\subsection{Controlled Artificial Language}
+
+The artificial language uses predicate-style expressions. The main predicate types are:
+
+\begin{lstlisting}[style=bridgecode]
+OPEN(player, bid, shape, strength)
+PASS(player)
+DOUBLE(player)
+REDOUBLE(player)
+RESPOND(player, bid, meaning)
+RAISE_TO_GAME(player, bid)
+CONTRACT(contract, declarer=player)
+LEAD(player, card)
+PLAY(player, card, trick_number=n)
+WIN_TRICK(player, trick_number=n, card=card)
+FINESSE_ATTEMPT(player, suit=suit, target=rank, outcome=result)
+\end{lstlisting}
+
+This representation makes implicit game structure explicit. For example, \texttt{OPEN(North, 1NT, balanced, 15-17\_HCP)} contains both the surface bid and a conventional interpretation. This helps the generator produce explanations rather than merely restating notation.
+
+\subsection{Generation Systems}
+
+I compare seven systems:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Generic baseline}: produces vague commentary.
+    \item \textbf{Literal baseline}: restates each bid and pass in sentence form.
+    \item \textbf{Raw-copy baseline}: copies raw fields into a readable string.
+    \item \textbf{Direct raw model}: simulated model-style generation directly from raw notation.
+    \item \textbf{Model + artificial language}: simulated model-style generation from the artificial representation.
+    \item \textbf{Template + artificial language}: beginner-friendly template generation from the artificial representation.
+    \item \textbf{Expert template + artificial language}: more compact expert-style template generation.
+\end{enumerate}
+
+The model systems are simulated rather than API-based. This keeps the project reproducible without external services while still allowing a comparison between direct raw notation and generation from the controlled representation. The simulated model from artificial language compresses some pass details and produces smoother commentary, while the direct raw model gives a high-level explanation from raw fields.
+
+\section{Evaluation}
+
+The evaluation follows four task-specific criteria: factual preservation, Bridge meaning correctness, beginner readability, and reconstructability. I also compute BLEU-like and ROUGE-L-like similarity scores against the gold English explanation. These automatic scores should be interpreted as approximations, not replacements for human evaluation.
+
+\subsection{Factual Preservation}
+
+Factual preservation measures whether the generated explanation preserves key facts from the original record. The fact dictionary includes items such as opener, opening bid, responder, response, final contract, declarer, opening leader, opening lead, double/redouble information, trick winner, and finesse outcome when available.
+
+\subsection{Bridge Meaning}
+
+Bridge meaning correctness measures whether the explanation captures the meaning of the Bridge actions. For example, ``North bids 1NT'' is factually correct but less useful than ``North opens 1NT, showing a balanced hand with about 15--17 high-card points.'' The automatic proxy rewards explanatory terms such as \textit{balanced}, \textit{game-level}, \textit{contract}, \textit{penalty}, and \textit{finesse}, while also depending on factual coverage.
+
+\subsection{Beginner Readability}
+
+Beginner readability estimates whether a non-expert reader could understand the explanation. The heuristic penalizes long sentences and unexplained jargon. This criterion matters because an output can preserve facts while still being unhelpful to beginners. The raw-copy baseline illustrates this problem: it often contains facts but remains notation-heavy.
+
+\subsection{Reconstructability}
+
+Reconstructability measures whether the reader could recover the original Bridge facts from the English output. In the implementation, this is approximated by checking how many fact values can be found in the generated explanation. Although a human reconstruction study would be stronger, this metric captures the project's central question: does the English output preserve enough information to reconstruct the Bridge record?
+
+\section{Experiments}
+
+All systems are evaluated on the development and test sets. Development results are used to inspect behavior and error patterns. Test results are used for final reported conclusions. The training set is used to design rules, templates, and artificial-language specifications.
+
+For each system, the evaluator produces factual preservation, Bridge meaning, beginner readability, reconstructability, BLEU-like score, and ROUGE-L-like score. The artificial-language systems also receive an artificial-language exact-match score, which measures whether the predicted predicate sequence matches the gold predicate sequence.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+System & Fact & Meaning & Readability & Recon. & BLEU-like & ROUGE-L \\
+\midrule
+Generic baseline & 0.000 & 1.300 & 5.000 & 0.000 & 0.000 & 0.056 \\
+Literal baseline & 0.888 & 3.520 & 5.000 & 0.888 & 0.185 & 0.383 \\
+Raw-copy baseline & 0.899 & 3.588 & 3.810 & 0.899 & 0.001 & 0.275 \\
+Direct raw model & 0.744 & 2.861 & 5.000 & 0.744 & 0.000 & 0.168 \\
+Model + AL & 0.888 & 4.460 & 4.973 & 0.888 & 0.615 & 0.723 \\
+Template + AL & 0.888 & 4.788 & 4.947 & 0.888 & 0.969 & 0.998 \\
+Expert template + AL & 0.888 & 4.460 & 4.973 & 0.888 & 0.778 & 0.848 \\
+\bottomrule
+\end{tabular}
+\caption{Development-set results. Recon. = reconstructability. AL = artificial language.}
+\label{tab:dev-results}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+System & Fact & Meaning & Readability & Recon. & BLEU-like & ROUGE-L \\
+\midrule
+Generic baseline & 0.000 & 1.300 & 5.000 & 0.000 & 0.000 & 0.057 \\
+Literal baseline & 0.887 & 3.519 & 5.000 & 0.887 & 0.194 & 0.389 \\
+Raw-copy baseline & 0.898 & 3.586 & 3.823 & 0.898 & 0.001 & 0.279 \\
+Direct raw model & 0.743 & 2.858 & 5.000 & 0.743 & 0.000 & 0.172 \\
+Model + AL & 0.887 & 4.459 & 4.973 & 0.887 & 0.623 & 0.730 \\
+Template + AL & 0.887 & 4.766 & 4.947 & 0.887 & 0.962 & 0.997 \\
+Expert template + AL & 0.887 & 4.459 & 4.973 & 0.887 & 0.792 & 0.860 \\
+\bottomrule
+\end{tabular}
+\caption{Test-set results. The template system using the artificial language has the strongest overall performance.}
+\label{tab:test-results}
+\end{table*}
+
+\section{Results}
+
+Table~\ref{tab:test-results} shows the main test results. The template system using the artificial language is the best overall system. It obtains 0.887 factual preservation, 4.766 Bridge meaning, 4.947 beginner readability, and 0.887 reconstructability. It also achieves the strongest reference similarity, with 0.962 BLEU-like and 0.997 ROUGE-L-like scores.
+
+The model-from-artificial-language system is the second strongest system. It obtains the same factual preservation and reconstructability score as the template system, but lower Bridge meaning and reference similarity. This is expected because the simulated model compresses details and uses more varied phrasing. Its output is still much stronger than the direct raw model, suggesting that the artificial language helps even when the final generation stage is less rigid.
+
+The direct raw model is readable but less complete. It achieves 5.000 beginner readability, but only 0.743 factual preservation and 0.743 reconstructability. This supports the hypothesis that direct generation from raw notation tends to omit important structure.
+
+The raw-copy baseline has high factual preservation, 0.898, but much lower readability, 3.823, and near-zero BLEU-like similarity. This is an important result: copying notation can preserve surface facts, but it does not solve the explanatory task. A useful Bridge translator must both preserve facts and explain what the notation means.
+
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{p{0.21\linewidth}p{0.72\linewidth}}
+\toprule
+System & Output for one representative test example \\
+\midrule
+Direct raw model & The deal starts with South 2C. The auction reaches 3NT by South. The play begins with West ♦J. This gives a short summary of the Bridge record. \\
+Model + AL & South opens a strong artificial 2C. After 1 pass, the auction continues. North responds 2D, keeping the auction open after partner's strong opening. After 1 pass, the auction continues. South raises directly to 3NT, which is a game-level no-trump contract. After 3 passes, the auction continues. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
+Template + AL & South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open after partner's strong opening. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
+\bottomrule
+\end{tabular}
+\caption{Qualitative comparison of three systems on a representative test example. AL = artificial language.}
+\label{tab:qualitative}
+\end{table*}
+
+
+\section{Discussion}
+
+The main pattern is that the artificial-language systems provide the best balance between accuracy and explanation. The controlled representation makes the hidden structure of Bridge notation explicit before generation. This helps the generator state not only what happened but also what it means.
+
+The comparison between the template system and the raw-copy baseline is especially revealing. Raw copying can score well on factual preservation because it repeats the original facts. However, it is not beginner-oriented. It leaves the burden of interpretation on the reader. The template system, by contrast, turns \texttt{1NT} into a phrase like ``showing a balanced hand with about 15--17 high-card points'' and turns \texttt{3NT} into ``a game-level no-trump contract.'' These explanations are exactly the kind of information a beginner lacks.
+
+The comparison between the direct raw model and the model-from-artificial-language system also supports the research question. Both are model-style systems, but the model with access to the artificial language preserves more facts and achieves stronger meaning scores. This suggests that the representation, not just the final wording style, contributes to better generation.
+
+The artificial exact-match scores are below 1.0 because the parser and representation do not perfectly match every gold line, especially for richer examples involving play, doubles, redoubles, or finesse. However, the English outputs remain strong because many small representation mismatches do not prevent the generator from producing a correct explanation.
+
+\section{Error Analysis}
+
+The main error categories are player-role errors, bid-sequence errors, card errors, overgeneralization, hallucinated strategy, readability problems, parsing errors, and template coverage errors.
+
+The direct raw model most often fails by overgeneralizing. It states that the auction reaches a contract and that the play begins with a lead, but it often omits details about the intermediate bids, why a bid matters, or how a trick is won. This makes the output readable but less reconstructable.
+
+The raw-copy baseline has the opposite problem. It preserves many facts but does not explain them. A beginner can see the original notation, but the system has not translated the notation into accessible English. This is why it scores relatively well on factual preservation but lower on beginner readability.
+
+The artificial-language template system mostly fails when the coverage of the representation or templates is too shallow. For example, some Bridge actions can have multiple strategic interpretations depending on partnership agreements or vulnerability. The current system uses conservative, generic interpretations rather than attempting to infer all possible meanings. This avoids hallucination but limits the sophistication of the commentary.
+
+\section{Limitations}
+
+This project has several limitations. First, the dataset is small and manually constructed. It is useful for controlled evaluation, but it does not represent the full diversity of real Bridge records. Second, the evaluation uses automatic approximations of human judgments. Human annotators would provide more reliable scores for Bridge meaning, beginner readability, and reconstructability. Third, the model-based systems are simulated rather than real neural generation systems. This keeps the project reproducible but limits claims about modern language models. Fourth, the Bridge knowledge is intentionally conservative. Many bids depend on partnership conventions, vulnerability, scoring form, and hand context, none of which are fully modeled here.
+
+\section{Ethical Considerations}
+
+This project does not involve personal data, user profiling, or sensitive human-subject information. The dataset was constructed from synthetic Bridge examples. The main ethical concern is transparency: generated explanations should not pretend to know strategic facts that are not present in the record. For that reason, the system uses conservative Bridge interpretations and treats unsupported strategic claims as errors.
+
+\section{Future Work}
+
+Future work should expand the dataset using real Bridge records and add richer annotations for vulnerability, scoring, conventions, declarer/dummy roles, and full trick-by-trick play. A stronger version could compare real neural generation systems using two prompts: one prompt for raw notation and one prompt for artificial-language input. Another useful extension would be a human evaluation study in which Bridge experts score correctness while beginners score readability and reconstructability.
+
+The artificial language could also be expanded into a more formal grammar. This would make it easier to validate whether a representation is well formed, detect parser failures, and compare different semantic representations. Finally, the project could add a reverse reconstruction task: given the generated English, ask a system or human to recover the original Bridge record.
+
+\section{Conclusion}
+
+This paper presented a Bridge-to-English translation system that converts raw Bridge notation into a controlled artificial language before generating English explanations. The results show that the artificial-language template system gives the best overall balance of factual preservation, Bridge meaning, beginner readability, and reconstructability. Direct raw-notation generation is readable but less faithful, while raw copying preserves surface facts but does not explain the game. The main conclusion is that a controlled intermediate representation is useful for translating compact, domain-specific notation into natural language.
+
+\bibliography{custom}
+
+\appendix
+
+\section{Example System Output}
+
+\begin{lstlisting}[style=bridgecode]
+Raw:
+Auction: North 1NT - East Pass - South 3NT - West Pass - North Pass - East Pass
+Contract: 3NT by North
+Opening lead: West S4
+
+Artificial language:
+OPEN(North, 1NT, balanced, 15-17_HCP)
+PASS(East)
+RAISE_TO_GAME(South, 3NT)
+PASS(West)
+PASS(North)
+PASS(East)
+CONTRACT(3NT, declarer=North)
+LEAD(West, S4)
+
+English:
+North opens 1NT, showing a balanced hand with about 15--17 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. West leads the four of spades to begin the play.
+\end{lstlisting}
+
+\end{document}

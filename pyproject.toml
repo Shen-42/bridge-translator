@@ -1,0 +1,10 @@
+[project]
+name = "bridge-translator"
+version = "0.1.0"
+description = "Translate Bridge game records into English through a controlled artificial language."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name = "Kevin Chen"}]
+
+[tool.setuptools.packages.find]
+where = ["src"]

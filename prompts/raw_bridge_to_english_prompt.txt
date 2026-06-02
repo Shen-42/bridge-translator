@@ -1,0 +1,9 @@
+You are generating beginner-friendly English Bridge commentary directly from raw Bridge notation.
+
+Do not invent facts.
+Preserve all players, bids, cards, contracts, declarers, opening leads, trick winners, and finesse outcomes when present.
+
+Raw record:
+{raw_record}
+
+Output:

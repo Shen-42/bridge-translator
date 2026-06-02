@@ -1,0 +1,611 @@
+[
+  {
+    "id": "test001",
+    "raw": {
+      "auction": "East 1C - South Pass - West 5C - North Pass - East Pass - South Pass",
+      "contract": "5C by East",
+      "opening_lead": "South ♥2",
+      "play": "Trick 1: South ♥2 - East ♥A - North ♥7 - West ♥2; Winner: East ♥A"
+    },
+    "gold_artificial": [
+      "OPEN(East, 1C, suit_opening, opening_strength)",
+      "PASS(South)",
+      "RAISE_TO_GAME(West, 5C)",
+      "PASS(North)",
+      "PASS(East)",
+      "PASS(South)",
+      "CONTRACT(5C, declarer=East)",
+      "LEAD(South, ♥2)",
+      "PLAY(South, ♥2)",
+      "PLAY(East, ♥A)",
+      "PLAY(North, ♥7)",
+      "PLAY(West, ♥2)",
+      "WIN_TRICK(East, trick_number=1, card=♥A)"
+    ],
+    "gold_english": "East opens 1C, showing an opening bid in clubs. South passes. West raises directly to 5C, which is a game-level club contract. North passes. East passes. South passes. The final contract is 5C by East. South leads the two of hearts to begin the play. On trick 1, South plays the two of hearts, East plays the ace of hearts, North plays the seven of hearts, West plays the two of hearts, and East wins the trick with the ace of hearts.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "responder": "West",
+      "response": "5C",
+      "contract": "5C",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♥2",
+      "bid_sequence": "East:1C South:PASS West:5C North:PASS East:PASS South:PASS",
+      "trick_1_winner": "East",
+      "trick_1_winning_card": "♥A"
+    },
+    "metadata": {
+      "pattern": "1C-5C",
+      "has_play": true,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test002",
+    "raw": {
+      "auction": "South 2C - West Pass - North 2D - East Pass - South 3NT - West Pass - North Pass - East Pass",
+      "contract": "3NT by South",
+      "opening_lead": "West ♦J"
+    },
+    "gold_artificial": [
+      "OPEN(South, 2C, strong_artificial, very_strong_hand)",
+      "PASS(West)",
+      "RESPOND(North, 2D, constructive_response)",
+      "PASS(East)",
+      "BID(South, 3NT)",
+      "PASS(West)",
+      "PASS(North)",
+      "PASS(East)",
+      "CONTRACT(3NT, declarer=South)",
+      "LEAD(West, ♦J)"
+    ],
+    "gold_english": "South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open. East passes. South bids 3NT. West passes. North passes. East passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "2C",
+      "responder": "North",
+      "response": "2D",
+      "contract": "3NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦J",
+      "bid_sequence": "South:2C West:PASS North:2D East:PASS South:3NT West:PASS North:PASS East:PASS"
+    },
+    "metadata": {
+      "pattern": "2C-2D-3NT",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test003",
+    "raw": {
+      "auction": "West 1NT - North Pass - East 3NT - South Pass - West Pass - North Pass",
+      "contract": "3NT by West",
+      "opening_lead": "North ♣K",
+      "note": "Finesse: West in ♣ against queen; failure"
+    },
+    "gold_artificial": [
+      "OPEN(West, 1NT, balanced, 15-17_HCP)",
+      "PASS(North)",
+      "RAISE_TO_GAME(East, 3NT)",
+      "PASS(South)",
+      "PASS(West)",
+      "PASS(North)",
+      "CONTRACT(3NT, declarer=West)",
+      "LEAD(North, ♣K)",
+      "FINESSE_ATTEMPT(West, suit=♣, target=queen, outcome=failure)"
+    ],
+    "gold_english": "West opens 1NT, showing a balanced hand with about 15–17 high-card points. North passes. East raises directly to 3NT, which is a game-level no-trump contract. South passes. West passes. North passes. The final contract is 3NT by West. North leads the king of clubs to begin the play. West attempts a finesse in clubs against the queen; the finesse loses.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1NT",
+      "responder": "East",
+      "response": "3NT",
+      "contract": "3NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♣K",
+      "bid_sequence": "West:1NT North:PASS East:3NT South:PASS West:PASS North:PASS",
+      "finesse_player": "West",
+      "finesse_outcome": "failure"
+    },
+    "metadata": {
+      "pattern": "1NT-3NT",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": true
+    }
+  },
+  {
+    "id": "test004",
+    "raw": {
+      "auction": "North 2NT - East Pass - South 3NT - West Pass - North Pass - East Pass",
+      "contract": "3NT by North",
+      "opening_lead": "East ♠A",
+      "play": "Trick 1: East ♠A - North ♠A - West ♠7 - South ♠2; Winner: North ♠A"
+    },
+    "gold_artificial": [
+      "OPEN(North, 2NT, balanced, 20-21_HCP)",
+      "PASS(East)",
+      "RAISE_TO_GAME(South, 3NT)",
+      "PASS(West)",
+      "PASS(North)",
+      "PASS(East)",
+      "CONTRACT(3NT, declarer=North)",
+      "LEAD(East, ♠A)",
+      "PLAY(East, ♠A)",
+      "PLAY(North, ♠A)",
+      "PLAY(West, ♠7)",
+      "PLAY(South, ♠2)",
+      "WIN_TRICK(North, trick_number=1, card=♠A)"
+    ],
+    "gold_english": "North opens 2NT, showing a balanced hand with about 20–21 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. East leads the ace of spades to begin the play. On trick 1, East plays the ace of spades, North plays the ace of spades, West plays the seven of spades, South plays the two of spades, and North wins the trick with the ace of spades.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "2NT",
+      "responder": "South",
+      "response": "3NT",
+      "contract": "3NT",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♠A",
+      "bid_sequence": "North:2NT East:PASS South:3NT West:PASS North:PASS East:PASS",
+      "trick_1_winner": "North",
+      "trick_1_winning_card": "♠A"
+    },
+    "metadata": {
+      "pattern": "2NT-3NT",
+      "has_play": true,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test005",
+    "raw": {
+      "auction": "East 1S - South Pass - West 4S - North Pass - East Pass - South Pass",
+      "contract": "4S by East",
+      "opening_lead": "South ♥7"
+    },
+    "gold_artificial": [
+      "OPEN(East, 1S, suit_opening, opening_strength)",
+      "PASS(South)",
+      "RAISE_TO_GAME(West, 4S)",
+      "PASS(North)",
+      "PASS(East)",
+      "PASS(South)",
+      "CONTRACT(4S, declarer=East)",
+      "LEAD(South, ♥7)"
+    ],
+    "gold_english": "East opens 1S, showing an opening bid in spades. South passes. West raises directly to 4S, which is a game-level spade contract. North passes. East passes. South passes. The final contract is 4S by East. South leads the seven of hearts to begin the play.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1S",
+      "responder": "West",
+      "response": "4S",
+      "contract": "4S",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♥7",
+      "bid_sequence": "East:1S South:PASS West:4S North:PASS East:PASS South:PASS"
+    },
+    "metadata": {
+      "pattern": "1S-4S",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test006",
+    "raw": {
+      "auction": "South 1H - West Pass - North 4H - East Pass - South Pass - West Pass",
+      "contract": "4H by South",
+      "opening_lead": "West ♦Q"
+    },
+    "gold_artificial": [
+      "OPEN(South, 1H, suit_opening, opening_strength)",
+      "PASS(West)",
+      "RAISE_TO_GAME(North, 4H)",
+      "PASS(East)",
+      "PASS(South)",
+      "PASS(West)",
+      "CONTRACT(4H, declarer=South)",
+      "LEAD(West, ♦Q)"
+    ],
+    "gold_english": "South opens 1H, showing an opening bid in hearts. West passes. North raises directly to 4H, which is a game-level heart contract. East passes. South passes. West passes. The final contract is 4H by South. West leads the queen of diamonds to begin the play.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1H",
+      "responder": "North",
+      "response": "4H",
+      "contract": "4H",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦Q",
+      "bid_sequence": "South:1H West:PASS North:4H East:PASS South:PASS West:PASS"
+    },
+    "metadata": {
+      "pattern": "1H-4H",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test007",
+    "raw": {
+      "auction": "West 1D - North Pass - East 5D - South Pass - West Pass - North Pass",
+      "contract": "5D by West",
+      "opening_lead": "North ♣3",
+      "play": "Trick 1: North ♣3 - West ♣A - South ♣7 - East ♣2; Winner: West ♣A"
+    },
+    "gold_artificial": [
+      "OPEN(West, 1D, suit_opening, opening_strength)",
+      "PASS(North)",
+      "RAISE_TO_GAME(East, 5D)",
+      "PASS(South)",
+      "PASS(West)",
+      "PASS(North)",
+      "CONTRACT(5D, declarer=West)",
+      "LEAD(North, ♣3)",
+      "PLAY(North, ♣3)",
+      "PLAY(West, ♣A)",
+      "PLAY(South, ♣7)",
+      "PLAY(East, ♣2)",
+      "WIN_TRICK(West, trick_number=1, card=♣A)"
+    ],
+    "gold_english": "West opens 1D, showing an opening bid in diamonds. North passes. East raises directly to 5D, which is a game-level diamond contract. South passes. West passes. North passes. The final contract is 5D by West. North leads the three of clubs to begin the play. On trick 1, North plays the three of clubs, West plays the ace of clubs, South plays the seven of clubs, East plays the two of clubs, and West wins the trick with the ace of clubs.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1D",
+      "responder": "East",
+      "response": "5D",
+      "contract": "5D",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♣3",
+      "bid_sequence": "West:1D North:PASS East:5D South:PASS West:PASS North:PASS",
+      "trick_1_winner": "West",
+      "trick_1_winning_card": "♣A"
+    },
+    "metadata": {
+      "pattern": "1D-5D",
+      "has_play": true,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test008",
+    "raw": {
+      "auction": "North 1C - East Pass - South 5C - West Pass - North Pass - East Pass",
+      "contract": "5C by North",
+      "opening_lead": "East ♠4"
+    },
+    "gold_artificial": [
+      "OPEN(North, 1C, suit_opening, opening_strength)",
+      "PASS(East)",
+      "RAISE_TO_GAME(South, 5C)",
+      "PASS(West)",
+      "PASS(North)",
+      "PASS(East)",
+      "CONTRACT(5C, declarer=North)",
+      "LEAD(East, ♠4)"
+    ],
+    "gold_english": "North opens 1C, showing an opening bid in clubs. East passes. South raises directly to 5C, which is a game-level club contract. West passes. North passes. East passes. The final contract is 5C by North. East leads the four of spades to begin the play.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1C",
+      "responder": "South",
+      "response": "5C",
+      "contract": "5C",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♠4",
+      "bid_sequence": "North:1C East:PASS South:5C West:PASS North:PASS East:PASS"
+    },
+    "metadata": {
+      "pattern": "1C-5C",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test009",
+    "raw": {
+      "auction": "East 2C - South Pass - West 2D - North Pass - East 3NT - South Pass - West Pass - North Pass",
+      "contract": "3NT by East",
+      "opening_lead": "South ♥2"
+    },
+    "gold_artificial": [
+      "OPEN(East, 2C, strong_artificial, very_strong_hand)",
+      "PASS(South)",
+      "RESPOND(West, 2D, constructive_response)",
+      "PASS(North)",
+      "BID(East, 3NT)",
+      "PASS(South)",
+      "PASS(West)",
+      "PASS(North)",
+      "CONTRACT(3NT, declarer=East)",
+      "LEAD(South, ♥2)"
+    ],
+    "gold_english": "East opens 2C, a strong artificial opening that usually shows a very powerful hand. South passes. West responds 2D, keeping the auction open. North passes. East bids 3NT. South passes. West passes. North passes. The final contract is 3NT by East. South leads the two of hearts to begin the play.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "2C",
+      "responder": "West",
+      "response": "2D",
+      "contract": "3NT",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♥2",
+      "bid_sequence": "East:2C South:PASS West:2D North:PASS East:3NT South:PASS West:PASS North:PASS"
+    },
+    "metadata": {
+      "pattern": "2C-2D-3NT",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test010",
+    "raw": {
+      "auction": "South 1NT - West Pass - North 3NT - East Double - East Pass - South Pass - West Pass",
+      "contract": "3NT by South",
+      "opening_lead": "West ♦J",
+      "play": "Trick 1: West ♦J - South ♦A - East ♦7 - North ♦2; Winner: South ♦A",
+      "note": "Finesse: South in ♦ against queen; success"
+    },
+    "gold_artificial": [
+      "OPEN(South, 1NT, balanced, 15-17_HCP)",
+      "PASS(West)",
+      "RAISE_TO_GAME(North, 3NT)",
+      "DOUBLE(East)",
+      "PASS(East)",
+      "PASS(South)",
+      "PASS(West)",
+      "CONTRACT(3NT, declarer=South)",
+      "LEAD(West, ♦J)",
+      "PLAY(West, ♦J)",
+      "PLAY(South, ♦A)",
+      "PLAY(East, ♦7)",
+      "PLAY(North, ♦2)",
+      "WIN_TRICK(South, trick_number=1, card=♦A)",
+      "FINESSE_ATTEMPT(South, suit=♦, target=queen, outcome=success)"
+    ],
+    "gold_english": "South opens 1NT, showing a balanced hand with about 15–17 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East doubles, increasing the penalty if the contract fails. East passes. South passes. West passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. On trick 1, West plays the jack of diamonds, South plays the ace of diamonds, East plays the seven of diamonds, North plays the two of diamonds, and South wins the trick with the ace of diamonds. South attempts a finesse in diamonds against the queen; the finesse works.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1NT",
+      "responder": "North",
+      "response": "3NT",
+      "contract": "3NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦J",
+      "bid_sequence": "South:1NT West:PASS North:3NT East:DOUBLE East:PASS South:PASS West:PASS",
+      "double": "East",
+      "trick_1_winner": "South",
+      "trick_1_winning_card": "♦A",
+      "finesse_player": "South",
+      "finesse_outcome": "success"
+    },
+    "metadata": {
+      "pattern": "1NT-3NT",
+      "has_play": true,
+      "has_double": true,
+      "has_redouble": false,
+      "has_finesse": true
+    }
+  },
+  {
+    "id": "test011",
+    "raw": {
+      "auction": "West 2NT - North Pass - East 3NT - South Pass - West Pass - North Pass",
+      "contract": "3NT by West",
+      "opening_lead": "North ♣K"
+    },
+    "gold_artificial": [
+      "OPEN(West, 2NT, balanced, 20-21_HCP)",
+      "PASS(North)",
+      "RAISE_TO_GAME(East, 3NT)",
+      "PASS(South)",
+      "PASS(West)",
+      "PASS(North)",
+      "CONTRACT(3NT, declarer=West)",
+      "LEAD(North, ♣K)"
+    ],
+    "gold_english": "West opens 2NT, showing a balanced hand with about 20–21 high-card points. North passes. East raises directly to 3NT, which is a game-level no-trump contract. South passes. West passes. North passes. The final contract is 3NT by West. North leads the king of clubs to begin the play.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2NT",
+      "responder": "East",
+      "response": "3NT",
+      "contract": "3NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♣K",
+      "bid_sequence": "West:2NT North:PASS East:3NT South:PASS West:PASS North:PASS"
+    },
+    "metadata": {
+      "pattern": "2NT-3NT",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test012",
+    "raw": {
+      "auction": "North 1S - East Pass - South 4S - West Pass - North Pass - East Pass",
+      "contract": "4S by North",
+      "opening_lead": "East ♠A"
+    },
+    "gold_artificial": [
+      "OPEN(North, 1S, suit_opening, opening_strength)",
+      "PASS(East)",
+      "RAISE_TO_GAME(South, 4S)",
+      "PASS(West)",
+      "PASS(North)",
+      "PASS(East)",
+      "CONTRACT(4S, declarer=North)",
+      "LEAD(East, ♠A)"
+    ],
+    "gold_english": "North opens 1S, showing an opening bid in spades. East passes. South raises directly to 4S, which is a game-level spade contract. West passes. North passes. East passes. The final contract is 4S by North. East leads the ace of spades to begin the play.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1S",
+      "responder": "South",
+      "response": "4S",
+      "contract": "4S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♠A",
+      "bid_sequence": "North:1S East:PASS South:4S West:PASS North:PASS East:PASS"
+    },
+    "metadata": {
+      "pattern": "1S-4S",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test013",
+    "raw": {
+      "auction": "East 1H - South Pass - West 4H - North Pass - East Pass - South Pass",
+      "contract": "4H by East",
+      "opening_lead": "South ♥7",
+      "play": "Trick 1: South ♥7 - East ♥A - North ♥7 - West ♥2; Winner: East ♥A"
+    },
+    "gold_artificial": [
+      "OPEN(East, 1H, suit_opening, opening_strength)",
+      "PASS(South)",
+      "RAISE_TO_GAME(West, 4H)",
+      "PASS(North)",
+      "PASS(East)",
+      "PASS(South)",
+      "CONTRACT(4H, declarer=East)",
+      "LEAD(South, ♥7)",
+      "PLAY(South, ♥7)",
+      "PLAY(East, ♥A)",
+      "PLAY(North, ♥7)",
+      "PLAY(West, ♥2)",
+      "WIN_TRICK(East, trick_number=1, card=♥A)"
+    ],
+    "gold_english": "East opens 1H, showing an opening bid in hearts. South passes. West raises directly to 4H, which is a game-level heart contract. North passes. East passes. South passes. The final contract is 4H by East. South leads the seven of hearts to begin the play. On trick 1, South plays the seven of hearts, East plays the ace of hearts, North plays the seven of hearts, West plays the two of hearts, and East wins the trick with the ace of hearts.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1H",
+      "responder": "West",
+      "response": "4H",
+      "contract": "4H",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♥7",
+      "bid_sequence": "East:1H South:PASS West:4H North:PASS East:PASS South:PASS",
+      "trick_1_winner": "East",
+      "trick_1_winning_card": "♥A"
+    },
+    "metadata": {
+      "pattern": "1H-4H",
+      "has_play": true,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test014",
+    "raw": {
+      "auction": "South 1D - West Pass - North 5D - East Pass - South Pass - West Pass",
+      "contract": "5D by South",
+      "opening_lead": "West ♦Q"
+    },
+    "gold_artificial": [
+      "OPEN(South, 1D, suit_opening, opening_strength)",
+      "PASS(West)",
+      "RAISE_TO_GAME(North, 5D)",
+      "PASS(East)",
+      "PASS(South)",
+      "PASS(West)",
+      "CONTRACT(5D, declarer=South)",
+      "LEAD(West, ♦Q)"
+    ],
+    "gold_english": "South opens 1D, showing an opening bid in diamonds. West passes. North raises directly to 5D, which is a game-level diamond contract. East passes. South passes. West passes. The final contract is 5D by South. West leads the queen of diamonds to begin the play.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1D",
+      "responder": "North",
+      "response": "5D",
+      "contract": "5D",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦Q",
+      "bid_sequence": "South:1D West:PASS North:5D East:PASS South:PASS West:PASS"
+    },
+    "metadata": {
+      "pattern": "1D-5D",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  },
+  {
+    "id": "test015",
+    "raw": {
+      "auction": "West 1C - North Pass - East 5C - South Pass - West Pass - North Pass",
+      "contract": "5C by West",
+      "opening_lead": "North ♣3"
+    },
+    "gold_artificial": [
+      "OPEN(West, 1C, suit_opening, opening_strength)",
+      "PASS(North)",
+      "RAISE_TO_GAME(East, 5C)",
+      "PASS(South)",
+      "PASS(West)",
+      "PASS(North)",
+      "CONTRACT(5C, declarer=West)",
+      "LEAD(North, ♣3)"
+    ],
+    "gold_english": "West opens 1C, showing an opening bid in clubs. North passes. East raises directly to 5C, which is a game-level club contract. South passes. West passes. North passes. The final contract is 5C by West. North leads the three of clubs to begin the play.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1C",
+      "responder": "East",
+      "response": "5C",
+      "contract": "5C",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♣3",
+      "bid_sequence": "West:1C North:PASS East:5C South:PASS West:PASS North:PASS"
+    },
+    "metadata": {
+      "pattern": "1C-5C",
+      "has_play": false,
+      "has_double": false,
+      "has_redouble": false,
+      "has_finesse": false
+    }
+  }
+]

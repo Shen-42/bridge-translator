@@ -1,0 +1,79 @@
+[
+  {
+    "system": "direct_raw_model_simulated",
+    "n": 15,
+    "fact_preservation": 0.7444703444703445,
+    "bridge_meaning": 2.8611758611758606,
+    "beginner_readability": 5.0,
+    "reconstructability": 0.7444703444703445,
+    "bleu_like": 0.000423975639928041,
+    "rouge_l_like": 0.1677806922686032,
+    "artificial_exact_match": null
+  },
+  {
+    "system": "generic_baseline",
+    "n": 15,
+    "fact_preservation": 0.0,
+    "bridge_meaning": 1.3000000000000003,
+    "beginner_readability": 5.0,
+    "reconstructability": 0.0,
+    "bleu_like": 2.337538484430281e-07,
+    "rouge_l_like": 0.05597003269793,
+    "artificial_exact_match": null
+  },
+  {
+    "system": "literal_baseline",
+    "n": 15,
+    "fact_preservation": 0.888060088060088,
+    "bridge_meaning": 3.5201502201502195,
+    "beginner_readability": 5.0,
+    "reconstructability": 0.888060088060088,
+    "bleu_like": 0.18522518651806813,
+    "rouge_l_like": 0.3827003114574858,
+    "artificial_exact_match": null
+  },
+  {
+    "system": "model_from_artificial_simulated",
+    "n": 15,
+    "fact_preservation": 0.888060088060088,
+    "bridge_meaning": 4.460150220150221,
+    "beginner_readability": 4.973333333333333,
+    "reconstructability": 0.888060088060088,
+    "bleu_like": 0.6153414478877266,
+    "rouge_l_like": 0.7232859078818749,
+    "artificial_exact_match": 0.8794139194139193
+  },
+  {
+    "system": "raw_copy_baseline",
+    "n": 15,
+    "fact_preservation": 0.8992488992488991,
+    "bridge_meaning": 3.5881222481222474,
+    "beginner_readability": 3.8099999999999996,
+    "reconstructability": 0.8992488992488991,
+    "bleu_like": 0.0005482445230354391,
+    "rouge_l_like": 0.2745055493389389,
+    "artificial_exact_match": null
+  },
+  {
+    "system": "template_beginner",
+    "n": 15,
+    "fact_preservation": 0.888060088060088,
+    "bridge_meaning": 4.788282828282829,
+    "beginner_readability": 4.946666666666667,
+    "reconstructability": 0.888060088060088,
+    "bleu_like": 0.9689667865644788,
+    "rouge_l_like": 0.9979352346999406,
+    "artificial_exact_match": 0.8794139194139193
+  },
+  {
+    "system": "template_expert",
+    "n": 15,
+    "fact_preservation": 0.888060088060088,
+    "bridge_meaning": 4.460150220150221,
+    "beginner_readability": 4.973333333333333,
+    "reconstructability": 0.888060088060088,
+    "bleu_like": 0.7783304020630728,
+    "rouge_l_like": 0.8484608397686664,
+    "artificial_exact_match": 0.8794139194139193
+  }
+]
