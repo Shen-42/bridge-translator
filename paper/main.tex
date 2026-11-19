@@ -41,7 +41,7 @@ Natural Language Processing \\
 \maketitle
 
 \begin{abstract}
-Bridge game records encode auctions, contracts, opening leads, and play events in a compact notation that is difficult for beginners to interpret. This project treats Bridge notation as a formal source language and studies whether a controlled artificial Bridge language can improve translation into English explanations. I implement a rule-based parser, a predicate-style meaning representation, template-based generators in beginner and expert styles, simulated model-based generation systems, and several baselines. The dataset contains 90 aligned examples split into 60 training, 15 development, and 15 test examples. Results on the test set show that the template system using the artificial language achieves the strongest overall performance, with 4.766 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model is readable but less faithful, reaching only 0.743 factual preservation and reconstructability. These results suggest that an explicit intermediate representation helps preserve game structure while producing readable Bridge commentary.
+Bridge game records encode auctions, contracts, opening leads, and play events in a compact notation that is difficult for beginners to interpret. This project treats Bridge notation as a formal source language and studies whether a controlled artificial Bridge language can improve translation into English explanations. I implement a rule-based parser, a predicate-style meaning representation, template-based generators in beginner and expert styles, simulated model-based generation systems, and several baselines. The dataset contains 90 aligned examples split into 60 training, 15 development, and 15 test examples. Results on the test set show that the template system using the artificial language achieves the strongest overall performance, with 4.686 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model is readable but less faithful, reaching only 0.737 factual preservation and reconstructability. These results suggest that an explicit intermediate representation helps preserve game structure while producing readable Bridge commentary.
 \end{abstract}
 
 \section{Introduction}
@@ -56,7 +56,7 @@ Does using a controlled artificial Bridge language as an intermediate representa
 
 The project is a small system-oriented natural language generation (NLG) study. It implements a full pipeline from raw Bridge notation to English explanation, compares several systems and baselines, and evaluates outputs using automatic proxies for the rubric categories. The main contribution is not a state-of-the-art Bridge commentator, but a controlled and inspectable architecture that separates parsing, meaning representation, generation, and evaluation.
 
-The results support the usefulness of the intermediate representation. On the test set, the template system using the artificial language achieves the strongest overall result: 4.766 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model remains readable but loses more information, with 0.743 factual preservation and reconstructability. These results show that an intermediate symbolic representation can make a structured game record easier to verbalize reliably.
+The results support the usefulness of the intermediate representation. On the test set, the template system using the artificial language achieves the strongest overall result: 4.686 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model remains readable but loses more information, with 0.737 factual preservation and reconstructability. These results show that an intermediate symbolic representation can make a structured game record easier to verbalize reliably.
 
 \section{Related Work}
 
@@ -220,13 +220,13 @@ For each system, the evaluator produces factual preservation, Bridge meaning, be
 \toprule
 System & Fact & Meaning & Readability & Recon. & BLEU-like & ROUGE-L \\
 \midrule
-Generic baseline & 0.000 & 1.300 & 5.000 & 0.000 & 0.000 & 0.056 \\
-Literal baseline & 0.888 & 3.520 & 5.000 & 0.888 & 0.185 & 0.383 \\
-Raw-copy baseline & 0.899 & 3.588 & 3.810 & 0.899 & 0.001 & 0.275 \\
-Direct raw model & 0.744 & 2.861 & 5.000 & 0.744 & 0.000 & 0.168 \\
-Model + AL & 0.888 & 4.460 & 4.973 & 0.888 & 0.615 & 0.723 \\
-Template + AL & 0.888 & 4.788 & 4.947 & 0.888 & 0.969 & 0.998 \\
-Expert template + AL & 0.888 & 4.460 & 4.973 & 0.888 & 0.778 & 0.848 \\
+Generic baseline & 0.000 & 1.300 & 5.000 & 0.000 & 0.000 & 0.057 \\
+Literal baseline & 0.888 & 3.520 & 5.000 & 0.888 & 0.187 & 0.384 \\
+Raw-copy baseline & 0.899 & 3.588 & 3.810 & 0.899 & 0.001 & 0.276 \\
+Direct raw model & 0.738 & 2.846 & 5.000 & 0.738 & 0.000 & 0.169 \\
+Model + AL & 0.888 & 4.380 & 4.973 & 0.888 & 0.629 & 0.729 \\
+Template + AL & 0.888 & 4.708 & 4.947 & 0.888 & 0.987 & 1.000 \\
+Expert template + AL & 0.888 & 4.380 & 4.973 & 0.888 & 0.798 & 0.855 \\
 \bottomrule
 \end{tabular}
 \caption{Development-set results. Recon. = reconstructability. AL = artificial language.}
@@ -243,10 +243,10 @@ System & Fact & Meaning & Readability & Recon. & BLEU-like & ROUGE-L \\
 Generic baseline & 0.000 & 1.300 & 5.000 & 0.000 & 0.000 & 0.057 \\
 Literal baseline & 0.887 & 3.519 & 5.000 & 0.887 & 0.194 & 0.389 \\
 Raw-copy baseline & 0.898 & 3.586 & 3.823 & 0.898 & 0.001 & 0.279 \\
-Direct raw model & 0.743 & 2.858 & 5.000 & 0.743 & 0.000 & 0.172 \\
-Model + AL & 0.887 & 4.459 & 4.973 & 0.887 & 0.623 & 0.730 \\
-Template + AL & 0.887 & 4.766 & 4.947 & 0.887 & 0.962 & 0.997 \\
-Expert template + AL & 0.887 & 4.459 & 4.973 & 0.887 & 0.792 & 0.860 \\
+Direct raw model & 0.737 & 2.843 & 5.000 & 0.737 & 0.000 & 0.172 \\
+Model + AL & 0.887 & 4.379 & 4.973 & 0.887 & 0.633 & 0.732 \\
+Template + AL & 0.887 & 4.686 & 4.947 & 0.887 & 0.984 & 1.000 \\
+Expert template + AL & 0.887 & 4.379 & 4.973 & 0.887 & 0.809 & 0.862 \\
 \bottomrule
 \end{tabular}
 \caption{Test-set results. The template system using the artificial language has the strongest overall performance.}
@@ -255,11 +255,11 @@ Expert template + AL & 0.887 & 4.459 & 4.973 & 0.887 & 0.792 & 0.860 \\
 
 \section{Results}
 
-Table~\ref{tab:test-results} shows the main test results. The template system using the artificial language is the best overall system. It obtains 0.887 factual preservation, 4.766 Bridge meaning, 4.947 beginner readability, and 0.887 reconstructability. It also achieves the strongest reference similarity, with 0.962 BLEU-like and 0.997 ROUGE-L-like scores.
+Table~\ref{tab:test-results} shows the main test results. The template system using the artificial language is the best overall system. It obtains 0.887 factual preservation, 4.686 Bridge meaning, 4.947 beginner readability, and 0.887 reconstructability. It also achieves the strongest reference similarity, with 0.984 BLEU-like and 1.000 ROUGE-L-like scores.
 
 The model-from-artificial-language system is the second strongest system. It obtains the same factual preservation and reconstructability score as the template system, but lower Bridge meaning and reference similarity. This is expected because the simulated model compresses details and uses more varied phrasing. Its output is still much stronger than the direct raw model, suggesting that the artificial language helps even when the final generation stage is less rigid.
 
-The direct raw model is readable but less complete. It achieves 5.000 beginner readability, but only 0.743 factual preservation and 0.743 reconstructability. This supports the hypothesis that direct generation from raw notation tends to omit important structure.
+The direct raw model is readable but less complete. It achieves 5.000 beginner readability, but only 0.737 factual preservation and 0.737 reconstructability. This supports the hypothesis that direct generation from raw notation tends to omit important structure.
 
 The raw-copy baseline has high factual preservation, 0.898, but much lower readability, 3.823, and near-zero BLEU-like similarity. This is an important result: copying notation can preserve surface facts, but it does not solve the explanatory task. A useful Bridge translator must both preserve facts and explain what the notation means.
 
@@ -272,8 +272,8 @@ The raw-copy baseline has high factual preservation, 0.898, but much lower reada
 System & Output for one representative test example \\
 \midrule
 Direct raw model & The deal starts with South 2C. The auction reaches 3NT by South. The play begins with West ♦J. This gives a short summary of the Bridge record. \\
-Model + AL & South opens a strong artificial 2C. After 1 pass, the auction continues. North responds 2D, keeping the auction open after partner's strong opening. After 1 pass, the auction continues. South raises directly to 3NT, which is a game-level no-trump contract. After 3 passes, the auction continues. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
-Template + AL & South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open after partner's strong opening. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
+Model + AL & South opens a strong artificial 2C. After 1 pass, the auction continues. North responds 2D, keeping the auction open after partner's strong opening. After 1 pass, the auction continues. South bids 3NT. After 3 passes, the auction continues. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
+Template + AL & South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open after partner's strong opening. East passes. South bids 3NT. West passes. North passes. East passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
 \bottomrule
 \end{tabular}
 \caption{Qualitative comparison of three systems on a representative test example. AL = artificial language.}
@@ -289,7 +289,7 @@ The comparison between the template system and the raw-copy baseline is especial
 
 The comparison between the direct raw model and the model-from-artificial-language system also supports the research question. Both are model-style systems, but the model with access to the artificial language preserves more facts and achieves stronger meaning scores. This suggests that the representation, not just the final wording style, contributes to better generation.
 
-The artificial exact-match scores are below 1.0 because the parser and representation do not perfectly match every gold line, especially for richer examples involving play, doubles, redoubles, or finesse. However, the English outputs remain strong because many small representation mismatches do not prevent the generator from producing a correct explanation.
+The artificial exact-match score is 1.000 for every artificial-language system on both the development and test sets. This should not be read as strong evidence for the parser. The dataset covers only seven auction patterns, and the gold artificial language follows the same predicate format as the parser, so a perfect match mainly shows that the parser handles those patterns consistently. Before evaluation, every record is checked by an automatic legality validator (turn order, bid order, legal doubles and redoubles, declarer, opening leader, and trick order and winner); an earlier version of the dataset contained illegal auctions and out-of-order tricks that this check caught and that were corrected.
 
 \section{Error Analysis}
 

@@ -2,11 +2,11 @@
   {
     "system": "direct_raw_model_simulated",
     "n": 15,
-    "fact_preservation": 0.7431938431938432,
-    "bridge_meaning": 2.857984607984608,
+    "fact_preservation": 0.7371332371332372,
+    "bridge_meaning": 2.8428330928330934,
     "beginner_readability": 5.0,
-    "reconstructability": 0.7431938431938432,
-    "bleu_like": 0.0004480406287520388,
+    "reconstructability": 0.7371332371332372,
+    "bleu_like": 0.0004478664456895899,
     "rouge_l_like": 0.1721298602275701,
     "artificial_exact_match": null
   },
@@ -36,12 +36,12 @@
     "system": "model_from_artificial_simulated",
     "n": 15,
     "fact_preservation": 0.8874458874458874,
-    "bridge_meaning": 4.45861471861472,
+    "bridge_meaning": 4.378614718614719,
     "beginner_readability": 4.973333333333333,
     "reconstructability": 0.8874458874458874,
-    "bleu_like": 0.6233343228068943,
-    "rouge_l_like": 0.7295224893147932,
-    "artificial_exact_match": 0.8735042735042735
+    "bleu_like": 0.6327366479406301,
+    "rouge_l_like": 0.7321368683997606,
+    "artificial_exact_match": 1.0
   },
   {
     "system": "raw_copy_baseline",
@@ -58,22 +58,22 @@
     "system": "template_beginner",
     "n": 15,
     "fact_preservation": 0.8874458874458874,
-    "bridge_meaning": 4.766397306397306,
+    "bridge_meaning": 4.686397306397307,
     "beginner_readability": 4.946666666666667,
     "reconstructability": 0.8874458874458874,
-    "bleu_like": 0.9618240070954441,
-    "rouge_l_like": 0.9973856209150327,
-    "artificial_exact_match": 0.8735042735042735
+    "bleu_like": 0.9839949744942386,
+    "rouge_l_like": 1.0,
+    "artificial_exact_match": 1.0
   },
   {
     "system": "template_expert",
     "n": 15,
     "fact_preservation": 0.8874458874458874,
-    "bridge_meaning": 4.45861471861472,
+    "bridge_meaning": 4.378614718614719,
     "beginner_readability": 4.973333333333333,
     "reconstructability": 0.8874458874458874,
-    "bleu_like": 0.792108093587324,
-    "rouge_l_like": 0.8597400058351305,
-    "artificial_exact_match": 0.8735042735042735
+    "bleu_like": 0.8092702074040747,
+    "rouge_l_like": 0.8623543849200979,
+    "artificial_exact_match": 1.0
   }
 ]

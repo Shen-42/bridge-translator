@@ -3,10 +3,10 @@ Evaluation summary
 
 System: direct_raw_model_simulated
   n: 15
-  factual preservation: 0.743
-  bridge meaning: 2.858
+  factual preservation: 0.737
+  bridge meaning: 2.843
   beginner readability: 5.000
-  reconstructability: 0.743
+  reconstructability: 0.737
   BLEU-like: 0.000
   ROUGE-L-like: 0.172
 
@@ -31,12 +31,12 @@ System: literal_baseline
 System: model_from_artificial_simulated
   n: 15
   factual preservation: 0.887
-  bridge meaning: 4.459
+  bridge meaning: 4.379
   beginner readability: 4.973
   reconstructability: 0.887
-  BLEU-like: 0.623
-  ROUGE-L-like: 0.730
-  artificial exact match: 0.874
+  BLEU-like: 0.633
+  ROUGE-L-like: 0.732
+  artificial exact match: 1.000
 
 System: raw_copy_baseline
   n: 15
@@ -50,31 +50,19 @@ System: raw_copy_baseline
 System: template_beginner
   n: 15
   factual preservation: 0.887
-  bridge meaning: 4.766
+  bridge meaning: 4.686
   beginner readability: 4.947
   reconstructability: 0.887
-  BLEU-like: 0.962
-  ROUGE-L-like: 0.997
-  artificial exact match: 0.874
+  BLEU-like: 0.984
+  ROUGE-L-like: 1.000
+  artificial exact match: 1.000
 
 System: template_expert
   n: 15
   factual preservation: 0.887
-  bridge meaning: 4.459
+  bridge meaning: 4.379
   beginner readability: 4.973
   reconstructability: 0.887
-  BLEU-like: 0.792
-  ROUGE-L-like: 0.860
-  artificial exact match: 0.874
-
-STDERR:
-Spreadsheet runtime warmup failed during python startup
-Traceback (most recent call last):
-  File "/tmp/tmp.9eeVjt35CN/artifact_tool_v2-2.7.5/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
-  File "/tmp/tmp.9eeVjt35CN/artifact_tool_v2-2.7.5/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
-  File "/tmp/tmp.9eeVjt35CN/artifact_tool_v2-2.7.5/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
-  File "/tmp/tmp.9eeVjt35CN/artifact_tool_v2-2.7.5/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
-  File "/tmp/tmp.9eeVjt35CN/artifact_tool_v2-2.7.5/artifact_tool/generated/interface/models.py", line 48821, in hydrate_crdt_from_proto
-  File "/tmp/tmp.9eeVjt35CN/artifact_tool_v2-2.7.5/artifact_tool/rpc/remote.py", line 747, in __call__
-  File "/tmp/tmp.9eeVjt35CN/artifact_tool_v2-2.7.5/artifact_tool/rpc/client.py", line 150, in call
-artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.
+  BLEU-like: 0.809
+  ROUGE-L-like: 0.862
+  artificial exact match: 1.000

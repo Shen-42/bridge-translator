@@ -79,7 +79,7 @@
       "auction": "West 1H - North Pass - East 4H - South Pass - West Pass - North Pass",
       "contract": "4H by West",
       "opening_lead": "North ♣K",
-      "play": "Trick 1: North ♣K - West ♣A - South ♣7 - East ♣2; Winner: West ♣A"
+      "play": "Trick 1: North ♣K - East ♣2 - South ♣7 - West ♣A; Winner: West ♣A"
     },
     "gold_artificial": [
       "OPEN(West, 1H, suit_opening, opening_strength)",
@@ -90,13 +90,13 @@
       "PASS(North)",
       "CONTRACT(4H, declarer=West)",
       "LEAD(North, ♣K)",
-      "PLAY(North, ♣K)",
-      "PLAY(West, ♣A)",
-      "PLAY(South, ♣7)",
-      "PLAY(East, ♣2)",
+      "PLAY(North, ♣K, trick_number=1)",
+      "PLAY(East, ♣2, trick_number=1)",
+      "PLAY(South, ♣7, trick_number=1)",
+      "PLAY(West, ♣A, trick_number=1)",
       "WIN_TRICK(West, trick_number=1, card=♣A)"
     ],
-    "gold_english": "West opens 1H, showing an opening bid in hearts. North passes. East raises directly to 4H, which is a game-level heart contract. South passes. West passes. North passes. The final contract is 4H by West. North leads the king of clubs to begin the play. On trick 1, North plays the king of clubs, West plays the ace of clubs, South plays the seven of clubs, East plays the two of clubs, and West wins the trick with the ace of clubs.",
+    "gold_english": "West opens 1H, showing an opening bid in hearts. North passes. East raises directly to 4H, which is a game-level heart contract. South passes. West passes. North passes. The final contract is 4H by West. North leads the king of clubs to begin the play. On trick 1, North plays the king of clubs, East plays the two of clubs, South plays the seven of clubs, West plays the ace of clubs, and West wins the trick with the ace of clubs.",
     "facts": {
       "opener": "West",
       "opening_bid": "1H",
@@ -198,12 +198,12 @@
       "auction": "South 2C - West Pass - North 2D - East Pass - South 3NT - West Pass - North Pass - East Pass",
       "contract": "3NT by South",
       "opening_lead": "West ♦Q",
-      "play": "Trick 1: West ♦Q - South ♦A - East ♦7 - North ♦2; Winner: South ♦A"
+      "play": "Trick 1: West ♦Q - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A"
     },
     "gold_artificial": [
       "OPEN(South, 2C, strong_artificial, very_strong_hand)",
       "PASS(West)",
-      "RESPOND(North, 2D, constructive_response)",
+      "RESPOND(North, 2D, waiting_response)",
       "PASS(East)",
       "BID(South, 3NT)",
       "PASS(West)",
@@ -211,13 +211,13 @@
       "PASS(East)",
       "CONTRACT(3NT, declarer=South)",
       "LEAD(West, ♦Q)",
-      "PLAY(West, ♦Q)",
-      "PLAY(South, ♦A)",
-      "PLAY(East, ♦7)",
-      "PLAY(North, ♦2)",
+      "PLAY(West, ♦Q, trick_number=1)",
+      "PLAY(North, ♦2, trick_number=1)",
+      "PLAY(East, ♦7, trick_number=1)",
+      "PLAY(South, ♦A, trick_number=1)",
       "WIN_TRICK(South, trick_number=1, card=♦A)"
     ],
-    "gold_english": "South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open. East passes. South bids 3NT. West passes. North passes. East passes. The final contract is 3NT by South. West leads the queen of diamonds to begin the play. On trick 1, West plays the queen of diamonds, South plays the ace of diamonds, East plays the seven of diamonds, North plays the two of diamonds, and South wins the trick with the ace of diamonds.",
+    "gold_english": "South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open. East passes. South bids 3NT. West passes. North passes. East passes. The final contract is 3NT by South. West leads the queen of diamonds to begin the play. On trick 1, West plays the queen of diamonds, North plays the two of diamonds, East plays the seven of diamonds, South plays the ace of diamonds, and South wins the trick with the ace of diamonds.",
     "facts": {
       "opener": "South",
       "opening_bid": "2C",
@@ -323,7 +323,7 @@
       "auction": "East 1S - South Pass - West 4S - North Pass - East Pass - South Pass",
       "contract": "4S by East",
       "opening_lead": "South ♥2",
-      "play": "Trick 1: South ♥2 - East ♥A - North ♥7 - West ♥2; Winner: East ♥A"
+      "play": "Trick 1: South ♥2 - West ♥3 - North ♥7 - East ♥A; Winner: East ♥A"
     },
     "gold_artificial": [
       "OPEN(East, 1S, suit_opening, opening_strength)",
@@ -334,13 +334,13 @@
       "PASS(South)",
       "CONTRACT(4S, declarer=East)",
       "LEAD(South, ♥2)",
-      "PLAY(South, ♥2)",
-      "PLAY(East, ♥A)",
-      "PLAY(North, ♥7)",
-      "PLAY(West, ♥2)",
+      "PLAY(South, ♥2, trick_number=1)",
+      "PLAY(West, ♥3, trick_number=1)",
+      "PLAY(North, ♥7, trick_number=1)",
+      "PLAY(East, ♥A, trick_number=1)",
       "WIN_TRICK(East, trick_number=1, card=♥A)"
     ],
-    "gold_english": "East opens 1S, showing an opening bid in spades. South passes. West raises directly to 4S, which is a game-level spade contract. North passes. East passes. South passes. The final contract is 4S by East. South leads the two of hearts to begin the play. On trick 1, South plays the two of hearts, East plays the ace of hearts, North plays the seven of hearts, West plays the two of hearts, and East wins the trick with the ace of hearts.",
+    "gold_english": "East opens 1S, showing an opening bid in spades. South passes. West raises directly to 4S, which is a game-level spade contract. North passes. East passes. South passes. The final contract is 4S by East. South leads the two of hearts to begin the play. On trick 1, South plays the two of hearts, West plays the three of hearts, North plays the seven of hearts, East plays the ace of hearts, and East wins the trick with the ace of hearts.",
     "facts": {
       "opener": "East",
       "opening_bid": "1S",
@@ -365,7 +365,7 @@
   {
     "id": "train010",
     "raw": {
-      "auction": "South 1H - West Pass - North 4H - East Double - East Pass - South Pass - West Pass",
+      "auction": "South 1H - West Pass - North 4H - East Double - South Pass - West Pass - North Pass",
       "contract": "4H by South",
       "opening_lead": "West ♦J"
     },
@@ -374,13 +374,13 @@
       "PASS(West)",
       "RAISE_TO_GAME(North, 4H)",
       "DOUBLE(East)",
-      "PASS(East)",
       "PASS(South)",
       "PASS(West)",
+      "PASS(North)",
       "CONTRACT(4H, declarer=South)",
       "LEAD(West, ♦J)"
     ],
-    "gold_english": "South opens 1H, showing an opening bid in hearts. West passes. North raises directly to 4H, which is a game-level heart contract. East doubles, increasing the penalty if the contract fails. East passes. South passes. West passes. The final contract is 4H by South. West leads the jack of diamonds to begin the play.",
+    "gold_english": "South opens 1H, showing an opening bid in hearts. West passes. North raises directly to 4H, which is a game-level heart contract. East doubles, increasing the penalty if the contract fails. South passes. West passes. North passes. The final contract is 4H by South. West leads the jack of diamonds to begin the play.",
     "facts": {
       "opener": "South",
       "opening_bid": "1H",
@@ -390,7 +390,7 @@
       "declarer": "South",
       "opening_leader": "West",
       "opening_lead": "♦J",
-      "bid_sequence": "South:1H West:PASS North:4H East:DOUBLE East:PASS South:PASS West:PASS",
+      "bid_sequence": "South:1H West:PASS North:4H East:DOUBLE South:PASS West:PASS North:PASS",
       "double": "East"
     },
     "metadata": {
@@ -443,8 +443,8 @@
     "raw": {
       "auction": "North 1C - East Pass - South 5C - West Pass - North Pass - East Pass",
       "contract": "5C by North",
-      "opening_lead": "East ♠A",
-      "play": "Trick 1: East ♠A - North ♠A - West ♠7 - South ♠2; Winner: North ♠A"
+      "opening_lead": "East ♠K",
+      "play": "Trick 1: East ♠K - South ♠2 - West ♠7 - North ♠A; Winner: North ♠A"
     },
     "gold_artificial": [
       "OPEN(North, 1C, suit_opening, opening_strength)",
@@ -454,14 +454,14 @@
       "PASS(North)",
       "PASS(East)",
       "CONTRACT(5C, declarer=North)",
-      "LEAD(East, ♠A)",
-      "PLAY(East, ♠A)",
-      "PLAY(North, ♠A)",
-      "PLAY(West, ♠7)",
-      "PLAY(South, ♠2)",
+      "LEAD(East, ♠K)",
+      "PLAY(East, ♠K, trick_number=1)",
+      "PLAY(South, ♠2, trick_number=1)",
+      "PLAY(West, ♠7, trick_number=1)",
+      "PLAY(North, ♠A, trick_number=1)",
       "WIN_TRICK(North, trick_number=1, card=♠A)"
     ],
-    "gold_english": "North opens 1C, showing an opening bid in clubs. East passes. South raises directly to 5C, which is a game-level club contract. West passes. North passes. East passes. The final contract is 5C by North. East leads the ace of spades to begin the play. On trick 1, East plays the ace of spades, North plays the ace of spades, West plays the seven of spades, South plays the two of spades, and North wins the trick with the ace of spades.",
+    "gold_english": "North opens 1C, showing an opening bid in clubs. East passes. South raises directly to 5C, which is a game-level club contract. West passes. North passes. East passes. The final contract is 5C by North. East leads the king of spades to begin the play. On trick 1, East plays the king of spades, South plays the two of spades, West plays the seven of spades, North plays the ace of spades, and North wins the trick with the ace of spades.",
     "facts": {
       "opener": "North",
       "opening_bid": "1C",
@@ -470,7 +470,7 @@
       "contract": "5C",
       "declarer": "North",
       "opening_leader": "East",
-      "opening_lead": "♠A",
+      "opening_lead": "♠K",
       "bid_sequence": "North:1C East:PASS South:5C West:PASS North:PASS East:PASS",
       "trick_1_winner": "North",
       "trick_1_winning_card": "♠A"
@@ -493,7 +493,7 @@
     "gold_artificial": [
       "OPEN(East, 2C, strong_artificial, very_strong_hand)",
       "PASS(South)",
-      "RESPOND(West, 2D, constructive_response)",
+      "RESPOND(West, 2D, waiting_response)",
       "PASS(North)",
       "BID(East, 3NT)",
       "PASS(South)",
@@ -569,7 +569,7 @@
       "auction": "West 2NT - North Pass - East 3NT - South Pass - West Pass - North Pass",
       "contract": "3NT by West",
       "opening_lead": "North ♣3",
-      "play": "Trick 1: North ♣3 - West ♣A - South ♣7 - East ♣2; Winner: West ♣A"
+      "play": "Trick 1: North ♣3 - East ♣2 - South ♣7 - West ♣A; Winner: West ♣A"
     },
     "gold_artificial": [
       "OPEN(West, 2NT, balanced, 20-21_HCP)",
@@ -580,13 +580,13 @@
       "PASS(North)",
       "CONTRACT(3NT, declarer=West)",
       "LEAD(North, ♣3)",
-      "PLAY(North, ♣3)",
-      "PLAY(West, ♣A)",
-      "PLAY(South, ♣7)",
-      "PLAY(East, ♣2)",
+      "PLAY(North, ♣3, trick_number=1)",
+      "PLAY(East, ♣2, trick_number=1)",
+      "PLAY(South, ♣7, trick_number=1)",
+      "PLAY(West, ♣A, trick_number=1)",
       "WIN_TRICK(West, trick_number=1, card=♣A)"
     ],
-    "gold_english": "West opens 2NT, showing a balanced hand with about 20–21 high-card points. North passes. East raises directly to 3NT, which is a game-level no-trump contract. South passes. West passes. North passes. The final contract is 3NT by West. North leads the three of clubs to begin the play. On trick 1, North plays the three of clubs, West plays the ace of clubs, South plays the seven of clubs, East plays the two of clubs, and West wins the trick with the ace of clubs.",
+    "gold_english": "West opens 2NT, showing a balanced hand with about 20–21 high-card points. North passes. East raises directly to 3NT, which is a game-level no-trump contract. South passes. West passes. North passes. The final contract is 3NT by West. North leads the three of clubs to begin the play. On trick 1, North plays the three of clubs, East plays the two of clubs, South plays the seven of clubs, West plays the ace of clubs, and West wins the trick with the ace of clubs.",
     "facts": {
       "opener": "West",
       "opening_bid": "2NT",
@@ -688,7 +688,7 @@
       "auction": "South 1D - West Pass - North 5D - East Pass - South Pass - West Pass",
       "contract": "5D by South",
       "opening_lead": "West ♦J",
-      "play": "Trick 1: West ♦J - South ♦A - East ♦7 - North ♦2; Winner: South ♦A"
+      "play": "Trick 1: West ♦J - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A"
     },
     "gold_artificial": [
       "OPEN(South, 1D, suit_opening, opening_strength)",
@@ -699,13 +699,13 @@
       "PASS(West)",
       "CONTRACT(5D, declarer=South)",
       "LEAD(West, ♦J)",
-      "PLAY(West, ♦J)",
-      "PLAY(South, ♦A)",
-      "PLAY(East, ♦7)",
-      "PLAY(North, ♦2)",
+      "PLAY(West, ♦J, trick_number=1)",
+      "PLAY(North, ♦2, trick_number=1)",
+      "PLAY(East, ♦7, trick_number=1)",
+      "PLAY(South, ♦A, trick_number=1)",
       "WIN_TRICK(South, trick_number=1, card=♦A)"
     ],
-    "gold_english": "South opens 1D, showing an opening bid in diamonds. West passes. North raises directly to 5D, which is a game-level diamond contract. East passes. South passes. West passes. The final contract is 5D by South. West leads the jack of diamonds to begin the play. On trick 1, West plays the jack of diamonds, South plays the ace of diamonds, East plays the seven of diamonds, North plays the two of diamonds, and South wins the trick with the ace of diamonds.",
+    "gold_english": "South opens 1D, showing an opening bid in diamonds. West passes. North raises directly to 5D, which is a game-level diamond contract. East passes. South passes. West passes. The final contract is 5D by South. West leads the jack of diamonds to begin the play. On trick 1, West plays the jack of diamonds, North plays the two of diamonds, East plays the seven of diamonds, South plays the ace of diamonds, and South wins the trick with the ace of diamonds.",
     "facts": {
       "opener": "South",
       "opening_bid": "1D",
@@ -767,24 +767,24 @@
   {
     "id": "train020",
     "raw": {
-      "auction": "North 2C - East Pass - South 2D - West Pass - North 3NT - West Double - East Pass - South Pass - West Pass",
+      "auction": "North 2C - East Pass - South 2D - West Pass - North 3NT - East Double - South Pass - West Pass - North Pass",
       "contract": "3NT by North",
       "opening_lead": "East ♠A"
     },
     "gold_artificial": [
       "OPEN(North, 2C, strong_artificial, very_strong_hand)",
       "PASS(East)",
-      "RESPOND(South, 2D, constructive_response)",
+      "RESPOND(South, 2D, waiting_response)",
       "PASS(West)",
       "BID(North, 3NT)",
-      "DOUBLE(West)",
-      "PASS(East)",
+      "DOUBLE(East)",
       "PASS(South)",
       "PASS(West)",
+      "PASS(North)",
       "CONTRACT(3NT, declarer=North)",
       "LEAD(East, ♠A)"
     ],
-    "gold_english": "North opens 2C, a strong artificial opening that usually shows a very powerful hand. East passes. South responds 2D, keeping the auction open. West passes. North bids 3NT. West doubles, increasing the penalty if the contract fails. East passes. South passes. West passes. The final contract is 3NT by North. East leads the ace of spades to begin the play.",
+    "gold_english": "North opens 2C, a strong artificial opening that usually shows a very powerful hand. East passes. South responds 2D, keeping the auction open. West passes. North bids 3NT. East doubles, increasing the penalty if the contract fails. South passes. West passes. North passes. The final contract is 3NT by North. East leads the ace of spades to begin the play.",
     "facts": {
       "opener": "North",
       "opening_bid": "2C",
@@ -794,8 +794,8 @@
       "declarer": "North",
       "opening_leader": "East",
       "opening_lead": "♠A",
-      "bid_sequence": "North:2C East:PASS South:2D West:PASS North:3NT West:DOUBLE East:PASS South:PASS West:PASS",
-      "double": "West"
+      "bid_sequence": "North:2C East:PASS South:2D West:PASS North:3NT East:DOUBLE South:PASS West:PASS North:PASS",
+      "double": "East"
     },
     "metadata": {
       "pattern": "2C-2D-3NT",
@@ -811,7 +811,7 @@
       "auction": "East 1NT - South Pass - West 3NT - North Pass - East Pass - South Pass",
       "contract": "3NT by East",
       "opening_lead": "South ♥7",
-      "play": "Trick 1: South ♥7 - East ♥A - North ♥7 - West ♥2; Winner: East ♥A",
+      "play": "Trick 1: South ♥7 - West ♥2 - North ♥9 - East ♥A; Winner: East ♥A",
       "note": "Finesse: East in ♥ against queen; failure"
     },
     "gold_artificial": [
@@ -823,14 +823,14 @@
       "PASS(South)",
       "CONTRACT(3NT, declarer=East)",
       "LEAD(South, ♥7)",
-      "PLAY(South, ♥7)",
-      "PLAY(East, ♥A)",
-      "PLAY(North, ♥7)",
-      "PLAY(West, ♥2)",
+      "PLAY(South, ♥7, trick_number=1)",
+      "PLAY(West, ♥2, trick_number=1)",
+      "PLAY(North, ♥9, trick_number=1)",
+      "PLAY(East, ♥A, trick_number=1)",
       "WIN_TRICK(East, trick_number=1, card=♥A)",
       "FINESSE_ATTEMPT(East, suit=♥, target=queen, outcome=failure)"
     ],
-    "gold_english": "East opens 1NT, showing a balanced hand with about 15–17 high-card points. South passes. West raises directly to 3NT, which is a game-level no-trump contract. North passes. East passes. South passes. The final contract is 3NT by East. South leads the seven of hearts to begin the play. On trick 1, South plays the seven of hearts, East plays the ace of hearts, North plays the seven of hearts, West plays the two of hearts, and East wins the trick with the ace of hearts. East attempts a finesse in hearts against the queen; the finesse loses.",
+    "gold_english": "East opens 1NT, showing a balanced hand with about 15–17 high-card points. South passes. West raises directly to 3NT, which is a game-level no-trump contract. North passes. East passes. South passes. The final contract is 3NT by East. South leads the seven of hearts to begin the play. On trick 1, South plays the seven of hearts, West plays the two of hearts, North plays the nine of hearts, East plays the ace of hearts, and East wins the trick with the ace of hearts. East attempts a finesse in hearts against the queen; the finesse loses.",
     "facts": {
       "opener": "East",
       "opening_bid": "1NT",
@@ -857,7 +857,7 @@
   {
     "id": "train022",
     "raw": {
-      "auction": "South 2NT - West Pass - North 3NT - East Double - South Redouble - East Pass - South Pass - West Pass",
+      "auction": "South 2NT - West Pass - North 3NT - East Double - South Redouble - West Pass - North Pass - East Pass",
       "contract": "3NT by South",
       "opening_lead": "West ♦Q"
     },
@@ -867,13 +867,13 @@
       "RAISE_TO_GAME(North, 3NT)",
       "DOUBLE(East)",
       "REDOUBLE(South)",
-      "PASS(East)",
-      "PASS(South)",
       "PASS(West)",
+      "PASS(North)",
+      "PASS(East)",
       "CONTRACT(3NT, declarer=South)",
       "LEAD(West, ♦Q)"
     ],
-    "gold_english": "South opens 2NT, showing a balanced hand with about 20–21 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East doubles, increasing the penalty if the contract fails. South redoubles, increasing the stakes after the double. East passes. South passes. West passes. The final contract is 3NT by South. West leads the queen of diamonds to begin the play.",
+    "gold_english": "South opens 2NT, showing a balanced hand with about 20–21 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East doubles, increasing the penalty if the contract fails. South redoubles, increasing the stakes after the double. West passes. North passes. East passes. The final contract is 3NT by South. West leads the queen of diamonds to begin the play.",
     "facts": {
       "opener": "South",
       "opening_bid": "2NT",
@@ -883,8 +883,9 @@
       "declarer": "South",
       "opening_leader": "West",
       "opening_lead": "♦Q",
-      "bid_sequence": "South:2NT West:PASS North:3NT East:DOUBLE South:REDOUBLE East:PASS South:PASS West:PASS",
-      "redouble": "South"
+      "bid_sequence": "South:2NT West:PASS North:3NT East:DOUBLE South:REDOUBLE West:PASS North:PASS East:PASS",
+      "redouble": "South",
+      "double": "East"
     },
     "metadata": {
       "pattern": "2NT-3NT",
@@ -937,7 +938,7 @@
       "auction": "North 1H - East Pass - South 4H - West Pass - North Pass - East Pass",
       "contract": "4H by North",
       "opening_lead": "East ♠4",
-      "play": "Trick 1: East ♠4 - North ♠A - West ♠7 - South ♠2; Winner: North ♠A"
+      "play": "Trick 1: East ♠4 - South ♠2 - West ♠7 - North ♠A; Winner: North ♠A"
     },
     "gold_artificial": [
       "OPEN(North, 1H, suit_opening, opening_strength)",
@@ -948,13 +949,13 @@
       "PASS(East)",
       "CONTRACT(4H, declarer=North)",
       "LEAD(East, ♠4)",
-      "PLAY(East, ♠4)",
-      "PLAY(North, ♠A)",
-      "PLAY(West, ♠7)",
-      "PLAY(South, ♠2)",
+      "PLAY(East, ♠4, trick_number=1)",
+      "PLAY(South, ♠2, trick_number=1)",
+      "PLAY(West, ♠7, trick_number=1)",
+      "PLAY(North, ♠A, trick_number=1)",
       "WIN_TRICK(North, trick_number=1, card=♠A)"
     ],
-    "gold_english": "North opens 1H, showing an opening bid in hearts. East passes. South raises directly to 4H, which is a game-level heart contract. West passes. North passes. East passes. The final contract is 4H by North. East leads the four of spades to begin the play. On trick 1, East plays the four of spades, North plays the ace of spades, West plays the seven of spades, South plays the two of spades, and North wins the trick with the ace of spades.",
+    "gold_english": "North opens 1H, showing an opening bid in hearts. East passes. South raises directly to 4H, which is a game-level heart contract. West passes. North passes. East passes. The final contract is 4H by North. East leads the four of spades to begin the play. On trick 1, East plays the four of spades, South plays the two of spades, West plays the seven of spades, North plays the ace of spades, and North wins the trick with the ace of spades.",
     "facts": {
       "opener": "North",
       "opening_bid": "1H",
@@ -1056,12 +1057,12 @@
       "auction": "West 2C - North Pass - East 2D - South Pass - West 3NT - North Pass - East Pass - South Pass",
       "contract": "3NT by West",
       "opening_lead": "North ♣K",
-      "play": "Trick 1: North ♣K - West ♣A - South ♣7 - East ♣2; Winner: West ♣A"
+      "play": "Trick 1: North ♣K - East ♣2 - South ♣7 - West ♣A; Winner: West ♣A"
     },
     "gold_artificial": [
       "OPEN(West, 2C, strong_artificial, very_strong_hand)",
       "PASS(North)",
-      "RESPOND(East, 2D, constructive_response)",
+      "RESPOND(East, 2D, waiting_response)",
       "PASS(South)",
       "BID(West, 3NT)",
       "PASS(North)",
@@ -1069,13 +1070,13 @@
       "PASS(South)",
       "CONTRACT(3NT, declarer=West)",
       "LEAD(North, ♣K)",
-      "PLAY(North, ♣K)",
-      "PLAY(West, ♣A)",
-      "PLAY(South, ♣7)",
-      "PLAY(East, ♣2)",
+      "PLAY(North, ♣K, trick_number=1)",
+      "PLAY(East, ♣2, trick_number=1)",
+      "PLAY(South, ♣7, trick_number=1)",
+      "PLAY(West, ♣A, trick_number=1)",
       "WIN_TRICK(West, trick_number=1, card=♣A)"
     ],
-    "gold_english": "West opens 2C, a strong artificial opening that usually shows a very powerful hand. North passes. East responds 2D, keeping the auction open. South passes. West bids 3NT. North passes. East passes. South passes. The final contract is 3NT by West. North leads the king of clubs to begin the play. On trick 1, North plays the king of clubs, West plays the ace of clubs, South plays the seven of clubs, East plays the two of clubs, and West wins the trick with the ace of clubs.",
+    "gold_english": "West opens 2C, a strong artificial opening that usually shows a very powerful hand. North passes. East responds 2D, keeping the auction open. South passes. West bids 3NT. North passes. East passes. South passes. The final contract is 3NT by West. North leads the king of clubs to begin the play. On trick 1, North plays the king of clubs, East plays the two of clubs, South plays the seven of clubs, West plays the ace of clubs, and West wins the trick with the ace of clubs.",
     "facts": {
       "opener": "West",
       "opening_bid": "2C",
@@ -1178,28 +1179,28 @@
   {
     "id": "train030",
     "raw": {
-      "auction": "South 1S - West Pass - North 4S - East Double - East Pass - South Pass - West Pass",
+      "auction": "South 1S - West Pass - North 4S - East Double - South Pass - West Pass - North Pass",
       "contract": "4S by South",
       "opening_lead": "West ♦Q",
-      "play": "Trick 1: West ♦Q - South ♦A - East ♦7 - North ♦2; Winner: South ♦A"
+      "play": "Trick 1: West ♦Q - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A"
     },
     "gold_artificial": [
       "OPEN(South, 1S, suit_opening, opening_strength)",
       "PASS(West)",
       "RAISE_TO_GAME(North, 4S)",
       "DOUBLE(East)",
-      "PASS(East)",
       "PASS(South)",
       "PASS(West)",
+      "PASS(North)",
       "CONTRACT(4S, declarer=South)",
       "LEAD(West, ♦Q)",
-      "PLAY(West, ♦Q)",
-      "PLAY(South, ♦A)",
-      "PLAY(East, ♦7)",
-      "PLAY(North, ♦2)",
+      "PLAY(West, ♦Q, trick_number=1)",
+      "PLAY(North, ♦2, trick_number=1)",
+      "PLAY(East, ♦7, trick_number=1)",
+      "PLAY(South, ♦A, trick_number=1)",
       "WIN_TRICK(South, trick_number=1, card=♦A)"
     ],
-    "gold_english": "South opens 1S, showing an opening bid in spades. West passes. North raises directly to 4S, which is a game-level spade contract. East doubles, increasing the penalty if the contract fails. East passes. South passes. West passes. The final contract is 4S by South. West leads the queen of diamonds to begin the play. On trick 1, West plays the queen of diamonds, South plays the ace of diamonds, East plays the seven of diamonds, North plays the two of diamonds, and South wins the trick with the ace of diamonds.",
+    "gold_english": "South opens 1S, showing an opening bid in spades. West passes. North raises directly to 4S, which is a game-level spade contract. East doubles, increasing the penalty if the contract fails. South passes. West passes. North passes. The final contract is 4S by South. West leads the queen of diamonds to begin the play. On trick 1, West plays the queen of diamonds, North plays the two of diamonds, East plays the seven of diamonds, South plays the ace of diamonds, and South wins the trick with the ace of diamonds.",
     "facts": {
       "opener": "South",
       "opening_bid": "1S",
@@ -1209,7 +1210,7 @@
       "declarer": "South",
       "opening_leader": "West",
       "opening_lead": "♦Q",
-      "bid_sequence": "South:1S West:PASS North:4S East:DOUBLE East:PASS South:PASS West:PASS",
+      "bid_sequence": "South:1S West:PASS North:4S East:DOUBLE South:PASS West:PASS North:PASS",
       "double": "East",
       "trick_1_winner": "South",
       "trick_1_winning_card": "♦A"
@@ -1302,7 +1303,7 @@
       "auction": "East 1C - South Pass - West 5C - North Pass - East Pass - South Pass",
       "contract": "5C by East",
       "opening_lead": "South ♥2",
-      "play": "Trick 1: South ♥2 - East ♥A - North ♥7 - West ♥2; Winner: East ♥A"
+      "play": "Trick 1: South ♥2 - West ♥3 - North ♥7 - East ♥A; Winner: East ♥A"
     },
     "gold_artificial": [
       "OPEN(East, 1C, suit_opening, opening_strength)",
@@ -1313,13 +1314,13 @@
       "PASS(South)",
       "CONTRACT(5C, declarer=East)",
       "LEAD(South, ♥2)",
-      "PLAY(South, ♥2)",
-      "PLAY(East, ♥A)",
-      "PLAY(North, ♥7)",
-      "PLAY(West, ♥2)",
+      "PLAY(South, ♥2, trick_number=1)",
+      "PLAY(West, ♥3, trick_number=1)",
+      "PLAY(North, ♥7, trick_number=1)",
+      "PLAY(East, ♥A, trick_number=1)",
       "WIN_TRICK(East, trick_number=1, card=♥A)"
     ],
-    "gold_english": "East opens 1C, showing an opening bid in clubs. South passes. West raises directly to 5C, which is a game-level club contract. North passes. East passes. South passes. The final contract is 5C by East. South leads the two of hearts to begin the play. On trick 1, South plays the two of hearts, East plays the ace of hearts, North plays the seven of hearts, West plays the two of hearts, and East wins the trick with the ace of hearts.",
+    "gold_english": "East opens 1C, showing an opening bid in clubs. South passes. West raises directly to 5C, which is a game-level club contract. North passes. East passes. South passes. The final contract is 5C by East. South leads the two of hearts to begin the play. On trick 1, South plays the two of hearts, West plays the three of hearts, North plays the seven of hearts, East plays the ace of hearts, and East wins the trick with the ace of hearts.",
     "facts": {
       "opener": "East",
       "opening_bid": "1C",
@@ -1351,7 +1352,7 @@
     "gold_artificial": [
       "OPEN(South, 2C, strong_artificial, very_strong_hand)",
       "PASS(West)",
-      "RESPOND(North, 2D, constructive_response)",
+      "RESPOND(North, 2D, waiting_response)",
       "PASS(East)",
       "BID(South, 3NT)",
       "PASS(West)",
@@ -1426,8 +1427,8 @@
     "raw": {
       "auction": "North 2NT - East Pass - South 3NT - West Pass - North Pass - East Pass",
       "contract": "3NT by North",
-      "opening_lead": "East ♠A",
-      "play": "Trick 1: East ♠A - North ♠A - West ♠7 - South ♠2; Winner: North ♠A"
+      "opening_lead": "East ♠K",
+      "play": "Trick 1: East ♠K - South ♠2 - West ♠7 - North ♠A; Winner: North ♠A"
     },
     "gold_artificial": [
       "OPEN(North, 2NT, balanced, 20-21_HCP)",
@@ -1437,14 +1438,14 @@
       "PASS(North)",
       "PASS(East)",
       "CONTRACT(3NT, declarer=North)",
-      "LEAD(East, ♠A)",
-      "PLAY(East, ♠A)",
-      "PLAY(North, ♠A)",
-      "PLAY(West, ♠7)",
-      "PLAY(South, ♠2)",
+      "LEAD(East, ♠K)",
+      "PLAY(East, ♠K, trick_number=1)",
+      "PLAY(South, ♠2, trick_number=1)",
+      "PLAY(West, ♠7, trick_number=1)",
+      "PLAY(North, ♠A, trick_number=1)",
       "WIN_TRICK(North, trick_number=1, card=♠A)"
     ],
-    "gold_english": "North opens 2NT, showing a balanced hand with about 20–21 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. East leads the ace of spades to begin the play. On trick 1, East plays the ace of spades, North plays the ace of spades, West plays the seven of spades, South plays the two of spades, and North wins the trick with the ace of spades.",
+    "gold_english": "North opens 2NT, showing a balanced hand with about 20–21 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. East leads the king of spades to begin the play. On trick 1, East plays the king of spades, South plays the two of spades, West plays the seven of spades, North plays the ace of spades, and North wins the trick with the ace of spades.",
     "facts": {
       "opener": "North",
       "opening_bid": "2NT",
@@ -1453,7 +1454,7 @@
       "contract": "3NT",
       "declarer": "North",
       "opening_leader": "East",
-      "opening_lead": "♠A",
+      "opening_lead": "♠K",
       "bid_sequence": "North:2NT East:PASS South:3NT West:PASS North:PASS East:PASS",
       "trick_1_winner": "North",
       "trick_1_winning_card": "♠A"
@@ -1546,7 +1547,7 @@
       "auction": "West 1D - North Pass - East 5D - South Pass - West Pass - North Pass",
       "contract": "5D by West",
       "opening_lead": "North ♣3",
-      "play": "Trick 1: North ♣3 - West ♣A - South ♣7 - East ♣2; Winner: West ♣A"
+      "play": "Trick 1: North ♣3 - East ♣2 - South ♣7 - West ♣A; Winner: West ♣A"
     },
     "gold_artificial": [
       "OPEN(West, 1D, suit_opening, opening_strength)",
@@ -1557,13 +1558,13 @@
       "PASS(North)",
       "CONTRACT(5D, declarer=West)",
       "LEAD(North, ♣3)",
-      "PLAY(North, ♣3)",
-      "PLAY(West, ♣A)",
-      "PLAY(South, ♣7)",
-      "PLAY(East, ♣2)",
+      "PLAY(North, ♣3, trick_number=1)",
+      "PLAY(East, ♣2, trick_number=1)",
+      "PLAY(South, ♣7, trick_number=1)",
+      "PLAY(West, ♣A, trick_number=1)",
       "WIN_TRICK(West, trick_number=1, card=♣A)"
     ],
-    "gold_english": "West opens 1D, showing an opening bid in diamonds. North passes. East raises directly to 5D, which is a game-level diamond contract. South passes. West passes. North passes. The final contract is 5D by West. North leads the three of clubs to begin the play. On trick 1, North plays the three of clubs, West plays the ace of clubs, South plays the seven of clubs, East plays the two of clubs, and West wins the trick with the ace of clubs.",
+    "gold_english": "West opens 1D, showing an opening bid in diamonds. North passes. East raises directly to 5D, which is a game-level diamond contract. South passes. West passes. North passes. The final contract is 5D by West. North leads the three of clubs to begin the play. On trick 1, North plays the three of clubs, East plays the two of clubs, South plays the seven of clubs, West plays the ace of clubs, and West wins the trick with the ace of clubs.",
     "facts": {
       "opener": "West",
       "opening_bid": "1D",
@@ -1588,7 +1589,7 @@
   {
     "id": "train040",
     "raw": {
-      "auction": "North 1C - East Pass - South 5C - West Double - West Pass - North Pass - East Pass",
+      "auction": "North 1C - East Pass - South 5C - West Double - North Pass - East Pass - South Pass",
       "contract": "5C by North",
       "opening_lead": "East ♠4"
     },
@@ -1597,13 +1598,13 @@
       "PASS(East)",
       "RAISE_TO_GAME(South, 5C)",
       "DOUBLE(West)",
-      "PASS(West)",
       "PASS(North)",
       "PASS(East)",
+      "PASS(South)",
       "CONTRACT(5C, declarer=North)",
       "LEAD(East, ♠4)"
     ],
-    "gold_english": "North opens 1C, showing an opening bid in clubs. East passes. South raises directly to 5C, which is a game-level club contract. West doubles, increasing the penalty if the contract fails. West passes. North passes. East passes. The final contract is 5C by North. East leads the four of spades to begin the play.",
+    "gold_english": "North opens 1C, showing an opening bid in clubs. East passes. South raises directly to 5C, which is a game-level club contract. West doubles, increasing the penalty if the contract fails. North passes. East passes. South passes. The final contract is 5C by North. East leads the four of spades to begin the play.",
     "facts": {
       "opener": "North",
       "opening_bid": "1C",
@@ -1613,7 +1614,7 @@
       "declarer": "North",
       "opening_leader": "East",
       "opening_lead": "♠4",
-      "bid_sequence": "North:1C East:PASS South:5C West:DOUBLE West:PASS North:PASS East:PASS",
+      "bid_sequence": "North:1C East:PASS South:5C West:DOUBLE North:PASS East:PASS South:PASS",
       "double": "West"
     },
     "metadata": {
@@ -1634,7 +1635,7 @@
     "gold_artificial": [
       "OPEN(East, 2C, strong_artificial, very_strong_hand)",
       "PASS(South)",
-      "RESPOND(West, 2D, constructive_response)",
+      "RESPOND(West, 2D, waiting_response)",
       "PASS(North)",
       "BID(East, 3NT)",
       "PASS(South)",
@@ -1669,7 +1670,7 @@
       "auction": "South 1NT - West Pass - North 3NT - East Pass - South Pass - West Pass",
       "contract": "3NT by South",
       "opening_lead": "West ♦J",
-      "play": "Trick 1: West ♦J - South ♦A - East ♦7 - North ♦2; Winner: South ♦A",
+      "play": "Trick 1: West ♦J - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A",
       "note": "Finesse: South in ♦ against queen; success"
     },
     "gold_artificial": [
@@ -1681,14 +1682,14 @@
       "PASS(West)",
       "CONTRACT(3NT, declarer=South)",
       "LEAD(West, ♦J)",
-      "PLAY(West, ♦J)",
-      "PLAY(South, ♦A)",
-      "PLAY(East, ♦7)",
-      "PLAY(North, ♦2)",
+      "PLAY(West, ♦J, trick_number=1)",
+      "PLAY(North, ♦2, trick_number=1)",
+      "PLAY(East, ♦7, trick_number=1)",
+      "PLAY(South, ♦A, trick_number=1)",
       "WIN_TRICK(South, trick_number=1, card=♦A)",
       "FINESSE_ATTEMPT(South, suit=♦, target=queen, outcome=success)"
     ],
-    "gold_english": "South opens 1NT, showing a balanced hand with about 15–17 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East passes. South passes. West passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. On trick 1, West plays the jack of diamonds, South plays the ace of diamonds, East plays the seven of diamonds, North plays the two of diamonds, and South wins the trick with the ace of diamonds. South attempts a finesse in diamonds against the queen; the finesse works.",
+    "gold_english": "South opens 1NT, showing a balanced hand with about 15–17 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East passes. South passes. West passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. On trick 1, West plays the jack of diamonds, North plays the two of diamonds, East plays the seven of diamonds, South plays the ace of diamonds, and South wins the trick with the ace of diamonds. South attempts a finesse in diamonds against the queen; the finesse works.",
     "facts": {
       "opener": "South",
       "opening_bid": "1NT",
@@ -1752,7 +1753,7 @@
   {
     "id": "train044",
     "raw": {
-      "auction": "North 1S - East Pass - South 4S - West Double - North Redouble - West Pass - North Pass - East Pass",
+      "auction": "North 1S - East Pass - South 4S - West Double - North Redouble - East Pass - South Pass - West Pass",
       "contract": "4S by North",
       "opening_lead": "East ♠A"
     },
@@ -1762,13 +1763,13 @@
       "RAISE_TO_GAME(South, 4S)",
       "DOUBLE(West)",
       "REDOUBLE(North)",
-      "PASS(West)",
-      "PASS(North)",
       "PASS(East)",
+      "PASS(South)",
+      "PASS(West)",
       "CONTRACT(4S, declarer=North)",
       "LEAD(East, ♠A)"
     ],
-    "gold_english": "North opens 1S, showing an opening bid in spades. East passes. South raises directly to 4S, which is a game-level spade contract. West doubles, increasing the penalty if the contract fails. North redoubles, increasing the stakes after the double. West passes. North passes. East passes. The final contract is 4S by North. East leads the ace of spades to begin the play.",
+    "gold_english": "North opens 1S, showing an opening bid in spades. East passes. South raises directly to 4S, which is a game-level spade contract. West doubles, increasing the penalty if the contract fails. North redoubles, increasing the stakes after the double. East passes. South passes. West passes. The final contract is 4S by North. East leads the ace of spades to begin the play.",
     "facts": {
       "opener": "North",
       "opening_bid": "1S",
@@ -1778,8 +1779,9 @@
       "declarer": "North",
       "opening_leader": "East",
       "opening_lead": "♠A",
-      "bid_sequence": "North:1S East:PASS South:4S West:DOUBLE North:REDOUBLE West:PASS North:PASS East:PASS",
-      "redouble": "North"
+      "bid_sequence": "North:1S East:PASS South:4S West:DOUBLE North:REDOUBLE East:PASS South:PASS West:PASS",
+      "redouble": "North",
+      "double": "West"
     },
     "metadata": {
       "pattern": "1S-4S",
@@ -1795,7 +1797,7 @@
       "auction": "East 1H - South Pass - West 4H - North Pass - East Pass - South Pass",
       "contract": "4H by East",
       "opening_lead": "South ♥7",
-      "play": "Trick 1: South ♥7 - East ♥A - North ♥7 - West ♥2; Winner: East ♥A"
+      "play": "Trick 1: South ♥7 - West ♥2 - North ♥9 - East ♥A; Winner: East ♥A"
     },
     "gold_artificial": [
       "OPEN(East, 1H, suit_opening, opening_strength)",
@@ -1806,13 +1808,13 @@
       "PASS(South)",
       "CONTRACT(4H, declarer=East)",
       "LEAD(South, ♥7)",
-      "PLAY(South, ♥7)",
-      "PLAY(East, ♥A)",
-      "PLAY(North, ♥7)",
-      "PLAY(West, ♥2)",
+      "PLAY(South, ♥7, trick_number=1)",
+      "PLAY(West, ♥2, trick_number=1)",
+      "PLAY(North, ♥9, trick_number=1)",
+      "PLAY(East, ♥A, trick_number=1)",
       "WIN_TRICK(East, trick_number=1, card=♥A)"
     ],
-    "gold_english": "East opens 1H, showing an opening bid in hearts. South passes. West raises directly to 4H, which is a game-level heart contract. North passes. East passes. South passes. The final contract is 4H by East. South leads the seven of hearts to begin the play. On trick 1, South plays the seven of hearts, East plays the ace of hearts, North plays the seven of hearts, West plays the two of hearts, and East wins the trick with the ace of hearts.",
+    "gold_english": "East opens 1H, showing an opening bid in hearts. South passes. West raises directly to 4H, which is a game-level heart contract. North passes. East passes. South passes. The final contract is 4H by East. South leads the seven of hearts to begin the play. On trick 1, South plays the seven of hearts, West plays the two of hearts, North plays the nine of hearts, East plays the ace of hearts, and East wins the trick with the ace of hearts.",
     "facts": {
       "opener": "East",
       "opening_bid": "1H",
@@ -1914,12 +1916,12 @@
       "auction": "North 2C - East Pass - South 2D - West Pass - North 3NT - East Pass - South Pass - West Pass",
       "contract": "3NT by North",
       "opening_lead": "East ♠4",
-      "play": "Trick 1: East ♠4 - North ♠A - West ♠7 - South ♠2; Winner: North ♠A"
+      "play": "Trick 1: East ♠4 - South ♠2 - West ♠7 - North ♠A; Winner: North ♠A"
     },
     "gold_artificial": [
       "OPEN(North, 2C, strong_artificial, very_strong_hand)",
       "PASS(East)",
-      "RESPOND(South, 2D, constructive_response)",
+      "RESPOND(South, 2D, waiting_response)",
       "PASS(West)",
       "BID(North, 3NT)",
       "PASS(East)",
@@ -1927,13 +1929,13 @@
       "PASS(West)",
       "CONTRACT(3NT, declarer=North)",
       "LEAD(East, ♠4)",
-      "PLAY(East, ♠4)",
-      "PLAY(North, ♠A)",
-      "PLAY(West, ♠7)",
-      "PLAY(South, ♠2)",
+      "PLAY(East, ♠4, trick_number=1)",
+      "PLAY(South, ♠2, trick_number=1)",
+      "PLAY(West, ♠7, trick_number=1)",
+      "PLAY(North, ♠A, trick_number=1)",
       "WIN_TRICK(North, trick_number=1, card=♠A)"
     ],
-    "gold_english": "North opens 2C, a strong artificial opening that usually shows a very powerful hand. East passes. South responds 2D, keeping the auction open. West passes. North bids 3NT. East passes. South passes. West passes. The final contract is 3NT by North. East leads the four of spades to begin the play. On trick 1, East plays the four of spades, North plays the ace of spades, West plays the seven of spades, South plays the two of spades, and North wins the trick with the ace of spades.",
+    "gold_english": "North opens 2C, a strong artificial opening that usually shows a very powerful hand. East passes. South responds 2D, keeping the auction open. West passes. North bids 3NT. East passes. South passes. West passes. The final contract is 3NT by North. East leads the four of spades to begin the play. On trick 1, East plays the four of spades, South plays the two of spades, West plays the seven of spades, North plays the ace of spades, and North wins the trick with the ace of spades.",
     "facts": {
       "opener": "North",
       "opening_bid": "2C",
@@ -1999,7 +2001,7 @@
   {
     "id": "train050",
     "raw": {
-      "auction": "South 2NT - West Pass - North 3NT - East Double - East Pass - South Pass - West Pass",
+      "auction": "South 2NT - West Pass - North 3NT - East Double - South Pass - West Pass - North Pass",
       "contract": "3NT by South",
       "opening_lead": "West ♦J"
     },
@@ -2008,13 +2010,13 @@
       "PASS(West)",
       "RAISE_TO_GAME(North, 3NT)",
       "DOUBLE(East)",
-      "PASS(East)",
       "PASS(South)",
       "PASS(West)",
+      "PASS(North)",
       "CONTRACT(3NT, declarer=South)",
       "LEAD(West, ♦J)"
     ],
-    "gold_english": "South opens 2NT, showing a balanced hand with about 20–21 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East doubles, increasing the penalty if the contract fails. East passes. South passes. West passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play.",
+    "gold_english": "South opens 2NT, showing a balanced hand with about 20–21 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East doubles, increasing the penalty if the contract fails. South passes. West passes. North passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play.",
     "facts": {
       "opener": "South",
       "opening_bid": "2NT",
@@ -2024,7 +2026,7 @@
       "declarer": "South",
       "opening_leader": "West",
       "opening_lead": "♦J",
-      "bid_sequence": "South:2NT West:PASS North:3NT East:DOUBLE East:PASS South:PASS West:PASS",
+      "bid_sequence": "South:2NT West:PASS North:3NT East:DOUBLE South:PASS West:PASS North:PASS",
       "double": "East"
     },
     "metadata": {
@@ -2041,7 +2043,7 @@
       "auction": "West 1S - North Pass - East 4S - South Pass - West Pass - North Pass",
       "contract": "4S by West",
       "opening_lead": "North ♣K",
-      "play": "Trick 1: North ♣K - West ♣A - South ♣7 - East ♣2; Winner: West ♣A"
+      "play": "Trick 1: North ♣K - East ♣2 - South ♣7 - West ♣A; Winner: West ♣A"
     },
     "gold_artificial": [
       "OPEN(West, 1S, suit_opening, opening_strength)",
@@ -2052,13 +2054,13 @@
       "PASS(North)",
       "CONTRACT(4S, declarer=West)",
       "LEAD(North, ♣K)",
-      "PLAY(North, ♣K)",
-      "PLAY(West, ♣A)",
-      "PLAY(South, ♣7)",
-      "PLAY(East, ♣2)",
+      "PLAY(North, ♣K, trick_number=1)",
+      "PLAY(East, ♣2, trick_number=1)",
+      "PLAY(South, ♣7, trick_number=1)",
+      "PLAY(West, ♣A, trick_number=1)",
       "WIN_TRICK(West, trick_number=1, card=♣A)"
     ],
-    "gold_english": "West opens 1S, showing an opening bid in spades. North passes. East raises directly to 4S, which is a game-level spade contract. South passes. West passes. North passes. The final contract is 4S by West. North leads the king of clubs to begin the play. On trick 1, North plays the king of clubs, West plays the ace of clubs, South plays the seven of clubs, East plays the two of clubs, and West wins the trick with the ace of clubs.",
+    "gold_english": "West opens 1S, showing an opening bid in spades. North passes. East raises directly to 4S, which is a game-level spade contract. South passes. West passes. North passes. The final contract is 4S by West. North leads the king of clubs to begin the play. On trick 1, North plays the king of clubs, East plays the two of clubs, South plays the seven of clubs, West plays the ace of clubs, and West wins the trick with the ace of clubs.",
     "facts": {
       "opener": "West",
       "opening_bid": "1S",
@@ -2160,7 +2162,7 @@
       "auction": "South 1C - West Pass - North 5C - East Pass - South Pass - West Pass",
       "contract": "5C by South",
       "opening_lead": "West ♦Q",
-      "play": "Trick 1: West ♦Q - South ♦A - East ♦7 - North ♦2; Winner: South ♦A"
+      "play": "Trick 1: West ♦Q - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A"
     },
     "gold_artificial": [
       "OPEN(South, 1C, suit_opening, opening_strength)",
@@ -2171,13 +2173,13 @@
       "PASS(West)",
       "CONTRACT(5C, declarer=South)",
       "LEAD(West, ♦Q)",
-      "PLAY(West, ♦Q)",
-      "PLAY(South, ♦A)",
-      "PLAY(East, ♦7)",
-      "PLAY(North, ♦2)",
+      "PLAY(West, ♦Q, trick_number=1)",
+      "PLAY(North, ♦2, trick_number=1)",
+      "PLAY(East, ♦7, trick_number=1)",
+      "PLAY(South, ♦A, trick_number=1)",
       "WIN_TRICK(South, trick_number=1, card=♦A)"
     ],
-    "gold_english": "South opens 1C, showing an opening bid in clubs. West passes. North raises directly to 5C, which is a game-level club contract. East passes. South passes. West passes. The final contract is 5C by South. West leads the queen of diamonds to begin the play. On trick 1, West plays the queen of diamonds, South plays the ace of diamonds, East plays the seven of diamonds, North plays the two of diamonds, and South wins the trick with the ace of diamonds.",
+    "gold_english": "South opens 1C, showing an opening bid in clubs. West passes. North raises directly to 5C, which is a game-level club contract. East passes. South passes. West passes. The final contract is 5C by South. West leads the queen of diamonds to begin the play. On trick 1, West plays the queen of diamonds, North plays the two of diamonds, East plays the seven of diamonds, South plays the ace of diamonds, and South wins the trick with the ace of diamonds.",
     "facts": {
       "opener": "South",
       "opening_bid": "1C",
@@ -2209,7 +2211,7 @@
     "gold_artificial": [
       "OPEN(West, 2C, strong_artificial, very_strong_hand)",
       "PASS(North)",
-      "RESPOND(East, 2D, constructive_response)",
+      "RESPOND(East, 2D, waiting_response)",
       "PASS(South)",
       "BID(West, 3NT)",
       "PASS(North)",
@@ -2285,7 +2287,7 @@
       "auction": "East 2NT - South Pass - West 3NT - North Pass - East Pass - South Pass",
       "contract": "3NT by East",
       "opening_lead": "South ♥2",
-      "play": "Trick 1: South ♥2 - East ♥A - North ♥7 - West ♥2; Winner: East ♥A"
+      "play": "Trick 1: South ♥2 - West ♥3 - North ♥7 - East ♥A; Winner: East ♥A"
     },
     "gold_artificial": [
       "OPEN(East, 2NT, balanced, 20-21_HCP)",
@@ -2296,13 +2298,13 @@
       "PASS(South)",
       "CONTRACT(3NT, declarer=East)",
       "LEAD(South, ♥2)",
-      "PLAY(South, ♥2)",
-      "PLAY(East, ♥A)",
-      "PLAY(North, ♥7)",
-      "PLAY(West, ♥2)",
+      "PLAY(South, ♥2, trick_number=1)",
+      "PLAY(West, ♥3, trick_number=1)",
+      "PLAY(North, ♥7, trick_number=1)",
+      "PLAY(East, ♥A, trick_number=1)",
       "WIN_TRICK(East, trick_number=1, card=♥A)"
     ],
-    "gold_english": "East opens 2NT, showing a balanced hand with about 20–21 high-card points. South passes. West raises directly to 3NT, which is a game-level no-trump contract. North passes. East passes. South passes. The final contract is 3NT by East. South leads the two of hearts to begin the play. On trick 1, South plays the two of hearts, East plays the ace of hearts, North plays the seven of hearts, West plays the two of hearts, and East wins the trick with the ace of hearts.",
+    "gold_english": "East opens 2NT, showing a balanced hand with about 20–21 high-card points. South passes. West raises directly to 3NT, which is a game-level no-trump contract. North passes. East passes. South passes. The final contract is 3NT by East. South leads the two of hearts to begin the play. On trick 1, South plays the two of hearts, West plays the three of hearts, North plays the seven of hearts, East plays the ace of hearts, and East wins the trick with the ace of hearts.",
     "facts": {
       "opener": "East",
       "opening_bid": "2NT",
@@ -2401,28 +2403,28 @@
   {
     "id": "train060",
     "raw": {
-      "auction": "North 1D - East Pass - South 5D - West Double - West Pass - North Pass - East Pass",
+      "auction": "North 1D - East Pass - South 5D - West Double - North Pass - East Pass - South Pass",
       "contract": "5D by North",
-      "opening_lead": "East ♠A",
-      "play": "Trick 1: East ♠A - North ♠A - West ♠7 - South ♠2; Winner: North ♠A"
+      "opening_lead": "East ♠K",
+      "play": "Trick 1: East ♠K - South ♠2 - West ♠7 - North ♠A; Winner: North ♠A"
     },
     "gold_artificial": [
       "OPEN(North, 1D, suit_opening, opening_strength)",
       "PASS(East)",
       "RAISE_TO_GAME(South, 5D)",
       "DOUBLE(West)",
-      "PASS(West)",
       "PASS(North)",
       "PASS(East)",
+      "PASS(South)",
       "CONTRACT(5D, declarer=North)",
-      "LEAD(East, ♠A)",
-      "PLAY(East, ♠A)",
-      "PLAY(North, ♠A)",
-      "PLAY(West, ♠7)",
-      "PLAY(South, ♠2)",
+      "LEAD(East, ♠K)",
+      "PLAY(East, ♠K, trick_number=1)",
+      "PLAY(South, ♠2, trick_number=1)",
+      "PLAY(West, ♠7, trick_number=1)",
+      "PLAY(North, ♠A, trick_number=1)",
       "WIN_TRICK(North, trick_number=1, card=♠A)"
     ],
-    "gold_english": "North opens 1D, showing an opening bid in diamonds. East passes. South raises directly to 5D, which is a game-level diamond contract. West doubles, increasing the penalty if the contract fails. West passes. North passes. East passes. The final contract is 5D by North. East leads the ace of spades to begin the play. On trick 1, East plays the ace of spades, North plays the ace of spades, West plays the seven of spades, South plays the two of spades, and North wins the trick with the ace of spades.",
+    "gold_english": "North opens 1D, showing an opening bid in diamonds. East passes. South raises directly to 5D, which is a game-level diamond contract. West doubles, increasing the penalty if the contract fails. North passes. East passes. South passes. The final contract is 5D by North. East leads the king of spades to begin the play. On trick 1, East plays the king of spades, South plays the two of spades, West plays the seven of spades, North plays the ace of spades, and North wins the trick with the ace of spades.",
     "facts": {
       "opener": "North",
       "opening_bid": "1D",
@@ -2431,8 +2433,8 @@
       "contract": "5D",
       "declarer": "North",
       "opening_leader": "East",
-      "opening_lead": "♠A",
-      "bid_sequence": "North:1D East:PASS South:5D West:DOUBLE West:PASS North:PASS East:PASS",
+      "opening_lead": "♠K",
+      "bid_sequence": "North:1D East:PASS South:5D West:DOUBLE North:PASS East:PASS South:PASS",
       "double": "West",
       "trick_1_winner": "North",
       "trick_1_winning_card": "♠A"

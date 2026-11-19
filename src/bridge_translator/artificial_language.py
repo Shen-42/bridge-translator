@@ -6,9 +6,10 @@ Maps parsed Bridge events into the controlled artificial Bridge language.
 
 from __future__ import annotations
 
-from typing import Dict, List
+from typing import Dict, List, Set
 
 from .bridge_parser import Event, parse_raw_record
+from .validate import bid_strain, partner
 
 
 GAME_CONTRACTS = {"3NT", "4H", "4S", "5C", "5D"}
@@ -36,7 +37,9 @@ def response_meaning(bid: str) -> str:
     return "response"
 
 
-def event_to_artificial(event: Event, auction_call_index: int = 0, bid_index: int = 0) -> str:
+def event_to_artificial(
+    event: Event, auction_call_index: int = 0, bid_index: int = 0, raises_partner: bool = True
+) -> str:
     if event.type == "PASS":
         return f"PASS({event.args['player']})"
 
@@ -54,7 +57,9 @@ def event_to_artificial(event: Event, auction_call_index: int = 0, bid_index: in
             return f"OPEN({player}, {bid}, {opening_interpretation(bid)})"
 
         if bid in GAME_CONTRACTS:
-            return f"RAISE_TO_GAME({player}, {bid})"
+            if raises_partner:
+                return f"RAISE_TO_GAME({player}, {bid})"
+            return f"BID({player}, {bid})"
 
         return f"RESPOND({player}, {bid}, {response_meaning(bid)})"
 
@@ -86,13 +91,19 @@ def events_to_artificial(events: List[Event]) -> List[str]:
     artificial: List[str] = []
     auction_call_index = 0
     bid_index = 0
+    strains_bid: Dict[str, Set[str]] = {}
 
     for event in events:
         if event.type in {"BID", "PASS", "DOUBLE", "REDOUBLE", "UNKNOWN_CALL"}:
-            artificial.append(event_to_artificial(event, auction_call_index, bid_index))
+            raises_partner = False
+            if event.type == "BID":
+                player, strain = event.args["player"], bid_strain(event.args["bid"])
+                raises_partner = strain in strains_bid.get(partner(player), set())
+            artificial.append(event_to_artificial(event, auction_call_index, bid_index, raises_partner))
             auction_call_index += 1
             if event.type == "BID":
                 bid_index += 1
+                strains_bid.setdefault(player, set()).add(strain)
         else:
             artificial.append(event_to_artificial(event, auction_call_index, bid_index))
 

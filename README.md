@@ -53,8 +53,8 @@ I compared seven approaches on 15 held-out test examples. The main comparison is
 
 | Approach | Facts kept | Bridge meaning (out of 5) | Readability (out of 5) |
 |---|---:|---:|---:|
-| Straight from shorthand | 74% | 2.86 | 5.00 |
-| From artificial language (template) | 89% | 4.77 | 4.95 |
+| Straight from shorthand | 74% | 2.84 | 5.00 |
+| From artificial language (template) | 89% | 4.69 | 4.95 |
 
 Going through the artificial language kept more of the original facts and explained more of what the bids mean, with almost no loss in readability. Full results for all seven approaches are in the paper (`paper/Translating_Bridge.pdf`).
 
@@ -110,6 +110,12 @@ python scripts/run_dev.py
 
 Each script prints a score table for all seven approaches. Saved outputs and summaries from earlier runs are in `reports/`.
 
+Run the unit tests (parser, generator, and the legality checker, which also checks every record in `data/`):
+
+```bash
+PYTHONPATH=src python -m unittest discover -s tests
+```
+
 ## Repository layout
 
 ```text
@@ -117,6 +123,7 @@ bridge-translator/
 ├── data/                  # train/dev/test examples (JSON)
 ├── src/bridge_translator/ # parser, artificial language, generators, evaluation
 ├── scripts/               # demo and evaluation scripts
+├── tests/                 # unit tests (unittest)
 ├── reports/               # saved dev/test outputs
 ├── paper/                 # final paper (PDF) and LaTeX source
 └── examples/              # sample input and output
@@ -129,7 +136,7 @@ bridge-translator/
 - **Scores are automatic estimates.** Readability and Bridge meaning are measured with simple rules, not by people.
 - **Awkward phrasing in the simulated model.** It writes "After 1 pass, the auction continues" after single passes, and "After 3 passes, the auction continues" even when three passes end the auction.
 - **The shorthand-only model drops details.** For example, it can write "West J" and leave out the suit of the opening lead.
-- **Parsing is imperfect on harder records.** Records with doubles, redoubles, card play, or finesses don't always match the reference artificial language exactly.
+- **The artificial-language match score is not evidence yet.** The parser now matches the reference artificial language on every record, but the dataset only covers seven auction patterns, so this says little about unseen auctions.
 - **Bridge knowledge is basic.** The program gives the most common meaning of each bid and ignores partnership agreements, vulnerability, and scoring.
 
 ## To do
@@ -139,4 +146,4 @@ bridge-translator/
 - [ ] Run a study where Bridge players score accuracy and beginners score readability
 - [ ] Write a formal grammar for the artificial language so badly formed output is caught automatically
 - [ ] Add a reverse task: rebuild the original record from the English explanation
-- [ ] Add unit tests for the parser and generators
+- [x] Add unit tests for the parser and generators
