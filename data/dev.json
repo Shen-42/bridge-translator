@@ -130,14 +130,14 @@
       "PASS(East)",
       "RESPOND(South, 2D, waiting_response)",
       "PASS(West)",
-      "BID(North, 3NT)",
+      "REBID(North, 3NT, notrump)",
       "PASS(East)",
       "PASS(South)",
       "PASS(West)",
       "CONTRACT(3NT, declarer=North)",
       "LEAD(East, ♠4)"
     ],
-    "gold_english": "North opens 2C, a strong artificial opening that usually shows a very powerful hand. East passes. South responds 2D, keeping the auction open. West passes. North bids 3NT. East passes. South passes. West passes. The final contract is 3NT by North. East leads the four of spades to begin the play.",
+    "gold_english": "North opens 2C, a strong artificial opening that usually shows a very powerful hand. East passes. South responds 2D, keeping the auction open. West passes. North rebids 3NT, which is a game-level no-trump contract. East passes. South passes. West passes. The final contract is 3NT by North. East leads the four of spades to begin the play.",
     "facts": {
       "opener": "North",
       "opening_bid": "2C",
@@ -366,22 +366,22 @@
     "id": "dev010",
     "raw": {
       "auction": "South 1C - West Pass - North 5C - East Double - South Redouble - West Pass - North Pass - East Pass",
-      "contract": "5C by South",
+      "contract": "5CXX by South",
       "opening_lead": "West ♦Q"
     },
     "gold_artificial": [
       "OPEN(South, 1C, suit_opening, opening_strength)",
       "PASS(West)",
       "RAISE_TO_GAME(North, 5C)",
-      "DOUBLE(East)",
-      "REDOUBLE(South)",
+      "DOUBLE(East, penalty)",
+      "REDOUBLE(South, to_play)",
       "PASS(West)",
       "PASS(North)",
       "PASS(East)",
-      "CONTRACT(5C, declarer=South)",
+      "CONTRACT(5C, declarer=South, doubled=XX)",
       "LEAD(West, ♦Q)"
     ],
-    "gold_english": "South opens 1C, showing an opening bid in clubs. West passes. North raises directly to 5C, which is a game-level club contract. East doubles, increasing the penalty if the contract fails. South redoubles, increasing the stakes after the double. West passes. North passes. East passes. The final contract is 5C by South. West leads the queen of diamonds to begin the play.",
+    "gold_english": "South opens 1C, showing an opening bid in clubs. West passes. North raises directly to 5C, which is a game-level club contract. East doubles, increasing the penalty if the contract fails. South redoubles, increasing the stakes after the double. West passes. North passes. East passes. The final contract is 5C redoubled by South. West leads the queen of diamonds to begin the play.",
     "facts": {
       "opener": "South",
       "opening_bid": "1C",
@@ -416,7 +416,7 @@
       "PASS(North)",
       "RESPOND(East, 2D, waiting_response)",
       "PASS(South)",
-      "BID(West, 3NT)",
+      "REBID(West, 3NT, notrump)",
       "PASS(North)",
       "PASS(East)",
       "PASS(South)",
@@ -428,7 +428,7 @@
       "PLAY(West, ♣A, trick_number=1)",
       "WIN_TRICK(West, trick_number=1, card=♣A)"
     ],
-    "gold_english": "West opens 2C, a strong artificial opening that usually shows a very powerful hand. North passes. East responds 2D, keeping the auction open. South passes. West bids 3NT. North passes. East passes. South passes. The final contract is 3NT by West. North leads the three of clubs to begin the play. On trick 1, North plays the three of clubs, East plays the two of clubs, South plays the seven of clubs, West plays the ace of clubs, and West wins the trick with the ace of clubs.",
+    "gold_english": "West opens 2C, a strong artificial opening that usually shows a very powerful hand. North passes. East responds 2D, keeping the auction open. South passes. West rebids 3NT, which is a game-level no-trump contract. North passes. East passes. South passes. The final contract is 3NT by West. North leads the three of clubs to begin the play. On trick 1, North plays the three of clubs, East plays the two of clubs, South plays the seven of clubs, West plays the ace of clubs, and West wins the trick with the ace of clubs.",
     "facts": {
       "opener": "West",
       "opening_bid": "2C",

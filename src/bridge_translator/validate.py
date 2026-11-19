@@ -7,7 +7,8 @@ error strings; an empty list means the record is legal.
 Checked:
 - Auction: calls go clockwise, bids increase, doubles/redoubles are legal,
   the auction ends with three passes (or four passes for a passed-out deal).
-- Contract: the stated contract and declarer match the auction.
+- Contract: the stated contract, doubled status and declarer match the auction.
+- Dealer: if given, the dealer makes the first call.
 - Opening lead: made by the player to the left of declarer.
 - Play: each trick goes clockwise from the right leader, no card is played
   twice, and the stated winner actually won the trick.
@@ -196,6 +197,14 @@ def validate_record(raw: Dict[str, str]) -> List[str]:
             errors.append(f"contract is stated as {contract.args['contract']}, but the auction ends in {final['contract']}")
         if contract.args["declarer"] != final["declarer"]:
             errors.append(f"declarer is stated as {contract.args['declarer']}, but the auction makes {final['declarer']} declarer")
+        if contract.args.get("doubled", "") != final["doubled"]:
+            errors.append(
+                f"contract is stated with doubled={contract.args.get('doubled', '') or 'none'}, "
+                f"but the auction gives doubled={final['doubled'] or 'none'}"
+            )
+
+    if raw.get("dealer") and auction_events and auction_events[0].args["player"] != raw["dealer"]:
+        errors.append(f"dealer is {raw['dealer']}, but {auction_events[0].args['player']} makes the first call")
 
     declarer = final["declarer"] if final else (contract.args["declarer"] if contract else None)
     strain = bid_strain(final["contract"]) if final else (bid_strain(contract.args["contract"]) if contract else None)

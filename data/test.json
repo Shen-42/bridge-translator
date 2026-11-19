@@ -56,14 +56,14 @@
       "PASS(West)",
       "RESPOND(North, 2D, waiting_response)",
       "PASS(East)",
-      "BID(South, 3NT)",
+      "REBID(South, 3NT, notrump)",
       "PASS(West)",
       "PASS(North)",
       "PASS(East)",
       "CONTRACT(3NT, declarer=South)",
       "LEAD(West, ♦J)"
     ],
-    "gold_english": "South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open. East passes. South bids 3NT. West passes. North passes. East passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play.",
+    "gold_english": "South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open. East passes. South rebids 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play.",
     "facts": {
       "opener": "South",
       "opening_bid": "2C",
@@ -337,14 +337,14 @@
       "PASS(South)",
       "RESPOND(West, 2D, waiting_response)",
       "PASS(North)",
-      "BID(East, 3NT)",
+      "REBID(East, 3NT, notrump)",
       "PASS(South)",
       "PASS(West)",
       "PASS(North)",
       "CONTRACT(3NT, declarer=East)",
       "LEAD(South, ♥2)"
     ],
-    "gold_english": "East opens 2C, a strong artificial opening that usually shows a very powerful hand. South passes. West responds 2D, keeping the auction open. North passes. East bids 3NT. South passes. West passes. North passes. The final contract is 3NT by East. South leads the two of hearts to begin the play.",
+    "gold_english": "East opens 2C, a strong artificial opening that usually shows a very powerful hand. South passes. West responds 2D, keeping the auction open. North passes. East rebids 3NT, which is a game-level no-trump contract. South passes. West passes. North passes. The final contract is 3NT by East. South leads the two of hearts to begin the play.",
     "facts": {
       "opener": "East",
       "opening_bid": "2C",
@@ -368,7 +368,7 @@
     "id": "test010",
     "raw": {
       "auction": "South 1NT - West Pass - North 3NT - East Double - South Pass - West Pass - North Pass",
-      "contract": "3NT by South",
+      "contract": "3NTX by South",
       "opening_lead": "West ♦J",
       "play": "Trick 1: West ♦J - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A",
       "note": "Finesse: South in ♦ against queen; success"
@@ -377,11 +377,11 @@
       "OPEN(South, 1NT, balanced, 15-17_HCP)",
       "PASS(West)",
       "RAISE_TO_GAME(North, 3NT)",
-      "DOUBLE(East)",
+      "DOUBLE(East, penalty)",
       "PASS(South)",
       "PASS(West)",
       "PASS(North)",
-      "CONTRACT(3NT, declarer=South)",
+      "CONTRACT(3NT, declarer=South, doubled=X)",
       "LEAD(West, ♦J)",
       "PLAY(West, ♦J, trick_number=1)",
       "PLAY(North, ♦2, trick_number=1)",
@@ -390,7 +390,7 @@
       "WIN_TRICK(South, trick_number=1, card=♦A)",
       "FINESSE_ATTEMPT(South, suit=♦, target=queen, outcome=success)"
     ],
-    "gold_english": "South opens 1NT, showing a balanced hand with about 15–17 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East doubles, increasing the penalty if the contract fails. South passes. West passes. North passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. On trick 1, West plays the jack of diamonds, North plays the two of diamonds, East plays the seven of diamonds, South plays the ace of diamonds, and South wins the trick with the ace of diamonds. South attempts a finesse in diamonds against the queen; the finesse works.",
+    "gold_english": "South opens 1NT, showing a balanced hand with about 15–17 high-card points. West passes. North raises directly to 3NT, which is a game-level no-trump contract. East doubles, increasing the penalty if the contract fails. South passes. West passes. North passes. The final contract is 3NT doubled by South. West leads the jack of diamonds to begin the play. On trick 1, West plays the jack of diamonds, North plays the two of diamonds, East plays the seven of diamonds, South plays the ace of diamonds, and South wins the trick with the ace of diamonds. South attempts a finesse in diamonds against the queen; the finesse works.",
     "facts": {
       "opener": "South",
       "opening_bid": "1NT",

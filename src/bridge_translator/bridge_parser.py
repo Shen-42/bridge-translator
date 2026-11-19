@@ -9,6 +9,9 @@ Supported:
 - Opening leads
 - Simple trick-by-trick play records
 - Finesse notes
+- Alerted (artificial) calls, marked with a trailing "!" such as "1C!"
+- Doubled contracts such as "4HX by South"
+- Hands (PBN-style "AKQ2.J54.T3.9876" per player) and the number of tricks declarer took
 
 The parser is intentionally transparent because this project studies whether an
 explicit controlled representation improves Bridge-to-English generation.
@@ -81,7 +84,8 @@ def parse_auction(auction_text: str) -> List[Event]:
         if player not in PLAYERS:
             continue
 
-        action_upper = action.upper()
+        alerted = action.endswith("!")
+        action_upper = action.rstrip("!").upper()
 
         if action_upper in {"PASS", "P"}:
             events.append(Event("PASS", {"player": player}))
@@ -90,7 +94,10 @@ def parse_auction(auction_text: str) -> List[Event]:
         elif action_upper in {"REDOUBLE", "XX", "RDBL"}:
             events.append(Event("REDOUBLE", {"player": player}))
         elif re.fullmatch(BID_PATTERN, action_upper):
-            events.append(Event("BID", {"player": player, "bid": normalize_bid(action_upper)}))
+            args = {"player": player, "bid": normalize_bid(action_upper)}
+            if alerted:
+                args["alerted"] = "true"
+            events.append(Event("BID", args))
         else:
             events.append(Event("UNKNOWN_CALL", {"player": player, "action": action}))
 
@@ -101,19 +108,16 @@ def parse_contract(contract_text: str) -> Optional[Event]:
     if not contract_text:
         return None
 
-    pattern = rf"({BID_PATTERN})\s+by\s+({PLAYER_PATTERN})"
+    pattern = rf"({BID_PATTERN})\s*(XX|X)?\s+by\s+({PLAYER_PATTERN})"
     match = re.search(pattern, contract_text, flags=re.IGNORECASE)
 
     if not match:
         return None
 
-    return Event(
-        "CONTRACT",
-        {
-            "contract": normalize_bid(match.group(1)),
-            "declarer": match.group(2),
-        },
-    )
+    args = {"contract": normalize_bid(match.group(1)), "declarer": match.group(3)}
+    if match.group(2):
+        args["doubled"] = match.group(2).upper()
+    return Event("CONTRACT", args)
 
 
 def parse_opening_lead(lead_text: str) -> Optional[Event]:
@@ -216,9 +220,29 @@ def parse_finesse_note(note_text: str) -> Optional[Event]:
     )
 
 
+HCP = {"A": 4, "K": 3, "Q": 2, "J": 1}
+
+
+def parse_hands(hands: Dict[str, str]) -> List[Event]:
+    """
+    Parse hands given per player in PBN order spades.hearts.diamonds.clubs,
+    for example {"North": "AK963.AJ5.32.KT5", ...}.
+    """
+    events: List[Event] = []
+    for player in PLAYERS:
+        if player not in hands:
+            continue
+        suits = hands[player].split(".")
+        hcp = sum(HCP.get(card, 0) for suit in suits for card in suit)
+        shape = "-".join(str(len(suit)) for suit in suits)
+        events.append(Event("HAND", {"player": player, "hcp": str(hcp), "shape": shape}))
+    return events
+
+
 def parse_raw_record(raw: Dict[str, str]) -> List[Event]:
     events: List[Event] = []
 
+    events.extend(parse_hands(raw.get("hands", {})))
     events.extend(parse_auction(raw.get("auction", "")))
 
     contract = parse_contract(raw.get("contract", ""))
@@ -235,5 +259,12 @@ def parse_raw_record(raw: Dict[str, str]) -> List[Event]:
 
     if finesse:
         events.append(finesse)
+
+    if raw.get("result") and contract:
+        events.append(Event("RESULT", {
+            "declarer": contract.args["declarer"],
+            "contract": contract.args["contract"],
+            "tricks": str(raw["result"]),
+        }))
 
     return events

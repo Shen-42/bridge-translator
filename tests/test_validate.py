@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 LEGAL = {
     "auction": "South 1NT - West Pass - North 3NT - East Double - South Pass - West Pass - North Pass",
-    "contract": "3NT by South",
+    "contract": "3NTX by South",
     "opening_lead": "West ♦J",
     "play": "Trick 1: West ♦J - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A",
 }
@@ -68,8 +68,16 @@ class ValidateRecordTest(unittest.TestCase):
     def test_legal_record(self):
         self.assertEqual(validate_record(LEGAL), [])
 
+    def test_doubled_status_must_match(self):
+        errors = validate_record({**LEGAL, "contract": "3NT by South"})
+        self.assertIn("contract is stated with doubled=none, but the auction gives doubled=X", errors)
+
+    def test_dealer_must_call_first(self):
+        errors = validate_record({**LEGAL, "dealer": "North"})
+        self.assertIn("dealer is North, but South makes the first call", errors)
+
     def test_wrong_declarer(self):
-        errors = validate_record({**LEGAL, "contract": "3NT by North"})
+        errors = validate_record({**LEGAL, "contract": "3NTX by North"})
         self.assertIn("declarer is stated as North, but the auction makes South declarer", errors)
 
     def test_wrong_opening_leader(self):

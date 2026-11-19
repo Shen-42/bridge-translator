@@ -65,11 +65,93 @@ class ArtificialLanguageTest(unittest.TestCase):
             {"auction": "South 2C - West Pass - North 2D - East Pass - South 3NT - West Pass - North Pass - East Pass"}
         )
         self.assertEqual(lines[2], "RESPOND(North, 2D, waiting_response)")
-        self.assertEqual(lines[4], "BID(South, 3NT)")
+        self.assertEqual(lines[4], "REBID(South, 3NT, notrump)")
 
     def test_game_in_new_strain_is_not_a_raise(self):
         lines = raw_to_artificial({"auction": "North 1H - East Pass - South 4S"})
-        self.assertEqual(lines[2], "BID(South, 4S)")
+        self.assertEqual(lines[2], "RESPOND(South, 4S, new_suit)")
+
+
+def auction(text):
+    return raw_to_artificial({"auction": text})
+
+
+class RolesAndSeatsTest(unittest.TestCase):
+    def test_overcall_advance_and_rebid(self):
+        lines = auction("North 1H - East 1S - South 2H - West 2S - North 3H")
+        self.assertEqual(
+            lines,
+            [
+                "OPEN(North, 1H, suit_opening, opening_strength)",
+                "OVERCALL(East, 1S, simple_overcall)",
+                "RESPOND(South, 2H, raise)",
+                "ADVANCE(West, 2S, raise)",
+                "REBID(North, 3H, own_suit)",
+            ],
+        )
+
+    def test_overcall_types(self):
+        self.assertEqual(auction("North 1H - East 2S")[1], "OVERCALL(East, 2S, jump_overcall)")
+        self.assertEqual(auction("North 1H - East 1NT")[1], "OVERCALL(East, 1NT, notrump_overcall)")
+        self.assertEqual(auction("North 1H - East 2H")[1], "OVERCALL(East, 2H, cue_bid)")
+        self.assertEqual(auction("North 1H - East 2NT")[1], "OVERCALL(East, 2NT, unusual_2nt)")
+        self.assertEqual(auction("North 1S - East 2H")[1], "OVERCALL(East, 2H, simple_overcall)")
+
+    def test_seat(self):
+        self.assertEqual(auction("North Pass - East Pass - South 1S")[2], "OPEN(South, 1S, suit_opening, opening_strength, seat=3)")
+        self.assertEqual(auction("North Pass - East 1S")[1], "OPEN(East, 1S, suit_opening, opening_strength)")
+
+    def test_opening_types(self):
+        self.assertEqual(auction("North 2H")[0], "OPEN(North, 2H, weak_two, six_card_suit, 5-10_HCP)")
+        self.assertEqual(auction("North 3C")[0], "OPEN(North, 3C, preempt, long_suit, weak_hand)")
+        self.assertEqual(auction("North 1C!")[0], "OPEN(North, 1C, artificial, system_specific)")
+
+    def test_stayman_and_transfers(self):
+        self.assertEqual(auction("North 1NT - East Pass - South 2C")[2], "RESPOND(South, 2C, stayman)")
+        self.assertEqual(auction("North 1NT - East Pass - South 2H")[2], "RESPOND(South, 2H, transfer)")
+        self.assertEqual(auction("North 2NT - East Pass - South 3D")[2], "RESPOND(South, 3D, transfer)")
+        # After interference, 2C is natural.
+        self.assertEqual(auction("North 1NT - East 2D - South 3C")[2], "RESPOND(South, 3C, new_suit)")
+
+
+class DoublesTest(unittest.TestCase):
+    def test_takeout(self):
+        self.assertEqual(auction("North 1H - East Double")[1], "DOUBLE(East, takeout)")
+
+    def test_negative(self):
+        self.assertEqual(auction("North 1C - East 1S - South Double")[2], "DOUBLE(South, negative)")
+
+    def test_penalty_of_notrump_and_of_game(self):
+        self.assertEqual(auction("North 1NT - East Double")[1], "DOUBLE(East, penalty)")
+        self.assertEqual(auction("North 1H - East Pass - South 4H - West Double")[3], "DOUBLE(West, penalty)")
+
+    def test_penalty_when_partner_has_bid(self):
+        lines = auction("North 1H - East 1S - South 2C - West 2S - North 3C - East Pass - South Pass - West Double")
+        self.assertEqual(lines[-1], "DOUBLE(West, penalty)")
+
+    def test_lead_directing(self):
+        self.assertEqual(auction("North 1NT - East Pass - South 2C - West Double")[3], "DOUBLE(West, lead_directing)")
+        self.assertEqual(auction("North 1C! - East Double")[1], "DOUBLE(East, lead_directing)")
+
+    def test_redoubles(self):
+        self.assertEqual(auction("North 1H - East Double - South Redouble")[2], "REDOUBLE(South, strength)")
+        self.assertEqual(
+            auction("North 1H - East Pass - South 4H - West Double - North Redouble")[4], "REDOUBLE(North, to_play)"
+        )
+
+
+class HandsAndResultTest(unittest.TestCase):
+    def test_hand_line(self):
+        lines = raw_to_artificial({"hands": {"North": "AK963.AJ5.32.KT5"}})
+        self.assertEqual(lines, ["HAND(North, hcp=15, shape=5-3-2-3)"])
+
+    def test_doubled_contract_and_result(self):
+        lines = raw_to_artificial({"contract": "4HX by South", "result": "8"})
+        self.assertEqual(lines, ["CONTRACT(4H, declarer=South, doubled=X)", "RESULT(South, contract=4H, tricks=8)"])
+        self.assertEqual(
+            artificial_to_english(lines),
+            "The final contract is 4H doubled by South. South takes 8 tricks, going down two.",
+        )
 
 
 class GeneratorTest(unittest.TestCase):

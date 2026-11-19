@@ -6,8 +6,8 @@
     "bridge_meaning": 2.846024346024346,
     "beginner_readability": 5.0,
     "reconstructability": 0.7384097384097383,
-    "bleu_like": 0.0004304336487890451,
-    "rouge_l_like": 0.16900740739808978,
+    "bleu_like": 0.000397853912836778,
+    "rouge_l_like": 0.16583933672373471,
     "artificial_exact_match": null
   },
   {
@@ -17,8 +17,8 @@
     "bridge_meaning": 1.3,
     "beginner_readability": 5.0,
     "reconstructability": 0.0,
-    "bleu_like": 2.371044983697221e-07,
-    "rouge_l_like": 0.056515239422146264,
+    "bleu_like": 2.2679679220061666e-07,
+    "rouge_l_like": 0.05758195969305003,
     "artificial_exact_match": null
   },
   {
@@ -28,8 +28,8 @@
     "bridge_meaning": 3.52015022015022,
     "beginner_readability": 5.0,
     "reconstructability": 0.8880600880600881,
-    "bleu_like": 0.1868973948794417,
-    "rouge_l_like": 0.3839573158494289,
+    "bleu_like": 0.17303176065785084,
+    "rouge_l_like": 0.3757296275708599,
     "artificial_exact_match": null
   },
   {
@@ -39,8 +39,8 @@
     "bridge_meaning": 4.380150220150219,
     "beginner_readability": 4.973333333333333,
     "reconstructability": 0.8880600880600881,
-    "bleu_like": 0.6287257283605585,
-    "rouge_l_like": 0.7285159011086343,
+    "bleu_like": 0.62121716352457,
+    "rouge_l_like": 0.7191381079490128,
     "artificial_exact_match": 1.0
   },
   {
@@ -50,18 +50,18 @@
     "bridge_meaning": 3.588122248122248,
     "beginner_readability": 3.81,
     "reconstructability": 0.8992488992488992,
-    "bleu_like": 0.0005520507193051155,
-    "rouge_l_like": 0.2756111074185996,
+    "bleu_like": 0.0005136915041610038,
+    "rouge_l_like": 0.2709347660019355,
     "artificial_exact_match": null
   },
   {
     "system": "template_beginner",
     "n": 15,
     "fact_preservation": 0.8880600880600881,
-    "bridge_meaning": 4.708282828282829,
+    "bridge_meaning": 4.748282828282828,
     "beginner_readability": 4.946666666666667,
     "reconstructability": 0.8880600880600881,
-    "bleu_like": 0.9872447883830612,
+    "bleu_like": 0.9883374106014469,
     "rouge_l_like": 1.0,
     "artificial_exact_match": 1.0
   },
@@ -72,8 +72,8 @@
     "bridge_meaning": 4.380150220150219,
     "beginner_readability": 4.973333333333333,
     "reconstructability": 0.8880600880600881,
-    "bleu_like": 0.798137388372533,
-    "rouge_l_like": 0.8545086430817501,
+    "bleu_like": 0.7761727420210145,
+    "rouge_l_like": 0.8395972291775906,
     "artificial_exact_match": 1.0
   }
 ]
