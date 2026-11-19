@@ -1,0 +1,1601 @@
+[
+  {
+    "id": "real_dev001",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "983.Q7.65432.KT6",
+        "East": "A754.AKT4.Q97.85",
+        "South": "KQJ2.J9.AKT.QJ72",
+        "West": "T6.86532.J8.A943"
+      },
+      "auction": "West Pass - North Pass - East 1C! - South 1NT - West Pass - North Pass - East Pass",
+      "contract": "1NT by South",
+      "opening_lead": "West ♥3",
+      "play": "Trick 1: West ♥3 - North ♥7 - East ♥K - South ♥9; Winner: East ♥K",
+      "result": "6"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "overcaller": "South",
+      "overcall": "1NT",
+      "contract": "1NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♥3",
+      "declarer_tricks": "6"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "71994",
+        "board": "o16"
+      },
+      "pattern": "1C-(1NT)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev002",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "983.Q7.65432.KT6",
+        "East": "A754.AKT4.Q97.85",
+        "South": "KQJ2.J9.AKT.QJ72",
+        "West": "T6.86532.J8.A943"
+      },
+      "auction": "West Pass - North Pass - East 1D - South 1NT - West Pass - North Pass - East Pass",
+      "contract": "1NT by South",
+      "opening_lead": "West ♦J",
+      "play": "Trick 1: West ♦J - North ♦2 - East ♦7 - South ♦A; Winner: South ♦A",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1D",
+      "overcaller": "South",
+      "overcall": "1NT",
+      "contract": "1NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦J",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "71994",
+        "board": "c16"
+      },
+      "pattern": "1D-(1NT)",
+      "features": [
+        "contested",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev003",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "T3.863.AT543.K72",
+        "East": "K4.754.J97.AT964",
+        "South": "AQJ95.QT.Q2.J853",
+        "West": "8762.AKJ92.K86.Q"
+      },
+      "auction": "North Pass - East Pass - South 1S - West 2H - North Pass - East Pass - South Pass",
+      "contract": "2H by West",
+      "opening_lead": "North ♠T",
+      "play": "Trick 1: North ♠T - East ♠K - South ♠A - West ♠6; Winner: South ♠A",
+      "result": "9"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1S",
+      "overcaller": "West",
+      "overcall": "2H",
+      "contract": "2H",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♠T",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "o13"
+      },
+      "pattern": "1S-(2H)",
+      "features": [
+        "contested",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev004",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "T3.863.AT543.K72",
+        "East": "K4.754.J97.AT964",
+        "South": "AQJ95.QT.Q2.J853",
+        "West": "8762.AKJ92.K86.Q"
+      },
+      "auction": "North Pass - East Pass - South 1S - West 2H - North Pass - East 3H - South Pass - West Pass - North Pass",
+      "contract": "3H by West",
+      "opening_lead": "North ♥3",
+      "play": "Trick 1: North ♥3 - East ♥4 - South ♥Q - West ♥A; Winner: West ♥A",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1S",
+      "overcaller": "West",
+      "overcall": "2H",
+      "contract": "3H",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♥3",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "c13"
+      },
+      "pattern": "1S-(2H)-(3H)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev005",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KQJT5.4.AQ9653.T",
+        "East": "64.QJT965.T2.J65",
+        "South": "A832.A872.84.Q97",
+        "West": "97.K3.KJ7.AK8432"
+      },
+      "auction": "West 2C - North 2D - East Pass - South 2NT - West Pass - North 3S - East Pass - South 4S - West Pass - North Pass - East Pass",
+      "contract": "4S by North",
+      "opening_lead": "East ♥Q",
+      "play": "Trick 1: East ♥Q - South ♥A - West ♥3 - North ♥4; Winner: South ♥A",
+      "result": "13"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2C",
+      "overcaller": "North",
+      "overcall": "2D",
+      "contract": "4S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♥Q",
+      "declarer_tricks": "13"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "72991",
+        "board": "o16"
+      },
+      "pattern": "2C-(2D)-(2NT)-(3S)-(4S)",
+      "features": [
+        "contested"
+      ]
+    }
+  },
+  {
+    "id": "real_dev006",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KQJT5.4.AQ9653.T",
+        "East": "64.QJT965.T2.J65",
+        "South": "A832.A872.84.Q97",
+        "West": "97.K3.KJ7.AK8432"
+      },
+      "auction": "West 1NT - North 2S - East 2NT - South 3S - West Pass - North 4S - East Pass - South Pass - West Pass",
+      "contract": "4S by North",
+      "opening_lead": "East ♥Q",
+      "play": "Trick 1: East ♥Q - South ♥A - West ♥K - North ♥4; Winner: South ♥A",
+      "result": "12"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1NT",
+      "overcaller": "North",
+      "overcall": "2S",
+      "contract": "4S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♥Q",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "72991",
+        "board": "c16"
+      },
+      "pattern": "1NT-(2S)-2NT-(3S)-(4S)",
+      "features": [
+        "contested",
+        "notrump_opening"
+      ]
+    }
+  },
+  {
+    "id": "real_dev007",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "KT62..AJ953.AQ76",
+        "East": "AQ987.AJ5.8.J543",
+        "South": "J4.QT63.KT7642.K",
+        "West": "53.K98742.Q.T982"
+      },
+      "auction": "South Pass - West 2H - North Double - East 2NT - South 3D - West Pass - North 3H - East Pass - South 3NT - West Pass - North Pass - East Pass",
+      "contract": "3NT by South",
+      "opening_lead": "West ♣T",
+      "play": "Trick 1: West ♣T - North ♣6 - East ♣5 - South ♣K; Winner: South ♣K",
+      "result": "9"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2H",
+      "overcaller": "South",
+      "overcall": "3D",
+      "contract": "3NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♣T",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "o11"
+      },
+      "pattern": "2H-(X)-2NT-(3D)-(3H)-(3NT)",
+      "features": [
+        "contested",
+        "double",
+        "two_level_suit_opening"
+      ]
+    }
+  },
+  {
+    "id": "real_dev008",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "KT62..AJ953.AQ76",
+        "East": "AQ987.AJ5.8.J543",
+        "South": "J4.QT63.KT7642.K",
+        "West": "53.K98742.Q.T982"
+      },
+      "auction": "South Pass - West Pass - North 1D - East 1S - South Double - West Pass - North 2C - East Pass - South 3D - West Pass - North 3NT - East Pass - South Pass - West Pass",
+      "contract": "3NT by North",
+      "opening_lead": "East ♠8",
+      "play": "Trick 1: East ♠8 - South ♠4 - West ♠5 - North ♠T; Winner: North ♠T",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1D",
+      "overcaller": "East",
+      "overcall": "1S",
+      "contract": "3NT",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♠8",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "c11"
+      },
+      "pattern": "1D-(1S)-X-2C-3D-3NT",
+      "features": [
+        "contested",
+        "double",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev009",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "A9872.T.96.AJ983",
+        "East": "T.J8543.AKQ7.642",
+        "South": "Q4.A92.543.KQT75",
+        "West": "KJ653.KQ76.JT82."
+      },
+      "auction": "West Pass - North 1S - East Pass - South 1NT - West Pass - North 2C - East Pass - South Pass - West Double - North 5C - East Pass - South Pass - West Pass",
+      "contract": "5C by North",
+      "opening_lead": "East ♦K",
+      "play": "Trick 1: East ♦K - South ♦3 - West ♦8 - North ♦9; Winner: East ♦K",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1S",
+      "contract": "5C",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦K",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "83958",
+        "board": "o24"
+      },
+      "pattern": "1S-1NT-2C-(X)-5C",
+      "features": [
+        "contract_failed",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev010",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "A9872.T.96.AJ983",
+        "East": "T.J8543.AKQ7.642",
+        "South": "Q4.A92.543.KQT75",
+        "West": "KJ653.KQ76.JT82."
+      },
+      "auction": "West Pass - North 2S - East Pass - South Pass - West Pass",
+      "contract": "2S by North",
+      "opening_lead": "East ♦A",
+      "play": "Trick 1: East ♦A - South ♦3 - West ♦8 - North ♦9; Winner: East ♦A",
+      "result": "5"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "2S",
+      "contract": "2S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦A",
+      "declarer_tricks": "5"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "83958",
+        "board": "c24"
+      },
+      "pattern": "2S",
+      "features": [
+        "contract_failed",
+        "two_level_suit_opening"
+      ]
+    }
+  },
+  {
+    "id": "real_dev011",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "A732.QJ84.86.A54",
+        "East": "Q9.T.AQJ42.KQJ73",
+        "South": "T8654.AK62.95.T9",
+        "West": "KJ.9753.KT73.862"
+      },
+      "auction": "East 1D! - South Pass - West 1H - North Pass - East 3C! - South Pass - West 3D - North Pass - East Pass - South Pass",
+      "contract": "3D by East",
+      "opening_lead": "South ♦5",
+      "play": "Trick 1: South ♦5 - West ♦3 - North ♦8 - East ♦A; Winner: East ♦A",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1D",
+      "contract": "3D",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♦5",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "o2"
+      },
+      "pattern": "1D-1H-3C-3D",
+      "features": [
+        "alerted_call"
+      ]
+    }
+  },
+  {
+    "id": "real_dev012",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "A732.QJ84.86.A54",
+        "East": "Q9.T.AQJ42.KQJ73",
+        "South": "T8654.AK62.95.T9",
+        "West": "KJ.9753.KT73.862"
+      },
+      "auction": "East 1D - South Pass - West 1H - North Pass - East 2C - South Pass - West 2D - North Pass - East Pass - South 2S - West 3D - North 3S - East Pass - South Pass - West Pass",
+      "contract": "3S by South",
+      "opening_lead": "West ♥5",
+      "play": "Trick 1: West ♥5 - North ♥4 - East ♥T - South ♥A; Winner: South ♥A",
+      "result": "9"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1D",
+      "overcaller": "South",
+      "overcall": "2S",
+      "contract": "3S",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♥5",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "c2"
+      },
+      "pattern": "1D-1H-2C-2D-(2S)-3D-(3S)",
+      "features": [
+        "contested"
+      ]
+    }
+  },
+  {
+    "id": "real_dev013",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "A.K864.AT7.AKJ32",
+        "East": "J864.JT32.Q9854.",
+        "South": "Q97.A75.6.Q98765",
+        "West": "KT532.Q9.KJ32.T4"
+      },
+      "auction": "West Pass - North 1C - East Pass - South 3C - West Pass - North 3D - East Pass - South 3NT - West Pass - North 5C - East Pass - South Pass - West Pass",
+      "contract": "5C by North",
+      "opening_lead": "East ♥J",
+      "play": "Trick 1: East ♥J - South ♥A - West ♥9 - North ♥4; Winner: South ♥A",
+      "result": "12"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1C",
+      "contract": "5C",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♥J",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "77976",
+        "board": "o48"
+      },
+      "pattern": "1C-3C-3D-3NT-5C",
+      "features": []
+    }
+  },
+  {
+    "id": "real_dev014",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "A.K864.AT7.AKJ32",
+        "East": "J864.JT32.Q9854.",
+        "South": "Q97.A75.6.Q98765",
+        "West": "KT532.Q9.KJ32.T4"
+      },
+      "auction": "West Pass - North 1C - East Pass - South 2D - West Double - North 2H - East 3D - South Pass - West Pass - North 4D - East Pass - South 4H - West Pass - North 6C - East Pass - South Pass - West Pass",
+      "contract": "6C by North",
+      "opening_lead": "East ♦4",
+      "play": "Trick 1: East ♦4 - South ♦6 - West ♦K - North ♦A; Winner: North ♦A",
+      "result": "12"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1C",
+      "overcaller": "East",
+      "overcall": "3D",
+      "contract": "6C",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦4",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "77976",
+        "board": "c48"
+      },
+      "pattern": "1C-2D-(X)-2H-(3D)-4D-4H-6C",
+      "features": [
+        "contested",
+        "double",
+        "slam"
+      ]
+    }
+  },
+  {
+    "id": "real_dev015",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "6.KQ83.KT653.KJ4",
+        "East": "AJ43.J7.987.T532",
+        "South": "975.A964.A4.AQ87",
+        "West": "KQT82.T52.QJ2.96"
+      },
+      "auction": "North 1D - East Pass - South 1H - West 1S - North 2H - East 2S - South 4H - West Pass - North Pass - East Pass",
+      "contract": "4H by South",
+      "opening_lead": "West ♣9",
+      "play": "Trick 1: West ♣9 - North ♣K - East ♣5 - South ♣7; Winner: North ♣K",
+      "result": "13"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1D",
+      "overcaller": "West",
+      "overcall": "1S",
+      "contract": "4H",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♣9",
+      "declarer_tricks": "13"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "o5"
+      },
+      "pattern": "1D-1H-(1S)-2H-(2S)-4H",
+      "features": [
+        "contested"
+      ]
+    }
+  },
+  {
+    "id": "real_dev016",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "6.KQ83.KT653.KJ4",
+        "East": "AJ43.J7.987.T532",
+        "South": "975.A964.A4.AQ87",
+        "West": "KQT82.T52.QJ2.96"
+      },
+      "auction": "North 1D - East Pass - South 1H - West 1S - North 2H - East 2S - South 4H - West Pass - North Pass - East Pass",
+      "contract": "4H by South",
+      "opening_lead": "West ♠K",
+      "play": "Trick 1: West ♠K - North ♠6 - East ♠A - South ♠5; Winner: East ♠A",
+      "result": "11"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1D",
+      "overcaller": "West",
+      "overcall": "1S",
+      "contract": "4H",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♠K",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "c5"
+      },
+      "pattern": "1D-1H-(1S)-2H-(2S)-4H",
+      "features": [
+        "contested"
+      ]
+    }
+  },
+  {
+    "id": "real_dev017",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "53.QJ542.Q7.6542",
+        "East": "JT96.7.AJ43.JT87",
+        "South": "A84.AK8.KT862.K9",
+        "West": "KQ72.T963.95.AQ3"
+      },
+      "auction": "West 1C - North Pass - East 1S - South 1NT! - West 2S - North 3H - East Pass - South Pass - West Pass",
+      "contract": "3H by North",
+      "opening_lead": "East ♠J",
+      "play": "Trick 1: East ♠J - South ♠A - West ♠7 - North ♠3; Winner: South ♠A",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1C",
+      "overcaller": "South",
+      "overcall": "1NT",
+      "contract": "3H",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♠J",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "o8"
+      },
+      "pattern": "1C-1S-(1NT)-2S-(3H)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed"
+      ]
+    }
+  },
+  {
+    "id": "real_dev018",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "53.QJ542.Q7.6542",
+        "East": "JT96.7.AJ43.JT87",
+        "South": "A84.AK8.KT862.K9",
+        "West": "KQ72.T963.95.AQ3"
+      },
+      "auction": "West 1C - North Pass - East 1S - South 1NT - West 2S - North Pass - East Pass - South Pass",
+      "contract": "2S by East",
+      "opening_lead": "South ♥A",
+      "play": "Trick 1: South ♥A - West ♥3 - North ♥5 - East ♥7; Winner: South ♥A",
+      "result": "9"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1C",
+      "overcaller": "South",
+      "overcall": "1NT",
+      "contract": "2S",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♥A",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "c8"
+      },
+      "pattern": "1C-1S-(1NT)-2S",
+      "features": [
+        "contested"
+      ]
+    }
+  },
+  {
+    "id": "real_dev019",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "Q3.J7.Q92.QJ9765",
+        "East": "JT85.AQ9832.4.T2",
+        "South": "K72.T6.AJT8753.8",
+        "West": "A964.K54.K6.AK43"
+      },
+      "auction": "North Pass - East 2H - South 3D - West 4H - North Pass - East Pass - South Pass",
+      "contract": "4H by East",
+      "opening_lead": "South ♣8",
+      "play": "Trick 1: South ♣8 - West ♣A - North ♣5 - East ♣2; Winner: West ♣A",
+      "result": "11"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "2H",
+      "overcaller": "South",
+      "overcall": "3D",
+      "contract": "4H",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♣8",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "73988",
+        "board": "o25"
+      },
+      "pattern": "2H-(3D)-4H",
+      "features": [
+        "contested",
+        "two_level_suit_opening"
+      ]
+    }
+  },
+  {
+    "id": "real_dev020",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "Q3.J7.Q92.QJ9765",
+        "East": "JT85.AQ9832.4.T2",
+        "South": "K72.T6.AJT8753.8",
+        "West": "A964.K54.K6.AK43"
+      },
+      "auction": "North 3C - East Pass - South Pass - West 3NT - North Pass - East 4D! - South Double - West 4H - North Pass - East Pass - South Pass",
+      "contract": "4H by West",
+      "opening_lead": "North ♦2",
+      "play": "Trick 1: North ♦2 - East ♦4 - South ♦A - West ♦6; Winner: South ♦A",
+      "result": "11"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "3C",
+      "overcaller": "West",
+      "overcall": "3NT",
+      "contract": "4H",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♦2",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "73988",
+        "board": "c25"
+      },
+      "pattern": "3C-(3NT)-(4D)-X-(4H)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "double",
+        "high_level_opening"
+      ]
+    }
+  },
+  {
+    "id": "real_dev021",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "KT32.Q.AKQJ5.KJT",
+        "East": "QJ985.8765.9.A87",
+        "South": "A4.T932.873.Q965",
+        "West": "76.AKJ4.T642.432"
+      },
+      "auction": "North 1D - East 1S - South Double - West 1NT - North Pass - East Pass - South Pass",
+      "contract": "1NT by West",
+      "opening_lead": "North ♦K",
+      "play": "Trick 1: North ♦K - East ♦9 - South ♦8 - West ♦4; Winner: North ♦K",
+      "result": "6"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1D",
+      "overcaller": "East",
+      "overcall": "1S",
+      "contract": "1NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♦K",
+      "declarer_tricks": "6"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "77976",
+        "board": "o49"
+      },
+      "pattern": "1D-(1S)-X-(1NT)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev022",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "KT32.Q.AKQJ5.KJT",
+        "East": "QJ985.8765.9.A87",
+        "South": "A4.T932.873.Q965",
+        "West": "76.AKJ4.T642.432"
+      },
+      "auction": "North 1D - East 1S - South Double - West Pass - North 2NT - East Pass - South 3S - West Pass - North 3NT - East Pass - South Pass - West Pass",
+      "contract": "3NT by North",
+      "opening_lead": "East ♥7",
+      "play": "Trick 1: East ♥7 - South ♥2 - West ♥K - North ♥Q; Winner: West ♥K",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1D",
+      "overcaller": "East",
+      "overcall": "1S",
+      "contract": "3NT",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♥7",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "77976",
+        "board": "c49"
+      },
+      "pattern": "1D-(1S)-X-2NT-3S-3NT",
+      "features": [
+        "contested",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev023",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": ".KT62.6532.AQJ62",
+        "East": "AT93.Q953.Q87.75",
+        "South": "J854.4.AKT.KT943",
+        "West": "KQ762.AJ87.J94.8"
+      },
+      "auction": "East Pass - South 1C - West 1S - North Double - East 2H - South Pass - West 2S - North 3C - East Pass - South Pass - West 3H - North 3S! - East Pass - South 4C - West Pass - North Pass - East Pass",
+      "contract": "4C by South",
+      "opening_lead": "West ♠K",
+      "play": "Trick 1: West ♠K - North ♣2 - East ♠9 - South ♠4; Winner: North ♣2",
+      "result": "12"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1C",
+      "overcaller": "West",
+      "overcall": "1S",
+      "contract": "4C",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♠K",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "78973",
+        "board": "o22"
+      },
+      "pattern": "1C-(1S)-X-(2H)-(2S)-3C-(3H)-3S-4C",
+      "features": [
+        "alerted_call",
+        "contested",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev024",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": ".KT62.6532.AQJ62",
+        "East": "AT93.Q953.Q87.75",
+        "South": "J854.4.AKT.KT943",
+        "West": "KQ762.AJ87.J94.8"
+      },
+      "auction": "East Pass - South 2C - West Double - North 5C - East Double - South Pass - West Pass - North Pass",
+      "contract": "5CX by South",
+      "opening_lead": "West ♠K",
+      "play": "Trick 1: West ♠K - North ♣2 - East ♠T - South ♠4; Winner: North ♣2",
+      "result": "12"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "2C",
+      "contract": "5C",
+      "contract_doubled": "doubled",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♠K",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "78973",
+        "board": "c22"
+      },
+      "pattern": "2C-(X)-5C-(X)",
+      "features": [
+        "double",
+        "doubled_contract"
+      ]
+    }
+  },
+  {
+    "id": "real_dev025",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "J74.J9.63.AT9652",
+        "East": "AT3.AKT8.K972.K8",
+        "South": "KQ96.Q763.T5.J73",
+        "West": "852.542.AQJ84.Q4"
+      },
+      "auction": "South Pass - West 2D! - North Pass - East 2NT - South Pass - West 3NT - North Pass - East 6D - South Pass - West Pass - North Pass",
+      "contract": "6D by West",
+      "opening_lead": "North ♣A",
+      "play": "Trick 1: North ♣A - East ♣8 - South ♣3 - West ♣4; Winner: North ♣A",
+      "result": "9"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2D",
+      "contract": "6D",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♣A",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "o15"
+      },
+      "pattern": "2D-2NT-3NT-6D",
+      "features": [
+        "alerted_call",
+        "contract_failed",
+        "slam",
+        "two_level_suit_opening"
+      ]
+    }
+  },
+  {
+    "id": "real_dev026",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "J74.J9.63.AT9652",
+        "East": "AT3.AKT8.K972.K8",
+        "South": "KQ96.Q763.T5.J73",
+        "West": "852.542.AQJ84.Q4"
+      },
+      "auction": "South Pass - West Pass - North Pass - East 1NT - South Pass - West 3NT - North Pass - East Pass - South Pass",
+      "contract": "3NT by East",
+      "opening_lead": "South ♠6",
+      "play": "Trick 1: South ♠6 - West ♠2 - North ♠J - East ♠3; Winner: North ♠J",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1NT",
+      "contract": "3NT",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♠6",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "c15"
+      },
+      "pattern": "1NT-3NT",
+      "features": [
+        "notrump_opening",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev027",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KQ7.AT72.AQ3.AJ2",
+        "East": "42.QJ865.854.T98",
+        "South": "JT98.K93.9762.Q6",
+        "West": "A653.4.KJT.K7543"
+      },
+      "auction": "West 1C - North Double - East 1H - South 1S - West Pass - North 3NT - East Pass - South Pass - West Pass",
+      "contract": "3NT by North",
+      "opening_lead": "East ♣T",
+      "play": "Trick 1: East ♣T - South ♣Q - West ♣K - North ♣2; Winner: West ♣K",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1C",
+      "overcaller": "South",
+      "overcall": "1S",
+      "contract": "3NT",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♣T",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "73988",
+        "board": "o28"
+      },
+      "pattern": "1C-(X)-1H-(1S)-(3NT)",
+      "features": [
+        "contested",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev028",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KQ7.AT72.AQ3.AJ2",
+        "East": "42.QJ865.854.T98",
+        "South": "JT98.K93.9762.Q6",
+        "West": "A653.4.KJT.K7543"
+      },
+      "auction": "West 1S - North Double - East Pass - South 1NT - West Pass - North 3NT - East Pass - South Pass - West Pass",
+      "contract": "3NT by South",
+      "opening_lead": "West ♣5",
+      "play": "Trick 1: West ♣5 - North ♣2 - East ♣8 - South ♣Q; Winner: South ♣Q",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1S",
+      "overcaller": "South",
+      "overcall": "1NT",
+      "contract": "3NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♣5",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "73988",
+        "board": "c28"
+      },
+      "pattern": "1S-(X)-(1NT)-(3NT)",
+      "features": [
+        "contested",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev029",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "98.86.Q864.AKQ63",
+        "East": "JT53.AKJT2.AJT.9",
+        "South": "AQ62.753.K532.85",
+        "West": "K74.Q94.97.JT742"
+      },
+      "auction": "West Pass - North Pass - East 1H - South Pass - West 2H - North 3C - East 3H - South Pass - West Pass - North Pass",
+      "contract": "3H by East",
+      "opening_lead": "South ♣8",
+      "play": "Trick 1: South ♣8 - West ♣2 - North ♣Q - East ♣9; Winner: North ♣Q",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1H",
+      "overcaller": "North",
+      "overcall": "3C",
+      "contract": "3H",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♣8",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "74985",
+        "board": "o12"
+      },
+      "pattern": "1H-2H-(3C)-3H",
+      "features": [
+        "contested",
+        "contract_failed",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev030",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "98.86.Q864.AKQ63",
+        "East": "JT53.AKJT2.AJT.9",
+        "South": "AQ62.753.K532.85",
+        "West": "K74.Q94.97.JT742"
+      },
+      "auction": "West Pass - North 1C! - East 1H - South Double - West 2H - North Pass - East 2S - South Pass - West 3H - North Pass - East Pass - South Pass",
+      "contract": "3H by East",
+      "opening_lead": "South ♣8",
+      "play": "Trick 1: South ♣8 - West ♣2 - North ♣Q - East ♣9; Winner: North ♣Q",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1C",
+      "overcaller": "East",
+      "overcall": "1H",
+      "contract": "3H",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♣8",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "74985",
+        "board": "c12"
+      },
+      "pattern": "1C-(1H)-X-(2H)-(2S)-(3H)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev031",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KT96.AJ7532.762.",
+        "East": "8753.K94.A84.A97",
+        "South": "QJ.T.T953.JT6543",
+        "West": "A42.Q86.KQJ.KQ82"
+      },
+      "auction": "West 1NT - North Double - East Redouble - South Pass - West Pass - North 2H - East Double - South 2S - West Double - North Pass - East Pass - South 3C - West Double - North 3H - East Double - South Pass - West Pass - North Pass",
+      "contract": "3HX by North",
+      "opening_lead": "East ♦A",
+      "play": "Trick 1: East ♦A - South ♦3 - West ♦K - North ♦2; Winner: East ♦A",
+      "result": "7"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1NT",
+      "overcaller": "North",
+      "overcall": "2H",
+      "contract": "3H",
+      "contract_doubled": "doubled",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦A",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "o12"
+      },
+      "pattern": "1NT-(X)-XX-(2H)-X-(2S)-X-(3C)-X-(3H)-X",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract",
+        "notrump_opening",
+        "redouble"
+      ]
+    }
+  },
+  {
+    "id": "real_dev032",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KT96.AJ7532.762.",
+        "East": "8753.K94.A84.A97",
+        "South": "QJ.T.T953.JT6543",
+        "West": "A42.Q86.KQJ.KQ82"
+      },
+      "auction": "West 1NT - North 2H - East 3NT - South Pass - West Pass - North Pass",
+      "contract": "3NT by West",
+      "opening_lead": "North ♠T",
+      "play": "Trick 1: North ♠T - East ♠3 - South ♠J - West ♠2; Winner: South ♠J",
+      "result": "9"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1NT",
+      "overcaller": "North",
+      "overcall": "2H",
+      "contract": "3NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♠T",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "c12"
+      },
+      "pattern": "1NT-(2H)-3NT",
+      "features": [
+        "contested",
+        "notrump_opening"
+      ]
+    }
+  },
+  {
+    "id": "real_dev033",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "J94.J54.AJ965.QJ",
+        "East": "K65.A9832.874.82",
+        "South": "AT82.T76.KT.A754",
+        "West": "Q73.KQ.Q32.KT963"
+      },
+      "auction": "East Pass - South 1C - West Pass - North 1D - East Pass - South 1NT! - West Pass - North Pass - East Pass",
+      "contract": "1NT by South",
+      "opening_lead": "West ♣6",
+      "play": "Trick 1: West ♣6 - North ♣J - East ♣8 - South ♣7; Winner: North ♣J",
+      "result": "7"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1C",
+      "contract": "1NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♣6",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "o6"
+      },
+      "pattern": "1C-1D-1NT",
+      "features": [
+        "alerted_call"
+      ]
+    }
+  },
+  {
+    "id": "real_dev034",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "J94.J54.AJ965.QJ",
+        "East": "K65.A9832.874.82",
+        "South": "AT82.T76.KT.A754",
+        "West": "Q73.KQ.Q32.KT963"
+      },
+      "auction": "East Pass - South 1C - West Pass - North 1D - East Pass - South 1NT - West Pass - North Pass - East Pass",
+      "contract": "1NT by South",
+      "opening_lead": "West ♥K",
+      "play": "Trick 1: West ♥K - North ♥4 - East ♥8 - South ♥6; Winner: West ♥K",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1C",
+      "contract": "1NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♥K",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "c6"
+      },
+      "pattern": "1C-1D-1NT",
+      "features": []
+    }
+  },
+  {
+    "id": "real_dev035",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "A98764.843..AQ86",
+        "East": "K53.KQT6.86.KT72",
+        "South": "Q.AJ97.AJT94.J94",
+        "West": "JT2.52.KQ7532.53"
+      },
+      "auction": "East 1C - South 1D - West Pass - North 1S - East Pass - South 1NT - West Pass - North 4S - East Pass - South Pass - West Pass",
+      "contract": "4S by North",
+      "opening_lead": "East ♥K",
+      "play": "Trick 1: East ♥K - South ♥7 - West ♥5 - North ♥3; Winner: East ♥K",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "overcaller": "South",
+      "overcall": "1D",
+      "contract": "4S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♥K",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "76979",
+        "board": "o2"
+      },
+      "pattern": "1C-(1D)-(1S)-(1NT)-(4S)",
+      "features": [
+        "contested",
+        "contract_failed"
+      ]
+    }
+  },
+  {
+    "id": "real_dev036",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "A98764.843..AQ86",
+        "East": "K53.KQT6.86.KT72",
+        "South": "Q.AJ97.AJT94.J94",
+        "West": "JT2.52.KQ7532.53"
+      },
+      "auction": "East Pass - South 1D - West Pass - North 1S - East Double - South Pass - West 2C - North Pass - East Pass - South Pass",
+      "contract": "2C by West",
+      "opening_lead": "North ♠A",
+      "play": "Trick 1: North ♠A - East ♠3 - South ♠Q - West ♠2; Winner: North ♠A",
+      "result": "4"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1D",
+      "overcaller": "West",
+      "overcall": "2C",
+      "contract": "2C",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♠A",
+      "declarer_tricks": "4"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "76979",
+        "board": "c2"
+      },
+      "pattern": "1D-1S-(X)-(2C)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev037",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "87.J865.987.Q974",
+        "East": "J95.KQ.T6432.AT2",
+        "South": "AQT6.A9743.J5.65",
+        "West": "K432.T2.AKQ.KJ83"
+      },
+      "auction": "North Pass - East Pass - South 1H - West Double - North 3H - East Pass - South Pass - West Pass",
+      "contract": "3H by South",
+      "opening_lead": "West ♦A",
+      "play": "Trick 1: West ♦A - North ♦7 - East ♦6 - South ♦5; Winner: West ♦A",
+      "result": "7"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1H",
+      "contract": "3H",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦A",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "71994",
+        "board": "o17"
+      },
+      "pattern": "1H-(X)-3H",
+      "features": [
+        "contract_failed",
+        "double",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev038",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "87.J865.987.Q974",
+        "East": "J95.KQ.T6432.AT2",
+        "South": "AQT6.A9743.J5.65",
+        "West": "K432.T2.AKQ.KJ83"
+      },
+      "auction": "North Pass - East Pass - South 1H - West Double - North 3H - East Double - South Pass - West 3S - North Pass - East Pass - South Pass",
+      "contract": "3S by West",
+      "opening_lead": "North ♥6",
+      "play": "Trick 1: North ♥6 - East ♥Q - South ♥A - West ♥2; Winner: South ♥A",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1H",
+      "overcaller": "West",
+      "overcall": "3S",
+      "contract": "3S",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♥6",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "71994",
+        "board": "c17"
+      },
+      "pattern": "1H-(X)-3H-(X)-(3S)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "seat_3_or_4"
+      ]
+    }
+  },
+  {
+    "id": "real_dev039",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "K874.AT95.Q953.8",
+        "East": "J962.KQJ4.T.T653",
+        "South": "AT5.732.KJ764.K9",
+        "West": "Q3.86.A82.AQJ742"
+      },
+      "auction": "North 1H - East Pass - South 2C! - West 3C - North Pass - East Pass - South Double - West Pass - North 3D - East 4C - South Pass - West Pass - North Pass",
+      "contract": "4C by West",
+      "opening_lead": "North ♦3",
+      "play": "Trick 1: North ♦3 - East ♦T - South ♦K - West ♦A; Winner: West ♦A",
+      "result": "10"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1H",
+      "overcaller": "West",
+      "overcall": "3C",
+      "contract": "4C",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♦3",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "83958",
+        "board": "o17"
+      },
+      "pattern": "1H-2C-(3C)-X-3D-(4C)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "double"
+      ]
+    }
+  },
+  {
+    "id": "real_dev040",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "K874.AT95.Q953.8",
+        "East": "J962.KQJ4.T.T653",
+        "South": "AT5.732.KJ764.K9",
+        "West": "Q3.86.A82.AQJ742"
+      },
+      "auction": "North Pass - East Pass - South 1NT - West Pass - North 2C! - East Pass - South 2D! - West Pass - North Pass - East Double - South Pass - West 3NT - North Double - East Pass - South Pass - West Pass",
+      "contract": "3NTX by West",
+      "opening_lead": "North ♦3",
+      "play": "Trick 1: North ♦3 - East ♦T - South ♦K - West ♦A; Winner: West ♦A",
+      "result": "8"
+    },
+    "gold_english": "",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1NT",
+      "overcaller": "West",
+      "overcall": "3NT",
+      "contract": "3NT",
+      "contract_doubled": "doubled",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♦3",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "83958",
+        "board": "c17"
+      },
+      "pattern": "1NT-2C-2D-(X)-(3NT)-X",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract",
+        "notrump_opening",
+        "seat_3_or_4"
+      ]
+    }
+  }
+]

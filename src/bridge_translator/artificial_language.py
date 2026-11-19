@@ -6,9 +6,9 @@ Maps parsed Bridge events into the controlled artificial Bridge language.
 Each bid gets a role from who makes it:
 - OPEN      first bid of the auction (with seat=3/4 when made after passes)
 - RESPOND   opener's partner's first bid
-- OVERCALL  first bid by the side that did not open
-- ADVANCE   overcaller's partner's first bid
-- REBID     any later bid by a player who has already bid
+- OVERCALL  first bid by a player on the other side whose partner has not yet bid or doubled
+- ADVANCE   first bid by a player whose partner has overcalled or doubled
+- REBID     any bid by a player who has already bid, doubled or redoubled
 - RAISE_TO_GAME  any of the above that raises partner's strain to game
 
 Doubles and redoubles get a meaning from the auction context. The rules follow
@@ -16,7 +16,9 @@ common Standard American agreements and are deliberately simple:
 - double of an artificial bid                         -> lead_directing
 - double of a no-trump bid                            -> penalty
 - responder doubles an overcall at the 1-3 level      -> negative
-- doubler's partner has bid                           -> penalty
+- partner made a takeout double, opponents raised
+  their suit at the 1-3 level                         -> responsive
+- doubler's partner has bid or doubled                -> penalty
 - otherwise, double of a suit bid at the 1-3 level    -> takeout
 - otherwise                                           -> penalty
 - redouble after a takeout double of partner's bid    -> strength
@@ -28,7 +30,7 @@ from __future__ import annotations
 from typing import Dict, List, Optional
 
 from .bridge_parser import Event, parse_raw_record
-from .validate import bid_order, bid_strain, partner
+from .validate import bid_order, bid_strain, next_player, partner
 
 
 GAME_CONTRACTS = {"3NT", "4H", "4S", "5C", "5D"}
@@ -75,7 +77,9 @@ class AuctionState:
         self.last_bid_artificial = False
         self.last_bid_was_overcall = False
         self.last_double_kind: Optional[str] = None
-        self.overcalling_side_has_bid = False
+        self.last_bid_was_raise = False
+        self.acted: set = set()  # players who have bid, doubled or redoubled
+        self.takeout_doublers: set = set()
         self.only_passes_since_opening = True
 
     def strains(self, player: str) -> set:
@@ -97,23 +101,29 @@ def bid_tag(state: AuctionState, player: str, bid: str, role: str) -> str:
             if bid in {f"{level}D", f"{level}H"}:
                 return "transfer"
     if role == "OVERCALL":
-        if strain == bid_strain(state.opening_bid):
+        if strain != "NT" and strain == bid_strain(state.opening_bid):
             return "cue_bid"
         if bid == "1NT":
             return "notrump_overcall"
         if bid == "2NT" and is_jump(bid, state.last_bid):
             return "unusual_2nt"
+        if strain == "NT":
+            return "notrump"
         if is_jump(bid, state.last_bid):
             return "jump_overcall"
         return "simple_overcall"
-    if role == "REBID" and strain in state.strains(player):
-        return "own_suit"
-    if strain in state.strains(partner(player)):
-        return "raise"
-    if role == "ADVANCE" and strain == bid_strain(state.opening_bid):
+    own, partners = state.strains(player), state.strains(partner(player))
+    opponents = state.strains(next_player(player)) | state.strains(partner(next_player(player)))
+    if strain != "NT" and strain in opponents and strain not in own | partners:
         return "cue_bid"
+    if role == "REBID" and strain != "NT" and strain in own:
+        return "agreed_suit" if strain in partners else "own_suit"
+    if strain in partners:
+        return "raise"
     if strain == "NT":
         return "notrump"
+    if role == "REBID" and own:
+        return "second_suit"
     return "new_suit"
 
 
@@ -125,16 +135,16 @@ def classify_double(state: AuctionState, player: str) -> str:
     if bid_strain(state.last_bid) == "NT":
         return "penalty"
     level = int(state.last_bid[0])
-    partner_has_bid = bool(state.bids.get(partner(player)))
     if (
-        partner_has_bid
-        and partner(player) == state.opener
-        and not state.bids.get(player)
+        partner(player) == state.opener
+        and player not in state.acted
         and state.last_bid_was_overcall
         and level <= 3
     ):
         return "negative"
-    if partner_has_bid:
+    if partner(player) in state.takeout_doublers and state.last_bid_was_raise and level <= 3:
+        return "responsive"
+    if partner(player) in state.acted:
         return "penalty"
     if level <= 3:
         return "takeout"
@@ -153,14 +163,14 @@ def label_bid(state: AuctionState, event: Event) -> str:
             line += f", seat={seat}"
         return line + ")"
 
-    if state.bids.get(player):
+    if player in state.acted:
         role = "REBID"
     elif player == partner(state.opener):
         role = "RESPOND"
-    elif not state.overcalling_side_has_bid:
-        role = "OVERCALL"
-    else:
+    elif partner(player) in state.acted:
         role = "ADVANCE"
+    else:
+        role = "OVERCALL"
 
     tag = "artificial" if alerted else bid_tag(state, player, bid, role)
     if tag == "raise" and bid in GAME_CONTRACTS:
@@ -175,14 +185,14 @@ def update_state_after_bid(state: AuctionState, event: Event, line: str) -> None
         state.opener, state.opening_bid = player, bid
     elif state.only_passes_since_opening:
         state.only_passes_since_opening = False
-    if line.startswith("OVERCALL("):
-        state.overcalling_side_has_bid = True
     state.last_bid_was_overcall = line.startswith("OVERCALL(")
+    state.last_bid_was_raise = line.startswith("RAISE_TO_GAME(") or ", raise)" in line or ", agreed_suit)" in line
     state.last_bid_artificial = (
         event.args.get("alerted") == "true"
         or (line.startswith("OPEN(") and bid == "2C")
-        or any(t in line for t in ("waiting_response", "stayman", "transfer"))
+        or any(t in line for t in ("waiting_response", "stayman", "transfer", "cue_bid"))
     )
+    state.acted.add(player)
     state.last_bid, state.last_bidder = bid, player
     state.last_double_kind = None
     state.bids.setdefault(player, []).append(bid)
@@ -236,9 +246,13 @@ def events_to_artificial(events: List[Event]) -> List[str]:
             kind = classify_double(state, player)
             line = f"DOUBLE({player}, {kind})"
             state.last_double_kind = kind
+            state.acted.add(player)
+            if kind == "takeout":
+                state.takeout_doublers.add(player)
         elif event.type == "REDOUBLE":
             kind = "strength" if state.last_double_kind == "takeout" and state.last_bidder == partner(player) else "to_play"
             line = f"REDOUBLE({player}, {kind})"
+            state.acted.add(player)
         elif event.type == "BID":
             line = label_bid(state, event)
             update_state_after_bid(state, event, line)

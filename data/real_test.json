@@ -1,0 +1,2231 @@
+[
+  {
+    "id": "real_test001",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": ".J87.QJ987.KQ532",
+        "East": "Q982.964.KT2.J98",
+        "South": "J654.AKQ532.654.",
+        "West": "AKT73.T.A3.AT764"
+      },
+      "auction": "North Pass - East Pass - South 1H - West 2H! - North 3H - East 4S - South 5H - West Double - North Pass - East Pass - South Pass",
+      "contract": "5HX by South",
+      "opening_lead": "West ♠A",
+      "play": "Trick 1: West ♠A - North ♥7 - East ♠9 - South ♠4; Winner: North ♥7",
+      "result": "9"
+    },
+    "gold_english": "North and East pass, and South opens 1H in third seat with only 10 high-card points but six hearts; third-seat openings can be light. West bids 2H in the opponents' suit, a Michaels cue-bid showing a two-suited hand with five spades and a five-card minor. North raises to 3H with three-card support. East jumps to 4S, choosing partner's spades. South competes with 5H rather than defend 4S, and West doubles for penalty. Everyone passes, so the final contract is 5H doubled by South. West leads the ace of spades; North has no spades and ruffs with the seven of hearts to win the first trick. South takes 9 tricks and goes down two.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1H",
+      "overcaller": "West",
+      "overcall": "2H",
+      "contract": "5H",
+      "contract_doubled": "doubled",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♠A",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "c5"
+      },
+      "pattern": "1H-(2H)-3H-(4S)-5H-(X)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South 1H": [
+        "third seat",
+        "light"
+      ],
+      "West 2H": [
+        "michaels",
+        "two-suited",
+        "two suits"
+      ],
+      "North 3H": [
+        "raise",
+        "support"
+      ],
+      "West Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test002",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": ".AQJ4.AKJ752.A95",
+        "East": "9873.T865.T.KT82",
+        "South": "Q6542.732.64.J74",
+        "West": "AKJT.K9.Q983.Q63"
+      },
+      "auction": "East Pass - South Pass - West 1NT - North Double - East Pass - South Pass - West Redouble - North Pass - East 2C - South Pass - West Pass - North 2D - East Pass - South Pass - West Pass",
+      "contract": "2D by North",
+      "opening_lead": "East ♣2",
+      "play": "Trick 1: East ♣2 - South ♣4 - West ♣Q - North ♣A; Winner: North ♣A",
+      "result": "8"
+    },
+    "gold_english": "East and South pass, and West opens 1NT, a balanced hand with 15-17 high-card points. North doubles; with 19 points this is a strong, penalty-style double. After two passes West redoubles, and East takes it as a request to run, bidding 2C. North then bids 2D with a six-card diamond suit, and everyone passes. The final contract is 2D by North. East leads the two of clubs and North wins the first trick with the ace of clubs. North takes 8 tricks, making the contract exactly.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1NT",
+      "overcaller": "North",
+      "overcall": "2D",
+      "contract": "2D",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♣2",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "c14"
+      },
+      "pattern": "1NT-(X)-XX-2C-(2D)",
+      "features": [
+        "contested",
+        "double",
+        "notrump_opening",
+        "redouble",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 1NT": [
+        "15-17",
+        "15–17",
+        "balanced"
+      ],
+      "North Double": [
+        "penalty",
+        "strong"
+      ]
+    }
+  },
+  {
+    "id": "real_test003",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "83.AT976532.83.3",
+        "East": "KQ9765..A96.QJ65",
+        "South": "T4.8.J542.AT8742",
+        "West": "AJ2.KQJ4.KQT7.K9"
+      },
+      "auction": "North 3H - East 3S - South Pass - West 4C! - North Pass - East 4D! - South Pass - West 4NT! - North Pass - East 5NT! - South Pass - West 6S - North Pass - East Pass - South Pass",
+      "contract": "6S by East",
+      "opening_lead": "South ♣A",
+      "play": "Trick 1: South ♣A - West ♣9 - North ♣3 - East ♣6; Winner: South ♣A",
+      "result": "11"
+    },
+    "gold_english": "North opens 3H, a preempt with a very long heart suit and a weak hand. East overcalls 3S with six spades. South passes, and West bids 4C, a cue-bid showing club control and interest in a spade slam. East cue-bids 4D in return. West then bids 4NT, Roman Key Card Blackwood, asking how many key cards East holds, and East's 5NT shows two key cards and a void. West bids the small slam, 6S, and everyone passes. The final contract is 6S by East. South leads the ace of clubs and wins the first trick. East takes 11 tricks and goes down one.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "3H",
+      "overcaller": "East",
+      "overcall": "3S",
+      "contract": "6S",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♣A",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "o5"
+      },
+      "pattern": "3H-(3S)-(4C)-(4D)-(4NT)-(5NT)-(6S)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "high_level_opening",
+        "slam"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 3H": [
+        "preempt",
+        "weak"
+      ],
+      "West 4C": [
+        "cue",
+        "control",
+        "slam"
+      ],
+      "West 4NT": [
+        "blackwood",
+        "key card",
+        "keycard",
+        "ace"
+      ]
+    }
+  },
+  {
+    "id": "real_test004",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "T93.K96.KQ753.A5",
+        "East": ".AQJT.AT964.8742",
+        "South": "AJ762.8742.8.KQJ",
+        "West": "KQ854.53.J2.T963"
+      },
+      "auction": "South Pass - West 2S! - North Pass - East 3C! - South Pass - West Pass - North 3D - East Double - South Pass - West Pass - North Pass",
+      "contract": "3DX by North",
+      "opening_lead": "East ♣4",
+      "play": "Trick 1: East ♣4 - South ♣J - West ♣3 - North ♣5; Winner: South ♣J",
+      "result": "7"
+    },
+    "gold_english": "South passes and West opens 2S, an alerted weak bid showing five spades and a minor suit with only 6 high-card points. East bids 3C, pass-or-correct: West should pass with clubs or bid the other minor. West has clubs and passes. North balances with 3D on a five-card diamond suit, and East, holding five good diamonds, doubles for penalty. Everyone passes, so the final contract is 3D doubled by North. East leads the four of clubs and South wins the first trick with the jack of clubs. North takes 7 tricks and goes down two.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2S",
+      "overcaller": "North",
+      "overcall": "3D",
+      "contract": "3D",
+      "contract_doubled": "doubled",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♣4",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "80967",
+        "board": "o11"
+      },
+      "pattern": "2S-3C-(3D)-X",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 2S": [
+        "weak",
+        "minor"
+      ],
+      "East 3C": [
+        "pass or correct",
+        "pass-or-correct"
+      ],
+      "East Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test005",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "K.A87.A752.KJ876",
+        "East": "AQ643.KT532.K.AQ",
+        "South": "JT972.9.T843.T42",
+        "West": "85.QJ64.QJ96.953"
+      },
+      "auction": "North 1NT - East Double - South 2H! - West Pass - North 2S - East Pass - South Pass - West Double - North Pass - East Pass - South Pass",
+      "contract": "2SX by North",
+      "opening_lead": "East ♥3",
+      "play": "Trick 1: East ♥3 - South ♥9 - West ♥J - North ♥A; Winner: North ♥A",
+      "result": "5"
+    },
+    "gold_english": "North opens 1NT, showing 15-17 high-card points. East doubles with a strong hand of 18 points and five cards in both majors. South bids 2H, a transfer asking North to bid spades, and North completes the transfer with 2S. East passes, South passes, and West doubles for penalty. Everyone passes, so the final contract is 2S doubled by North. East leads the three of hearts and North wins the first trick with the ace of hearts. North takes only 5 tricks and goes down three.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1NT",
+      "contract": "2S",
+      "contract_doubled": "doubled",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♥3",
+      "declarer_tricks": "5"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "72991",
+        "board": "o29"
+      },
+      "pattern": "1NT-(X)-2H-2S-(X)",
+      "features": [
+        "alerted_call",
+        "contract_failed",
+        "double",
+        "doubled_contract",
+        "notrump_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 1NT": [
+        "15-17",
+        "15–17",
+        "balanced"
+      ],
+      "East Double": [
+        "penalty",
+        "strong"
+      ],
+      "South 2H": [
+        "transfer"
+      ],
+      "West Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test006",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "K986.954.AK7.A32",
+        "East": "AJ43.7.543.KQ986",
+        "South": "T72.KQT.Q986.T75",
+        "West": "Q5.AJ8632.JT2.J4"
+      },
+      "auction": "East Pass - South Pass - West 2H - North Double - East Pass - South 2NT - West Pass - North 3C - East Pass - South 3D - West Pass - North Pass - East Pass",
+      "contract": "3D by South",
+      "opening_lead": "West ♦2",
+      "play": "Trick 1: West ♦2 - North ♦A - East ♦3 - South ♦6; Winner: North ♦A",
+      "result": "6"
+    },
+    "gold_english": "East and South pass, and West opens a weak 2H in third seat, showing six hearts and a weak hand. North doubles for takeout with 14 high-card points. South, with a weak hand, bids 2NT, the Lebensohl relay, which forces North to bid 3C; South then signs off in 3D to show a weak hand with diamonds. Everyone passes. The final contract is 3D by South. West leads the two of diamonds and North wins the first trick with the ace of diamonds. South takes 6 tricks and goes down three.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2H",
+      "overcaller": "South",
+      "overcall": "2NT",
+      "contract": "3D",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦2",
+      "declarer_tricks": "6"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "77976",
+        "board": "o46"
+      },
+      "pattern": "2H-(X)-(2NT)-(3C)-(3D)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "seat_3_or_4",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 2H": [
+        "weak"
+      ],
+      "North Double": [
+        "takeout"
+      ],
+      "South 2NT": [
+        "lebensohl",
+        "relay"
+      ]
+    }
+  },
+  {
+    "id": "real_test007",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "764.973.J985.T75",
+        "East": "KJ3.QT85.AKT6.A8",
+        "South": "AQT98.AK62.Q7.Q3",
+        "West": "52.J4.432.KJ9642"
+      },
+      "auction": "West 3C - North Pass - East 3NT - South Double - West Pass - North 4D - East Double - South Pass - West Pass - North Pass",
+      "contract": "4DX by North",
+      "opening_lead": "East ♣A",
+      "play": "Trick 1: East ♣A - South ♣3 - West ♣6 - North ♣5; Winner: East ♣A",
+      "result": "5"
+    },
+    "gold_english": "West opens 3C, a preempt showing a long club suit and a weak hand. North passes and East bids 3NT to play, with 17 high-card points and stoppers. South, who also has 17 points, doubles. North, with only one point, runs to 4D, and East doubles for penalty with strong diamonds. Everyone passes, so the final contract is 4D doubled by North. East leads the ace of clubs and wins the first trick. North takes 5 tricks and goes down five.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "3C",
+      "overcaller": "North",
+      "overcall": "4D",
+      "contract": "4D",
+      "contract_doubled": "doubled",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♣A",
+      "declarer_tricks": "5"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "o8"
+      },
+      "pattern": "3C-3NT-(X)-(4D)-X",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract",
+        "high_level_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 3C": [
+        "preempt",
+        "weak"
+      ],
+      "East Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test008",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "43.76543.Q8.KJ93",
+        "East": "AK65.AJT9.AKT2.7",
+        "South": "J872.8.9543.Q854",
+        "West": "QT9.KQ2.J76.AT62"
+      },
+      "auction": "East 1C - South Pass - West 2NT - North Pass - East 3D - South Pass - West 3H - North Pass - East 3S - South Pass - West 4C - North Double - East Pass - South Pass - West Redouble - North Pass - East 5NT - South Pass - West 6D - North Pass - East Pass - South Pass",
+      "contract": "6D by East",
+      "opening_lead": "South ♣5",
+      "play": "Trick 1: South ♣5 - West ♣A - North ♣3 - East ♣7; Winner: West ♣A",
+      "result": "13"
+    },
+    "gold_english": "East opens 1C with 19 high-card points. West responds 2NT, a balanced hand with game values. East shows diamonds with 3D, West bids 3H and East 3S, describing their stoppers and controls while looking for a slam. West's 4C is a cue-bid showing a club control; North doubles to ask partner for a club lead, and West redoubles to show the ace of clubs. East bids 5NT, asking West to choose a slam, and West picks 6D. Everyone passes. The final contract is 6D by East. South leads the five of clubs and West wins the first trick with the ace. East takes all 13 tricks, making the slam with an overtrick.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "contract": "6D",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♣5",
+      "declarer_tricks": "13"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "76979",
+        "board": "c6"
+      },
+      "pattern": "1C-2NT-3D-3H-3S-4C-(X)-XX-5NT-6D",
+      "features": [
+        "double",
+        "redouble",
+        "slam"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 4C": [
+        "cue",
+        "control"
+      ],
+      "North Double": [
+        "lead"
+      ],
+      "West Redouble": [
+        "control",
+        "ace"
+      ]
+    }
+  },
+  {
+    "id": "real_test009",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KT92.KQ74..J7632",
+        "East": "A64.AT92.AT532.K",
+        "South": "QJ73.3.KJ764.QT4",
+        "West": "85.J865.Q98.A985"
+      },
+      "auction": "West Pass - North Pass - East 1NT - South Pass - West Pass - North 2C! - East 2D - South 2S - West 3D - North 3S - East Pass - South Pass - West Pass",
+      "contract": "3S by South",
+      "opening_lead": "West ♠5",
+      "play": "Trick 1: West ♠5 - North ♠T - East ♠A - South ♠3; Winner: East ♠A",
+      "result": "8"
+    },
+    "gold_english": "West and North pass, and East opens 1NT in third seat, showing 15-17 high-card points. South and West pass, and North balances with 2C, an alerted artificial bid showing a two-suited hand. East competes with 2D, and South chooses 2S. West raises diamonds to 3D, North raises spades to 3S, and everyone passes. The final contract is 3S by South. West leads the five of spades and East wins the first trick with the ace of spades. South takes 8 tricks and goes down one.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1NT",
+      "overcaller": "North",
+      "overcall": "2C",
+      "contract": "3S",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♠5",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "73988",
+        "board": "o24"
+      },
+      "pattern": "1NT-(2C)-2D-(2S)-3D-(3S)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "notrump_opening",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 1NT": [
+        "15-17",
+        "15–17",
+        "balanced"
+      ],
+      "North 2C": [
+        "two-suited",
+        "two suits",
+        "artificial"
+      ]
+    }
+  },
+  {
+    "id": "real_test010",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "A2.AT532.T543.92",
+        "East": "K843.K76.J92.A87",
+        "South": "QJT9765.8.76.KJ5",
+        "West": ".QJ94.AKQ8.QT643"
+      },
+      "auction": "North Pass - East Pass - South 2D - West Pass - North 2S - East Pass - South Pass - West Double - North Pass - East 2NT - South Pass - West Pass - North Pass",
+      "contract": "2NT by East",
+      "opening_lead": "South ♠Q",
+      "play": "Trick 1: South ♠Q - West ♣3 - North ♠A - East ♠3; Winner: North ♠A",
+      "result": "7"
+    },
+    "gold_english": "North and East pass, and South opens 2D in third seat. With seven spades and only two diamonds, this is evidently a Multi 2D, a weak two-bid in an unnamed major, although the record does not mark it as alerted. North bids 2S, asking South to pass with spades, and South passes. West doubles for takeout, and East bids a natural 2NT with a spade stopper. Everyone passes. The final contract is 2NT by East. South leads the queen of spades and North wins the first trick with the ace. East takes 7 tricks and goes down one.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "2D",
+      "overcaller": "East",
+      "overcall": "2NT",
+      "contract": "2NT",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♠Q",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "76979",
+        "board": "o5"
+      },
+      "pattern": "2D-2S-(X)-(2NT)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "seat_3_or_4",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South 2D": [
+        "multi",
+        "weak two",
+        "major"
+      ],
+      "West Double": [
+        "takeout"
+      ]
+    }
+  },
+  {
+    "id": "real_test011",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "AJ97.J872.J9.832",
+        "East": "K65432.A3.862.J7",
+        "South": "QT8.T9.KQ54.AKQT",
+        "West": ".KQ654.AT73.9654"
+      },
+      "auction": "South 1NT - West 2H - North Pass - East Pass - South Double - West Pass - North Pass - East Pass",
+      "contract": "2HX by West",
+      "opening_lead": "North ♠7",
+      "play": "Trick 1: North ♠7 - East ♠2 - South ♠8 - West ♥4; Winner: West ♥4",
+      "result": "6"
+    },
+    "gold_english": "South opens 1NT, showing a balanced 15-17 high-card points. West overcalls 2H with five hearts. North and East pass, and South reopens with a double, which asks partner to take it out or pass for penalty. North, with four hearts, passes, and so does everyone else. The final contract is 2H doubled by West. North leads the seven of spades; West has no spades and ruffs with the four of hearts to win the first trick. West takes 6 tricks and goes down two.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1NT",
+      "overcaller": "West",
+      "overcall": "2H",
+      "contract": "2H",
+      "contract_doubled": "doubled",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♠7",
+      "declarer_tricks": "6"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "72991",
+        "board": "c19"
+      },
+      "pattern": "1NT-(2H)-X",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract",
+        "notrump_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South 1NT": [
+        "15-17",
+        "15–17",
+        "balanced"
+      ],
+      "West 2H": [
+        "overcall"
+      ],
+      "South Double": [
+        "takeout",
+        "reopening",
+        "re-opening",
+        "balancing",
+        "cooperative"
+      ]
+    }
+  },
+  {
+    "id": "real_test012",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "A7652.Q2.J7.A762",
+        "East": ".AJT764.8643.J83",
+        "South": "JT83.83.AK9.KT95",
+        "West": "KQ94.K95.QT52.Q4"
+      },
+      "auction": "East 2D! - South Pass - West 2H! - North Pass - East Pass - South Double - West Pass - North 3S - East Pass - South Pass - West Pass",
+      "contract": "3S by North",
+      "opening_lead": "East ♦4",
+      "play": "Trick 1: East ♦4 - South ♦A - West ♦2 - North ♦7; Winner: South ♦A",
+      "result": "7"
+    },
+    "gold_english": "East opens 2D, an alerted Multi showing a weak two-bid in one of the majors; East has six hearts and 6 high-card points. West bids 2H, pass-or-correct: East should pass with hearts. East does pass. South doubles for takeout, and North jumps to 3S with five spades and 11 points. Everyone passes. The final contract is 3S by North. East leads the four of diamonds and South wins the first trick with the ace. North takes 7 tricks and goes down two.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "2D",
+      "overcaller": "North",
+      "overcall": "3S",
+      "contract": "3S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦4",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "o14"
+      },
+      "pattern": "2D-2H-(X)-(3S)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 2D": [
+        "multi",
+        "weak two",
+        "major"
+      ],
+      "West 2H": [
+        "pass or correct",
+        "pass-or-correct"
+      ],
+      "South Double": [
+        "takeout"
+      ]
+    }
+  },
+  {
+    "id": "real_test013",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "K92.Q984.KT63.42",
+        "East": "75.AK762.852.Q86",
+        "South": "A83.T.J4.AJT9753",
+        "West": "QJT64.J53.AQ97.K"
+      },
+      "auction": "North Pass - East Pass - South 1C - West 1S - North Double - East Redouble - South 2C - West 2D - North Pass - East 2S - South 3C - West Pass - North Pass - East Pass",
+      "contract": "3C by South",
+      "opening_lead": "West ♠Q",
+      "play": "Trick 1: West ♠Q - North ♠2 - East ♠5 - South ♠A; Winner: South ♠A",
+      "result": "10"
+    },
+    "gold_english": "North and East pass, and South opens 1C in third seat with a seven-card club suit and only 10 high-card points. West overcalls 1S. North makes a negative double, showing four hearts. East redoubles to show values. South rebids clubs at 2C, West shows diamonds with 2D, and East returns to spades with 2S. South competes with 3C and everyone passes. The final contract is 3C by South. West leads the queen of spades and South wins the first trick with the ace. South takes 10 tricks, making the contract with an overtrick.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1C",
+      "overcaller": "West",
+      "overcall": "1S",
+      "contract": "3C",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♠Q",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "c9"
+      },
+      "pattern": "1C-(1S)-X-(XX)-2C-(2D)-(2S)-3C",
+      "features": [
+        "contested",
+        "double",
+        "redouble",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South 1C": [
+        "third seat",
+        "light"
+      ],
+      "West 1S": [
+        "overcall"
+      ],
+      "North Double": [
+        "negative"
+      ],
+      "East Redouble": [
+        "values",
+        "strength",
+        "points"
+      ]
+    }
+  },
+  {
+    "id": "real_test014",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "T5.732.AJ87.9875",
+        "East": "A.AJT.Q6532.AT42",
+        "South": "9743.84.KT4.KQ63",
+        "West": "KQJ862.KQ965.9.J"
+      },
+      "auction": "North Pass - East 1NT! - South Pass - West 4C! - North Pass - East 4H - South Pass - West 4NT! - North Pass - East 5D! - South Pass - West 6H - North Pass - East Pass - South Pass",
+      "contract": "6H by East",
+      "opening_lead": "South ♣Q",
+      "play": "Trick 1: South ♣Q - West ♣J - North ♣5 - East ♣A; Winner: East ♣A",
+      "result": "12"
+    },
+    "gold_english": "North passes and East opens an alerted 1NT, a balanced-style hand with 15 high-card points. West bids 4C, an artificial bid showing both major suits and asking East to choose one; East chooses 4H. West then bids 4NT, Roman Key Card Blackwood, and East's 5D shows the number of key cards. West bids the small slam, 6H, and everyone passes. The final contract is 6H by East. South leads the queen of clubs and East wins the first trick with the ace. East takes 12 tricks, making the slam exactly.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1NT",
+      "contract": "6H",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♣Q",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "o1"
+      },
+      "pattern": "1NT-4C-4H-4NT-5D-6H",
+      "features": [
+        "alerted_call",
+        "notrump_opening",
+        "slam"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 4C": [
+        "both majors",
+        "both major",
+        "two majors",
+        "choose"
+      ],
+      "West 4NT": [
+        "blackwood",
+        "key card",
+        "keycard",
+        "ace"
+      ],
+      "East 5D": [
+        "key card",
+        "keycard",
+        "aces"
+      ]
+    }
+  },
+  {
+    "id": "real_test015",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "QT962.5.AT864.K9",
+        "East": "KJ5.QJ43.KQJ3.85",
+        "South": "A43.A986.92.J643",
+        "West": "87.KT72.75.AQT72"
+      },
+      "auction": "East 1C - South Pass - West 1H - North 2C! - East 2H - South 3C - West 3H - North Pass - East Pass - South 4C - West Double - North Pass - East Pass - South Pass",
+      "contract": "4CX by North",
+      "opening_lead": "East ♣5",
+      "play": "Trick 1: East ♣5 - South ♣3 - West ♣T - North ♣K; Winner: North ♣K",
+      "result": "5"
+    },
+    "gold_english": "East opens 1C and West responds 1H. North bids 2C, a cue-bid in the opener's suit that shows the two unbid suits, here spades and diamonds. East raises partner to 2H. South, apparently taking 2C as natural, bids 3C. West competes with 3H, which is passed round to South, who bids 4C. West doubles for penalty and everyone passes. The final contract is 4C doubled by North. East leads the five of clubs and North wins the first trick with the king. North takes 5 tricks and goes down five.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "overcaller": "North",
+      "overcall": "2C",
+      "contract": "4C",
+      "contract_doubled": "doubled",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♣5",
+      "declarer_tricks": "5"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "72991",
+        "board": "o30"
+      },
+      "pattern": "1C-1H-(2C)-2H-(3C)-3H-(4C)-X",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 2C": [
+        "two-suited",
+        "two suits",
+        "unbid suits",
+        "cue"
+      ],
+      "East 2H": [
+        "raise",
+        "support"
+      ],
+      "West Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test016",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "T73.KJ86.T65.985",
+        "East": "5.AQT75432.AKQ.A",
+        "South": "KJ942..98.QJT762",
+        "West": "AQ86.9.J7432.K43"
+      },
+      "auction": "North Pass - East 1C! - South 1S - West 1NT - North Pass - East 3H - South Pass - West 3NT - North Pass - East 4C! - South Pass - West 4S! - North Pass - East 4NT - South Pass - West 5C - North Pass - East 6H - South Pass - West Pass - North Pass",
+      "contract": "6H by East",
+      "opening_lead": "South ♣Q",
+      "play": "Trick 1: South ♣Q - West ♣3 - North ♣5 - East ♣A; Winner: East ♣A",
+      "result": "10"
+    },
+    "gold_english": "North passes and East opens 1C, an alerted strong club showing 16 or more high-card points; East has 19 points and eight hearts. South overcalls 1S with a weak two-suited hand. West responds 1NT, a natural positive with a spade stopper. East jumps to 3H to show the long hearts, and West bids 3NT. East cue-bids 4C and West cue-bids 4S, showing controls. East then asks for aces with 4NT, West answers 5C, and East bids 6H. Everyone passes. The final contract is 6H by East. South leads the queen of clubs and East wins the first trick with the ace. East takes 10 tricks and goes down two.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "overcaller": "South",
+      "overcall": "1S",
+      "contract": "6H",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♣Q",
+      "declarer_tricks": "10"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "78973",
+        "board": "o21"
+      },
+      "pattern": "1C-(1S)-1NT-3H-3NT-4C-4S-4NT-5C-6H",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "slam"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 1C": [
+        "strong",
+        "16"
+      ],
+      "South 1S": [
+        "overcall"
+      ],
+      "East 4NT": [
+        "blackwood",
+        "key card",
+        "keycard",
+        "ace"
+      ]
+    }
+  },
+  {
+    "id": "real_test017",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "KJ762.T4.J52.942",
+        "East": "AQ8.A9.Q84.AQT76",
+        "South": "53.J832.KT963.K3",
+        "West": "T94.KQ765.A7.J85"
+      },
+      "auction": "East 1C! - South 2C! - West 2D! - North 3C - East Double - South Redouble - West Pass - North 3D - East Pass - South Pass - West 3NT - North Pass - East Pass - South Pass",
+      "contract": "3NT by West",
+      "opening_lead": "North ♦2",
+      "play": "Trick 1: North ♦2 - East ♦4 - South ♦9 - West ♦A; Winner: West ♦A",
+      "result": "12"
+    },
+    "gold_english": "East opens 1C, an alerted strong club with 18 high-card points. South bids 2C, an alerted artificial bid, here with hearts and diamonds. West's alerted 2D is an artificial response. North bids 3C, and East doubles for penalty with five good clubs. South redoubles, asking North to choose another suit, and North bids 3D. West then bids 3NT and everyone passes. The final contract is 3NT by West. North leads the two of diamonds and West wins the first trick with the ace. West takes 12 tricks, making the contract with three overtricks.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "overcaller": "South",
+      "overcall": "2C",
+      "contract": "3NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♦2",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "73988",
+        "board": "c22"
+      },
+      "pattern": "1C-(2C)-2D-(3C)-X-(XX)-(3D)-3NT",
+      "features": [
+        "alerted_call",
+        "contested",
+        "double",
+        "redouble"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 1C": [
+        "strong",
+        "artificial"
+      ],
+      "South 2C": [
+        "artificial",
+        "two-suited",
+        "two suits"
+      ],
+      "East Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test018",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "KT95.A6.652.KT52",
+        "East": "8642.J973.K9.A94",
+        "South": "J73.842.AQJ83.J8",
+        "West": "AQ.KQT5.T74.Q763"
+      },
+      "auction": "East Pass - South Pass - West 1NT! - North Pass - East Pass - South Pass",
+      "contract": "1NT by West",
+      "opening_lead": "North ♠9",
+      "play": "Trick 1: North ♠9 - East ♠2 - South ♠3 - West ♠Q; Winner: West ♠Q",
+      "result": "6"
+    },
+    "gold_english": "East and South pass, and West opens 1NT in third seat. The bid is alerted, and with 13 high-card points West is playing a weak no-trump, about 12-14 points, rather than the common 15-17. Everyone passes. The final contract is 1NT by West. North leads the nine of spades and West wins the first trick with the queen. West takes 6 tricks and goes down one.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1NT",
+      "contract": "1NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♠9",
+      "declarer_tricks": "6"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "85952",
+        "board": "o18"
+      },
+      "pattern": "1NT",
+      "features": [
+        "alerted_call",
+        "contract_failed",
+        "notrump_opening",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 1NT": [
+        "weak no-trump",
+        "weak notrump",
+        "12-14",
+        "12–14"
+      ]
+    }
+  },
+  {
+    "id": "real_test019",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "8.AT5.QJ76532.Q7",
+        "East": "632.KQ642.T8.KT9",
+        "South": "K95.873.A4.J5432",
+        "West": "AQJT74.J9.K9.A86"
+      },
+      "auction": "North 3D - East Pass - South Pass - West 3NT - North Pass - East Pass - South Pass",
+      "contract": "3NT by West",
+      "opening_lead": "North ♦6",
+      "play": "Trick 1: North ♦6 - East ♦T - South ♦A - West ♦9; Winner: South ♦A",
+      "result": "5"
+    },
+    "gold_english": "North opens 3D, a preempt with a seven-card diamond suit and a weak hand. East and South pass, and West bids 3NT with 15 high-card points and a long spade suit, hoping to make game. Everyone passes. The final contract is 3NT by West. North leads the six of diamonds and South wins the first trick with the ace. West takes only 5 tricks and goes down four.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "3D",
+      "overcaller": "West",
+      "overcall": "3NT",
+      "contract": "3NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♦6",
+      "declarer_tricks": "5"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70997",
+        "board": "o21"
+      },
+      "pattern": "3D-(3NT)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "high_level_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 3D": [
+        "preempt",
+        "weak"
+      ]
+    }
+  },
+  {
+    "id": "real_test020",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "97.A6.AT92.KJ987",
+        "East": "KJT4.KJT4.K7.AQ3",
+        "South": "A6532.753.Q8.T52",
+        "West": "Q8.Q982.J6543.64"
+      },
+      "auction": "East 1NT - South Pass - West Pass - North Double - East Pass - South Pass - West 2C! - North Pass - East Pass - South 2S - West Pass - North Pass - East Pass",
+      "contract": "2S by South",
+      "opening_lead": "West ♦3",
+      "play": "Trick 1: West ♦3 - North ♦2 - East ♦K - South ♦8; Winner: East ♦K",
+      "result": "5"
+    },
+    "gold_english": "East opens 1NT, showing a balanced 15-17 high-card points. South and West pass, and North doubles in the balancing seat, showing values. After two more passes West runs with 2C, an alerted escape bid looking for a safer suit. North and East pass, South competes with 2S on a five-card suit, and everyone passes. The final contract is 2S by South. West leads the three of diamonds and East wins the first trick with the king. South takes 5 tricks and goes down three.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1NT",
+      "overcaller": "South",
+      "overcall": "2S",
+      "contract": "2S",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦3",
+      "declarer_tricks": "5"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "c6"
+      },
+      "pattern": "1NT-(X)-2C-(2S)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "notrump_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 1NT": [
+        "15-17",
+        "15–17",
+        "balanced"
+      ],
+      "North Double": [
+        "penalty",
+        "values"
+      ],
+      "West 2C": [
+        "escape",
+        "rescue",
+        "run",
+        "artificial"
+      ]
+    }
+  },
+  {
+    "id": "real_test021",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "AT83.52.QT9543.9",
+        "East": "J96.T9763.K8.J42",
+        "South": "Q2.AK84.A762.AK5",
+        "West": "K754.QJ.J.QT8763"
+      },
+      "auction": "West Pass - North Pass - East Pass - South 1C - West Pass - North 1S - East Pass - South 2D - West Pass - North 2S - East Pass - South 2NT - West Pass - North 3D! - East Pass - South 3H - West Pass - North 3S! - East Pass - South 6D - West Pass - North Pass - East Pass",
+      "contract": "6D by South",
+      "opening_lead": "West ♥J",
+      "play": "Trick 1: West ♥J - North ♥2 - East ♥6 - South ♥A; Winner: South ♥A",
+      "result": "12"
+    },
+    "gold_english": "West, North and East pass, and South opens 1C in fourth seat with a strong balanced hand of 20 high-card points. North responds 1S. South's 2D is a reverse, showing extra strength. North rebids 2S and South bids 2NT. North's alerted 3D shows diamond support, South cue-bids 3H, and North's alerted 3S shows a spade control. South jumps to 6D and everyone passes. The final contract is 6D by South. West leads the jack of hearts and South wins the first trick with the ace. South takes 12 tricks, making the slam exactly.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1C",
+      "contract": "6D",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♥J",
+      "declarer_tricks": "12"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "83958",
+        "board": "c16"
+      },
+      "pattern": "1C-1S-2D-2S-2NT-3D-3H-3S-6D",
+      "features": [
+        "alerted_call",
+        "seat_3_or_4",
+        "slam"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South 1C": [
+        "fourth seat"
+      ],
+      "South 2D": [
+        "reverse",
+        "extra strength",
+        "strong"
+      ]
+    }
+  },
+  {
+    "id": "real_test022",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": ".KQJT.KJT842.J95",
+        "East": "QT753.6.Q963.Q83",
+        "South": "AJ984.A9854..762",
+        "West": "K62.732.A75.AKT4"
+      },
+      "auction": "West 1NT - North Pass - East 2H - South Pass - West 2S - North 3D - East Pass - South Pass - West 3S - North Pass - East Pass - South Double - West Pass - North Pass - East Pass",
+      "contract": "3SX by West",
+      "opening_lead": "North ♥K",
+      "play": "Trick 1: North ♥K - East ♥6 - South ♥4 - West ♥2; Winner: North ♥K",
+      "result": "9"
+    },
+    "gold_english": "West opens 1NT, a balanced hand. East bids 2H, a transfer to spades, and West completes it with 2S. North comes in with 3D on a six-card suit. East and South pass, and West competes with 3S. North and East pass, and South, holding five good spades, doubles for penalty. Everyone passes. The final contract is 3S doubled by West. North leads the king of hearts and wins the first trick. West takes 9 tricks, making the doubled contract exactly.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1NT",
+      "overcaller": "North",
+      "overcall": "3D",
+      "contract": "3S",
+      "contract_doubled": "doubled",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♥K",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "85952",
+        "board": "o24"
+      },
+      "pattern": "1NT-2H-2S-(3D)-3S-(X)",
+      "features": [
+        "contested",
+        "double",
+        "doubled_contract",
+        "notrump_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 1NT": [
+        "balanced"
+      ],
+      "East 2H": [
+        "transfer"
+      ],
+      "South Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test023",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "97.AKQJ.A65.Q752",
+        "East": "43.T86.KT98742.A",
+        "South": "KJT865.752.J3.T4",
+        "West": "AQ2.943.Q.KJ9863"
+      },
+      "auction": "East 2D - South Pass - West Pass - North 2NT - East Pass - South 3H! - West Pass - North 3S - East Pass - South Pass - West Pass",
+      "contract": "3S by North",
+      "opening_lead": "East ♣A",
+      "play": "Trick 1: East ♣A - South ♣4 - West ♣3 - North ♣5; Winner: East ♣A",
+      "result": "8"
+    },
+    "gold_english": "East opens a weak 2D with a seven-card diamond suit. South and West pass, and North bids 2NT in the balancing seat, a natural bid with a balanced 16 high-card points. South bids 3H, a transfer to spades, and North completes it with 3S. Everyone passes. The final contract is 3S by North. East leads the ace of clubs and wins the first trick. North takes 8 tricks and goes down one.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "2D",
+      "overcaller": "North",
+      "overcall": "2NT",
+      "contract": "3S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♣A",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "86949",
+        "board": "c6"
+      },
+      "pattern": "2D-(2NT)-(3H)-(3S)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 2D": [
+        "weak"
+      ],
+      "North 2NT": [
+        "natural",
+        "balanced"
+      ],
+      "South 3H": [
+        "transfer"
+      ]
+    }
+  },
+  {
+    "id": "real_test024",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "A85.KQT9653.7.K7",
+        "East": "Q4.A2.QJT52.T952",
+        "South": "9762.74.A93.AJ86",
+        "West": "KJT3.J8.K864.Q43"
+      },
+      "auction": "South Pass - West Pass - North 4H - East Pass - South Pass - West Pass",
+      "contract": "4H by North",
+      "opening_lead": "East ♦Q",
+      "play": "Trick 1: East ♦Q - South ♦A - West ♦4 - North ♦7; Winner: South ♦A",
+      "result": "11"
+    },
+    "gold_english": "South and West pass, and North opens 4H in third seat with a seven-card heart suit, a preemptive jump straight to game. Everyone passes. The final contract is 4H by North. East leads the queen of diamonds and South wins the first trick with the ace. North takes 11 tricks, making the contract with an overtrick.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "4H",
+      "contract": "4H",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦Q",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "71994",
+        "board": "o19"
+      },
+      "pattern": "4H",
+      "features": [
+        "high_level_opening",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 4H": [
+        "preempt",
+        "long"
+      ]
+    }
+  },
+  {
+    "id": "real_test025",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "92.AQT984.A97.Q5",
+        "East": "QJT43.K.KQT6.876",
+        "South": "K876.532.J43.AK2",
+        "West": "A5.J76.852.JT943"
+      },
+      "auction": "West Pass - North 2H! - East 2S - South 2NT - West Pass - North 3H - East Pass - South 4H - West Pass - North Pass - East Pass",
+      "contract": "4H by North",
+      "opening_lead": "East ♦K",
+      "play": "Trick 1: East ♦K - South ♦3 - West ♦8 - North ♦A; Winner: North ♦A",
+      "result": "9"
+    },
+    "gold_english": "West passes and North opens an alerted 2H, a weak two-bid with six hearts. East overcalls 2S. South bids 2NT, an artificial inquiry asking about the strength of North's hand. North rebids 3H to show a minimum, but South bids game in 4H anyway, and everyone passes. The final contract is 4H by North. East leads the king of diamonds and North wins the first trick with the ace. North takes 9 tricks and goes down one.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "2H",
+      "overcaller": "East",
+      "overcall": "2S",
+      "contract": "4H",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦K",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "80967",
+        "board": "c8"
+      },
+      "pattern": "2H-(2S)-2NT-3H-4H",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 2H": [
+        "weak"
+      ],
+      "East 2S": [
+        "overcall"
+      ],
+      "South 2NT": [
+        "ask",
+        "inquiry",
+        "ogust",
+        "feature"
+      ]
+    }
+  },
+  {
+    "id": "real_test026",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "9873.6532.AJ6.J8",
+        "East": "J4.KQJ74.T97.753",
+        "South": "AKQT2.AT98.Q5.AK",
+        "West": "65..K8432.QT9642"
+      },
+      "auction": "South 2C - West 2D - North Double - East 3D - South 3S - West Pass - North 4D - East Pass - South 4H - West 4S - North Pass - East 4NT - South Pass - West 5D - North Pass - East 5NT - South 6S - West Pass - North Pass - East Pass",
+      "contract": "6S by South",
+      "opening_lead": "West ♦8",
+      "play": "Trick 1: West ♦8 - North ♦6 - East ♦9 - South ♦Q; Winner: South ♦Q",
+      "result": "11"
+    },
+    "gold_english": "South opens 2C, the strong artificial opening, with 22 high-card points. West overcalls 2D. North doubles, showing some values, and East raises to 3D. South bids 3S, and North's 4D cue-bid shows support. South cue-bids 4H. East-West's later bids, West's 4S and East's 4NT and 5NT, are unusual and their meaning is not clear from the record; they look like attempts to find a sacrifice. South bids 6S and everyone passes. The final contract is 6S by South. West leads the eight of diamonds and South wins the first trick with the queen. South takes 11 tricks and goes down one.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "2C",
+      "overcaller": "West",
+      "overcall": "2D",
+      "contract": "6S",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦8",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "76979",
+        "board": "o15"
+      },
+      "pattern": "2C-(2D)-X-(3D)-3S-4D-4H-(4S)-(4NT)-(5D)-(5NT)-6S",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "slam"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South 2C": [
+        "strong",
+        "artificial"
+      ],
+      "West 2D": [
+        "overcall"
+      ]
+    }
+  },
+  {
+    "id": "real_test027",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "AK9.Q86.J8.AQJ98",
+        "East": "Q73.K53.AK432.T6",
+        "South": "54.JT72.T7.K7542",
+        "West": "JT862.A94.Q965.3"
+      },
+      "auction": "South Pass - West Pass - North 1C! - East 1D - South Pass - West 3D - North Pass - East Pass - South Double - West Pass - North 4C - East Pass - South Pass - West Pass",
+      "contract": "4C by North",
+      "opening_lead": "East ♦A",
+      "play": "Trick 1: East ♦A - South ♦7 - West ♦5 - North ♦8; Winner: East ♦A",
+      "result": "9"
+    },
+    "gold_english": "South and West pass, and North opens 1C in third seat, an alerted strong club with 17 high-card points. East overcalls 1D and West makes a preemptive jump raise to 3D. North and East pass, and South doubles to compete, showing some cards in the other suits. North bids 4C and everyone passes. The final contract is 4C by North. East leads the ace of diamonds and wins the first trick. North takes 9 tricks and goes down one.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1C",
+      "overcaller": "East",
+      "overcall": "1D",
+      "contract": "4C",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦A",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "73988",
+        "board": "o19"
+      },
+      "pattern": "1C-(1D)-(3D)-X-4C",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 1C": [
+        "strong",
+        "artificial",
+        "16"
+      ],
+      "East 1D": [
+        "overcall"
+      ],
+      "West 3D": [
+        "preempt",
+        "weak"
+      ],
+      "South Double": [
+        "takeout",
+        "compete",
+        "competitive",
+        "cooperative"
+      ]
+    }
+  },
+  {
+    "id": "real_test028",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "Q9632.J964.95.92",
+        "East": "K54.KQ73.KQJ7.K7",
+        "South": "AJ8.A82.AT.A8654",
+        "West": "T7.T5.86432.QJT3"
+      },
+      "auction": "West Pass - North Pass - East 1NT - South Double - West Pass - North 2S - East Pass - South Pass - West Pass",
+      "contract": "2S by North",
+      "opening_lead": "East ♦K",
+      "play": "Trick 1: East ♦K - South ♦A - West ♦2 - North ♦5; Winner: South ♦A",
+      "result": "9"
+    },
+    "gold_english": "West and North pass, and East opens 1NT in third seat, showing a balanced 15-17 high-card points. South doubles for penalty with 17 points. West passes, and North, with only 3 points and five spades, takes out the double to 2S. Everyone passes. The final contract is 2S by North. East leads the king of diamonds and South wins the first trick with the ace. North takes 9 tricks, making the contract with an overtrick.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1NT",
+      "overcaller": "North",
+      "overcall": "2S",
+      "contract": "2S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦K",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "78973",
+        "board": "o24"
+      },
+      "pattern": "1NT-(X)-(2S)",
+      "features": [
+        "contested",
+        "double",
+        "notrump_opening",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 1NT": [
+        "15-17",
+        "15–17",
+        "balanced"
+      ],
+      "South Double": [
+        "penalty",
+        "strong"
+      ]
+    }
+  },
+  {
+    "id": "real_test029",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "T643.942.T75.QT8",
+        "East": "AQ982.87.AQ6.K97",
+        "South": "J.AK3.KJ843.J542",
+        "West": "K75.QJT65.92.A63"
+      },
+      "auction": "North Pass - East 1S - South Double - West Redouble - North Pass - East Pass - South 2D - West 2S - North Pass - East 4S - South Pass - West Pass - North Pass",
+      "contract": "4S by East",
+      "opening_lead": "South ♥A",
+      "play": "Trick 1: South ♥A - West ♥5 - North ♥4 - East ♥7; Winner: South ♥A",
+      "result": "11"
+    },
+    "gold_english": "North passes and East opens 1S. South doubles for takeout with short spades. West redoubles, showing 10 or more high-card points. North and East pass, and South runs to 2D. West bids 2S, North passes, and East jumps to game in 4S. Everyone passes. The final contract is 4S by East. South leads the ace of hearts and wins the first trick. East takes 11 tricks, making the contract with an overtrick.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1S",
+      "overcaller": "South",
+      "overcall": "2D",
+      "contract": "4S",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♥A",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "85952",
+        "board": "c21"
+      },
+      "pattern": "1S-(X)-XX-(2D)-2S-4S",
+      "features": [
+        "contested",
+        "double",
+        "redouble"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South Double": [
+        "takeout"
+      ],
+      "West Redouble": [
+        "10",
+        "strength",
+        "values"
+      ]
+    }
+  },
+  {
+    "id": "real_test030",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "K654.KT.A654.QJ7",
+        "East": "AQJ32..QJT87.KT6",
+        "South": "7.J98543.93.A532",
+        "West": "T98.AQ762.K2.984"
+      },
+      "auction": "West 2D - North Pass - East 2H - South Pass - West Pass - North Double - East Pass - South 2NT - West Pass - North Pass - East Pass",
+      "contract": "2NT by South",
+      "opening_lead": "West ♠T",
+      "play": "Trick 1: West ♠T - North ♠4 - East ♠3 - South ♠7; Winner: West ♠T",
+      "result": "5"
+    },
+    "gold_english": "West opens 2D. With five hearts this is evidently a Multi 2D, a weak two-bid in a major, though it is not marked as alerted. East bids 2H, pass-or-correct, and West passes with hearts. North doubles for takeout with 13 high-card points. South bids 2NT and everyone passes. The final contract is 2NT by South. West leads the ten of spades and wins the first trick. South takes 5 tricks and goes down three.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2D",
+      "overcaller": "South",
+      "overcall": "2NT",
+      "contract": "2NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♠T",
+      "declarer_tricks": "5"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70997",
+        "board": "o24"
+      },
+      "pattern": "2D-2H-(X)-(2NT)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 2D": [
+        "multi",
+        "weak two",
+        "major"
+      ],
+      "East 2H": [
+        "pass or correct",
+        "pass-or-correct"
+      ],
+      "North Double": [
+        "takeout"
+      ]
+    }
+  },
+  {
+    "id": "real_test031",
+    "raw": {
+      "dealer": "South",
+      "hands": {
+        "North": "KT3.76543.Q5.QJ5",
+        "East": "5.KJ8.KT742.AK92",
+        "South": "AQ9876..A963.843",
+        "West": "J42.AQT92.J8.T76"
+      },
+      "auction": "South 1S - West Pass - North 2S! - East Double - South 4S - West Double - North Pass - East Pass - South Pass",
+      "contract": "4SX by South",
+      "opening_lead": "West ♦J",
+      "play": "Trick 1: West ♦J - North ♦Q - East ♦K - South ♦A; Winner: South ♦A",
+      "result": "9"
+    },
+    "gold_english": "South opens 1S with six spades. West passes and North raises to 2S, an alerted raise. East doubles for takeout, short in spades. South jumps to 4S to make it hard for the opponents to compete, and West doubles for penalty. Everyone passes. The final contract is 4S doubled by South. West leads the jack of diamonds and South wins the first trick with the ace. South takes 9 tricks and goes down one.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1S",
+      "contract": "4S",
+      "contract_doubled": "doubled",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♦J",
+      "declarer_tricks": "9"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "75982",
+        "board": "o11"
+      },
+      "pattern": "1S-2S-(X)-4S-(X)",
+      "features": [
+        "alerted_call",
+        "contract_failed",
+        "double",
+        "doubled_contract"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 2S": [
+        "raise",
+        "support"
+      ],
+      "East Double": [
+        "takeout"
+      ],
+      "West Double": [
+        "penalty",
+        "values"
+      ]
+    }
+  },
+  {
+    "id": "real_test032",
+    "raw": {
+      "dealer": "East",
+      "hands": {
+        "North": "KJT54.4.K743.J94",
+        "East": "Q93.QJT8.T2.Q873",
+        "South": "A82.7652.96.AT62",
+        "West": "76.AK93.AQJ85.K5"
+      },
+      "auction": "East Pass - South Pass - West 1D - North 1S - East Double - South 2H! - West 4H - North Pass - East Pass - South Pass",
+      "contract": "4H by West",
+      "opening_lead": "North ♠T",
+      "play": "Trick 1: North ♠T - East ♠3 - South ♠2 - West ♠6; Winner: North ♠T",
+      "result": "8"
+    },
+    "gold_english": "East and South pass, and West opens 1D in third seat with 17 high-card points. North overcalls 1S. East makes a negative double, showing four hearts. South's alerted 2H is a cue-bid in the suit East has shown, promising a good raise in spades. West jumps to game in 4H, and everyone passes. The final contract is 4H by West. North leads the ten of spades and wins the first trick. West takes 8 tricks and goes down two.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1D",
+      "overcaller": "North",
+      "overcall": "1S",
+      "contract": "4H",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♠T",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "74985",
+        "board": "c6"
+      },
+      "pattern": "1D-(1S)-X-(2H)-4H",
+      "features": [
+        "alerted_call",
+        "contested",
+        "contract_failed",
+        "double",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 1S": [
+        "overcall"
+      ],
+      "East Double": [
+        "negative"
+      ],
+      "South 2H": [
+        "cue",
+        "raise",
+        "support"
+      ]
+    }
+  },
+  {
+    "id": "real_test033",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "A973.AT.52.JT763",
+        "East": "QJ864.QJ.AQT97.K",
+        "South": "K52.K763.J84.952",
+        "West": "T.98542.K63.AQ84"
+      },
+      "auction": "North Pass - East 1S - South Pass - West 1NT! - North Pass - East 2D - South Pass - West Pass - North 3C - East 3D - South Pass - West 3NT - North Double - East Pass - South Pass - West Pass",
+      "contract": "3NTX by West",
+      "opening_lead": "North ♥A",
+      "play": "Trick 1: North ♥A - East ♥J - South ♥3 - West ♥2; Winner: North ♥A",
+      "result": "11"
+    },
+    "gold_english": "North passes and East opens 1S. West responds 1NT, alerted as forcing. East shows a second suit with 2D, and West passes. North balances with 3C, East competes with 3D, and West bids 3NT. North doubles for penalty, and everyone passes. The final contract is 3NT doubled by West. North leads the ace of hearts and wins the first trick. West takes 11 tricks, making the doubled contract with two overtricks.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1S",
+      "overcaller": "North",
+      "overcall": "3C",
+      "contract": "3NT",
+      "contract_doubled": "doubled",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♥A",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "70000",
+        "board": "c9"
+      },
+      "pattern": "1S-1NT-2D-(3C)-3D-3NT-(X)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "double",
+        "doubled_contract"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 1NT": [
+        "forcing"
+      ],
+      "East 2D": [
+        "second suit"
+      ],
+      "North Double": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test034",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "KJ765.A8.A.KJ632",
+        "East": "842.75.T763.A854",
+        "South": "AQ3.Q42.KQ9852.7",
+        "West": "T9.KJT963.J4.QT9"
+      },
+      "auction": "West 3H - North 3S - East Pass - South 4H - West Pass - North 4S - East Pass - South Pass - West Pass",
+      "contract": "4S by North",
+      "opening_lead": "East ♥7",
+      "play": "Trick 1: East ♥7 - South ♥2 - West ♥9 - North ♥A; Winner: North ♥A",
+      "result": "11"
+    },
+    "gold_english": "West opens 3H, a preempt with six hearts and a weak hand. North overcalls 3S with 16 high-card points. East passes, and South cue-bids 4H in the opponents' suit to show a good raise in spades. North bids 4S and everyone passes. The final contract is 4S by North. East leads the seven of hearts and North wins the first trick with the ace. North takes 11 tricks, making the contract with an overtrick.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "3H",
+      "overcaller": "North",
+      "overcall": "3S",
+      "contract": "4S",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♥7",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "77976",
+        "board": "o44"
+      },
+      "pattern": "3H-(3S)-(4H)-(4S)",
+      "features": [
+        "contested",
+        "high_level_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 3H": [
+        "preempt",
+        "weak"
+      ],
+      "North 3S": [
+        "overcall"
+      ],
+      "South 4H": [
+        "cue",
+        "support",
+        "raise"
+      ]
+    }
+  },
+  {
+    "id": "real_test035",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "T8.872.T832.T743",
+        "East": "K964.Q943.A6.A92",
+        "South": "J532.AJT6.J94.85",
+        "West": "AQ7.K5.KQ75.KQJ6"
+      },
+      "auction": "North Pass - East 1C - South Pass - West 2C! - North Pass - East 2H - South Pass - West 3C - North Pass - East 3D - South Pass - West 6NT - North Pass - East Pass - South Pass",
+      "contract": "6NT by West",
+      "opening_lead": "North ♥8",
+      "play": "Trick 1: North ♥8 - East ♥3 - South ♥6 - West ♥K; Winner: West ♥K",
+      "result": "11"
+    },
+    "gold_english": "North passes and East opens 1C. West responds 2C, an alerted inverted raise showing club support and a strong hand. East shows a heart stopper with 2H, West rebids 3C, and East shows a diamond stopper with 3D. West, with 20 high-card points, jumps to 6NT, a small slam needing 12 tricks. Everyone passes. The final contract is 6NT by West. North leads the eight of hearts and West wins the first trick with the king. West takes 11 tricks and goes down one.",
+    "facts": {
+      "opener": "East",
+      "opening_bid": "1C",
+      "contract": "6NT",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♥8",
+      "declarer_tricks": "11"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "81964",
+        "board": "o1"
+      },
+      "pattern": "1C-2C-2H-3C-3D-6NT",
+      "features": [
+        "alerted_call",
+        "contract_failed",
+        "slam"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 2C": [
+        "inverted",
+        "strong raise",
+        "forcing"
+      ],
+      "West 6NT": [
+        "slam",
+        "12 tricks",
+        "twelve tricks"
+      ]
+    }
+  },
+  {
+    "id": "real_test036",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "J872.A95.AT62.K4",
+        "East": "AKQ53.K6.QJ.AQT8",
+        "South": "T64.QT82.K7.J963",
+        "West": "9.J743.98543.752"
+      },
+      "auction": "North 1NT! - East Double - South Pass - West 2D - North Pass - East Pass - South Pass",
+      "contract": "2D by West",
+      "opening_lead": "North ♠7",
+      "play": "Trick 1: North ♠7 - East ♠A - South ♠T - West ♠9; Winner: East ♠A",
+      "result": "8"
+    },
+    "gold_english": "North opens 1NT; it is alerted, and with 12 high-card points this is a weak no-trump of about 12-14 points. East doubles for penalty with a powerful 21 points. South passes, and West, with only 1 point, escapes to 2D with a five-card suit. Everyone passes. The final contract is 2D by West. North leads the seven of spades and East wins the first trick with the ace. West takes 8 tricks, making the contract exactly.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1NT",
+      "overcaller": "West",
+      "overcall": "2D",
+      "contract": "2D",
+      "declarer": "West",
+      "opening_leader": "North",
+      "opening_lead": "♠7",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "86949",
+        "board": "c1"
+      },
+      "pattern": "1NT-(X)-(2D)",
+      "features": [
+        "alerted_call",
+        "contested",
+        "double",
+        "notrump_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 1NT": [
+        "weak no-trump",
+        "weak notrump",
+        "12-14",
+        "12–14"
+      ],
+      "East Double": [
+        "penalty",
+        "strong"
+      ]
+    }
+  },
+  {
+    "id": "real_test037",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "QJ7542.QJT2..KQ3",
+        "East": "T8.8743.5.T86542",
+        "South": "93.K65.KQ94.AJ97",
+        "West": "AK6.A9.AJT87632."
+      },
+      "auction": "West 1C - North 1S - East Pass - South 2C - West 3D - North 3H - East Pass - South 3NT - West Double - North 4S - East Pass - South Pass - West Double - North Pass - East Pass - South Pass",
+      "contract": "4SX by North",
+      "opening_lead": "East ♦5",
+      "play": "Trick 1: East ♦5 - South ♦K - West ♦A - North ♠2; Winner: North ♠2",
+      "result": "8"
+    },
+    "gold_english": "West opens 1C; with no clubs at all, this must be an artificial opening in West's system. North overcalls 1S with six spades. East passes and South bids a natural 2C. West shows the long diamonds with 3D, North shows hearts with 3H, and South bids 3NT. West doubles, and North runs back to 4S. West doubles again for penalty, and everyone passes. The final contract is 4S doubled by North. East leads the five of diamonds, South plays the king and West the ace, and North ruffs with the two of spades to win the first trick. North takes 8 tricks and goes down two.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "1C",
+      "overcaller": "North",
+      "overcall": "1S",
+      "contract": "4S",
+      "contract_doubled": "doubled",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦5",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "76979",
+        "board": "c8"
+      },
+      "pattern": "1C-(1S)-(2C)-3D-(3H)-(3NT)-X-(4S)-X",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "North 1S": [
+        "overcall"
+      ],
+      "West Double of 4S": [
+        "penalty"
+      ]
+    }
+  },
+  {
+    "id": "real_test038",
+    "raw": {
+      "dealer": "North",
+      "hands": {
+        "North": "K853.652.A9.Q863",
+        "East": "JT94.KT3.876.A52",
+        "South": "Q2.A98.KJT54.KT4",
+        "West": "A76.QJ74.Q32.J97"
+      },
+      "auction": "North Pass - East Pass - South 1NT! - West Pass - North Pass - East Pass",
+      "contract": "1NT by South",
+      "opening_lead": "West ♥4",
+      "play": "Trick 1: West ♥4 - North ♥2 - East ♥K - South ♥8; Winner: East ♥K",
+      "result": "7"
+    },
+    "gold_english": "North and East pass, and South opens 1NT in third seat. It is alerted, and with 13 high-card points this is a weak no-trump, about 12-14 points. Everyone passes. The final contract is 1NT by South. West leads the four of hearts and East wins the first trick with the king. South takes 7 tricks, making the contract exactly.",
+    "facts": {
+      "opener": "South",
+      "opening_bid": "1NT",
+      "contract": "1NT",
+      "declarer": "South",
+      "opening_leader": "West",
+      "opening_lead": "♥4",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "85952",
+        "board": "o13"
+      },
+      "pattern": "1NT",
+      "features": [
+        "alerted_call",
+        "notrump_opening",
+        "seat_3_or_4"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "South 1NT": [
+        "weak no-trump",
+        "weak notrump",
+        "12-14",
+        "12–14"
+      ]
+    }
+  },
+  {
+    "id": "real_test039",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "T9.AK42.J942.K64",
+        "East": "82.Q973.AT.QT752",
+        "South": "KJ6.T65.KQ875.A3",
+        "West": "AQ7543.J8.63.J98"
+      },
+      "auction": "West 2D! - North Pass - East 2S! - South Pass - West Pass - North Pass",
+      "contract": "2S by East",
+      "opening_lead": "South ♦K",
+      "play": "Trick 1: South ♦K - West ♦3 - North ♦2 - East ♦A; Winner: East ♦A",
+      "result": "7"
+    },
+    "gold_english": "West opens 2D, an alerted Multi showing a weak two-bid in a major; West has six spades. East bids 2S, pass-or-correct, and West passes with spades. Everyone passes. Because East was the first of the pair to name spades, the final contract is 2S by East, with West's long spades as dummy. South leads the king of diamonds and East wins the first trick with the ace. East takes 7 tricks and goes down one.",
+    "facts": {
+      "opener": "West",
+      "opening_bid": "2D",
+      "contract": "2S",
+      "declarer": "East",
+      "opening_leader": "South",
+      "opening_lead": "♦K",
+      "declarer_tricks": "7"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "71994",
+        "board": "o24"
+      },
+      "pattern": "2D-2S",
+      "features": [
+        "alerted_call",
+        "contract_failed",
+        "two_level_suit_opening"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "West 2D": [
+        "multi",
+        "weak two",
+        "major"
+      ],
+      "East 2S": [
+        "pass or correct",
+        "pass-or-correct"
+      ]
+    }
+  },
+  {
+    "id": "real_test040",
+    "raw": {
+      "dealer": "West",
+      "hands": {
+        "North": "AT53.KJ84.KT.864",
+        "East": "K96.A5.A82.AJ732",
+        "South": "Q42.T96.743.KQT9",
+        "West": "J87.Q732.QJ965.5"
+      },
+      "auction": "West Pass - North 1C - East 1NT - South Pass - West 2C - North Pass - East 2D - South Pass - West Pass - North Double - East Pass - South 3C - West Double - North Pass - East Pass - South Pass",
+      "contract": "3CX by North",
+      "opening_lead": "East ♦A",
+      "play": "Trick 1: East ♦A - South ♦3 - West ♦6 - North ♦T; Winner: East ♦A",
+      "result": "8"
+    },
+    "gold_english": "West passes and North opens 1C. East overcalls 1NT, showing a balanced 15-18 high-card points. West bids 2C, Stayman, asking whether East has a four-card major, and East's 2D denies one. West passes. North reopens with a takeout double of 2D, and South bids 3C. West doubles for penalty and everyone passes. The final contract is 3C doubled by North. East leads the ace of diamonds and wins the first trick. North takes 8 tricks and goes down one.",
+    "facts": {
+      "opener": "North",
+      "opening_bid": "1C",
+      "overcaller": "East",
+      "overcall": "1NT",
+      "contract": "3C",
+      "contract_doubled": "doubled",
+      "declarer": "North",
+      "opening_leader": "East",
+      "opening_lead": "♦A",
+      "declarer_tricks": "8"
+    },
+    "metadata": {
+      "source": {
+        "vugraph_id": "72991",
+        "board": "o20"
+      },
+      "pattern": "1C-(1NT)-(2C)-(2D)-X-3C-(X)",
+      "features": [
+        "contested",
+        "contract_failed",
+        "double",
+        "doubled_contract"
+      ]
+    },
+    "gold_english_status": "draft: written by Claude (claude-opus-5-5) from the raw record before any system was run on this split; needs review",
+    "meaning_facts": {
+      "East 1NT": [
+        "15-18",
+        "15–18",
+        "balanced"
+      ],
+      "West 2C": [
+        "stayman",
+        "four-card major"
+      ],
+      "North Double": [
+        "takeout",
+        "balancing",
+        "reopen"
+      ],
+      "West Double": [
+        "penalty",
+        "values"
+      ]
+    }
+  }
+]

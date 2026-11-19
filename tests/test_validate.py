@@ -113,7 +113,7 @@ class ValidateRecordTest(unittest.TestCase):
 
 class DatasetTest(unittest.TestCase):
     def test_every_record_is_legal(self):
-        for split in ["train", "dev", "test"]:
+        for split in ["train", "dev", "test", "real_dev", "real_test"]:
             for example in json.loads((ROOT / "data" / f"{split}.json").read_text(encoding="utf-8")):
                 with self.subTest(id=example["id"]):
                     self.assertEqual(validate_record(example["raw"]), [])

@@ -86,7 +86,7 @@ class RolesAndSeatsTest(unittest.TestCase):
                 "OVERCALL(East, 1S, simple_overcall)",
                 "RESPOND(South, 2H, raise)",
                 "ADVANCE(West, 2S, raise)",
-                "REBID(North, 3H, own_suit)",
+                "REBID(North, 3H, agreed_suit)",
             ],
         )
 
@@ -124,6 +124,17 @@ class DoublesTest(unittest.TestCase):
     def test_penalty_of_notrump_and_of_game(self):
         self.assertEqual(auction("North 1NT - East Double")[1], "DOUBLE(East, penalty)")
         self.assertEqual(auction("North 1H - East Pass - South 4H - West Double")[3], "DOUBLE(West, penalty)")
+
+    def test_responsive(self):
+        self.assertEqual(auction("North 1H - East Double - South 3H - West Double")[3], "DOUBLE(West, responsive)")
+
+    def test_advance_after_takeout_double(self):
+        lines = auction("North 1H - East Double - South Pass - West 2C - North Pass - East 2H")
+        self.assertEqual(lines[3], "ADVANCE(West, 2C, new_suit)")
+        self.assertEqual(lines[5], "REBID(East, 2H, cue_bid)")
+
+    def test_natural_notrump_is_not_a_cue_bid(self):
+        self.assertEqual(auction("North 1NT - East 3NT")[1], "OVERCALL(East, 3NT, notrump)")
 
     def test_penalty_when_partner_has_bid(self):
         lines = auction("North 1H - East 1S - South 2C - West 2S - North 3C - East Pass - South Pass - West Double")

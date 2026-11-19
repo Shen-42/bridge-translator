@@ -93,14 +93,14 @@ def opening_sentence(player: str, bid: str, style: str, interpretation: str = ""
     return f"{player} opens {bid}."
 
 
-NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+NUMBER_WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
                 "eleven", "twelve", "thirteen"]
 TAG_PHRASES = {
     "stayman": "Stayman", "transfer": "a transfer", "raise": "a raise", "notrump": "no-trump",
     "new_suit": "a new suit", "own_suit": "rebidding the suit", "cue_bid": "a cue-bid",
     "simple_overcall": "an overcall", "jump_overcall": "a weak jump overcall",
     "notrump_overcall": "15–18 balanced", "unusual_2nt": "unusual no-trump", "artificial": "artificial",
-    "waiting_response": "waiting",
+    "waiting_response": "waiting", "agreed_suit": "the agreed suit", "second_suit": "a second suit",
 }
 
 
@@ -156,17 +156,21 @@ def bid_sentence(role: str, player: str, bid: str, tag: str, style: str) -> str:
     if tag == "cue_bid" and role == "OVERCALL":
         return f"{player} cue-bids {bid} in the opponents' suit, usually showing a two-suited hand{note}."
     if tag == "cue_bid":
-        return f"{player} cue-bids {bid} in the opponents' suit, showing a strong raise of partner's suit{note}."
+        return f"{player} cue-bids {bid} in the opponents' suit, an artificial bid showing a strong hand{note}."
+    if tag == "agreed_suit":
+        return f"{player} bids {bid} in the suit the partnership has agreed on{note}."
     if tag == "own_suit":
         return f"{player} rebids {bid}, showing extra length in {suit}s{note}."
     if role == "REBID" and tag == "notrump":
         return f"{player} rebids {bid}{note}."
-    if role == "REBID":
+    if tag == "second_suit":
         return f"{player} bids {bid}, showing a second suit{note}."
+    if role == "REBID":
+        return f"{player} bids {bid}, naming a {suit} suit{note}."
     if tag == "notrump":
         return f"{player} bids {bid}, suggesting a no-trump contract{note}."
     if role == "ADVANCE":
-        return f"{player} bids {bid}, naming a new suit after partner's overcall{note}."
+        return f"{player} bids {bid}, showing {suit}s in reply to partner's overcall or double{note}."
     if int(bid[0]) == 1:
         return f"{player} responds {bid}, showing at least four {suit}s{note}."
     return f"{player} responds {bid}, naming a new {suit} suit with enough strength to bid at a higher level{note}."
@@ -177,9 +181,11 @@ DOUBLE_SENTENCES = {
     "takeout": "{p} doubles for takeout, showing opening values and support for the unbid suits, and asking partner to choose one.",
     "negative": "{p} makes a negative double, showing some values and length in the unbid suits rather than a wish to defend.",
     "lead_directing": "{p} doubles the artificial bid, asking partner to lead that suit.",
+    "responsive": "{p} makes a responsive double, showing values and length in the unbid suits after partner's takeout double.",
 }
 DOUBLE_EXPERT = {"takeout": "{p} doubles for takeout.", "negative": "{p} makes a negative double.",
-                 "lead_directing": "{p} makes a lead-directing double."}
+                 "lead_directing": "{p} makes a lead-directing double.",
+                 "responsive": "{p} makes a responsive double."}
 
 
 def hand_sentence(player: str, hcp: str, shape: str, style: str) -> str:
