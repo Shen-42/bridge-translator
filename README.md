@@ -152,18 +152,18 @@ bridge-translator/
 
 ## Known issues
 
-- **The real-data references are drafts.** The 40 reference explanations and meaning annotations in `data/real_test.json` were written by Claude from the raw records, before any system was run on that split, and have not yet been reviewed by a Bridge player.
+- **The real-data references were machine-drafted.** The 40 reference explanations and meaning annotations in `data/real_test.json` were written by Claude from the raw records, before any system was run on that split. I reviewed and approved every one, but a second Bridge player has not checked them.
 - **The synthetic dataset is small and hand-built.** It has 90 examples covering seven auction patterns, and its reference English follows the template wording, so template scores on it are inflated.
 - **Scores are automatic.** Facts and meanings are checked by matching words in sentences, not by people.
 - **Bidding rules are simple Standard American.** Real pairs play other systems: a 2C opening may be natural, 1C may be a strong club, and many alerted calls can only be described as "artificial". Vulnerability and scoring are ignored.
-- **The paper is out of date.** `paper/` still describes the earlier version with simulated models and the synthetic data only.
 - **Only small local models are tested.** Qwen3 4B and 1.7B run on a laptop; larger models may behave differently.
 
 ## To do
 
 - [x] Compare real language models on shorthand input versus artificial-language input
 - [x] Add real game records to the dataset
-- [ ] Have a Bridge player review the real-data references
+- [x] Review every real-data reference
+- [ ] Have a second Bridge player check the references
 - [ ] Run a study where Bridge players score accuracy and beginners score readability
 - [ ] Write a formal grammar for the artificial language so badly formed output is caught automatically
 - [ ] Add a reverse task: rebuild the original record from the English explanation

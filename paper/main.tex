@@ -1,4 +1,3 @@
-
 % This file is adapted from the official ACL LaTeX template uploaded by the user.
 % Main file for Overleaf: main.tex
 
@@ -12,6 +11,7 @@
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{microtype}
@@ -28,6 +28,10 @@
     xrightmargin=0.5em
 }
 
+\newcommand{\suitC}{$\clubsuit$}
+\newcommand{\suitD}{$\diamondsuit$}
+\newcommand{\suitH}{$\heartsuit$}
+
 \title{Translating Bridge Game Records into English Through a Controlled Artificial Language}
 
 \author{
@@ -41,289 +45,323 @@ Natural Language Processing \\
 \maketitle
 
 \begin{abstract}
-Bridge game records encode auctions, contracts, opening leads, and play events in a compact notation that is difficult for beginners to interpret. This project treats Bridge notation as a formal source language and studies whether a controlled artificial Bridge language can improve translation into English explanations. I implement a rule-based parser, a predicate-style meaning representation, template-based generators in beginner and expert styles, simulated model-based generation systems, and several baselines. The dataset contains 90 aligned examples split into 60 training, 15 development, and 15 test examples. Results on the test set show that the template system using the artificial language achieves the strongest overall performance, with 4.686 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model is readable but less faithful, reaching only 0.737 factual preservation and reconstructability. These results suggest that an explicit intermediate representation helps preserve game structure while producing readable Bridge commentary.
+Bridge game records encode auctions, contracts, opening leads and play in a compact notation that beginners cannot read. I treat this notation as a source language and ask whether translating it first into a controlled artificial language (AL), a predicate-style meaning representation that labels each call with its role and conventional meaning, helps a language model explain the record in English. I implement a rule-based parser, the AL, a legality checker, template generators and baselines, and compare two local language models (Qwen3-4B-Instruct and Qwen3-1.7B) given either the raw record or its AL translation with identical instructions. The main test set is 40 real boards from Bridge Base Online vugraph broadcasts, chosen so that none of their auction patterns appears in the training data or in the real boards used to tune the rules. Given the AL instead of the raw record, the 4B model explains 63\% of annotated bid meanings instead of 21\% (paired bootstrap 95\% CI for the gain: $+0.31$ to $+0.53$), with unchanged fact accuracy (0.90). The 1.7B model improves from 5\% to 31\%. A template generator reading the same AL states every fact and explains 64\% of meanings, statistically indistinguishable from the best model. Error analysis shows that the remaining gap is mostly knowledge the AL does not contain: conventions such as Multi 2\suitD{} and the weak no-trump that the hand-written rules do not model.
 \end{abstract}
 
 \section{Introduction}
 
-Bridge is a card game with a highly compressed notation system. A short sequence such as \texttt{North 1NT -- East Pass -- South 3NT -- All Pass} can encode player roles, partnership structure, hand-strength implications, final contract level, and the opening goal of the hand. For expert players this notation is efficient. For beginners, however, it is opaque: it assumes knowledge of bidding conventions, suits, no-trump contracts, declarer and dummy roles, opening leads, and trick-taking play.
+Bridge is a card game with a highly compressed notation. A short sequence such as \texttt{North 1NT -- East Pass -- South 3NT -- All Pass} tells an experienced player the shape and strength of North's hand, that South judged the partnership to have enough for game, and who will play the hand. A beginner sees letters and numbers. Explaining the record requires knowledge that is not written down: what a bid conventionally shows, which partnership a player belongs to, whether a double asks partner to bid or to defend, and how all of this depends on what was bid before.
 
-This project asks whether Bridge records can be translated into English more accurately by first converting them into a controlled artificial language. The central research question is:
+This makes Bridge commentary a data-to-text generation problem \citep{reiter2000building} with an unusual property. The input is fully structured, but most of its meaning is implicit and context-dependent. The same call, \texttt{Double}, asks partner to bid a suit in one auction and to defend for penalty in another. A system that verbalizes the input faithfully can still explain nothing.
+
+I study whether an explicit intermediate representation helps. The research question is:
 
 \begin{quote}
-Does using a controlled artificial Bridge language as an intermediate representation improve the factual accuracy, Bridge meaning, beginner readability, and reconstructability of English explanations generated from Bridge game records?
+Does translating a Bridge record into a controlled artificial language before generation improve the factual accuracy and the explanation of bid meanings in English produced by a language model?
 \end{quote}
 
-The project is a small system-oriented natural language generation (NLG) study. It implements a full pipeline from raw Bridge notation to English explanation, compares several systems and baselines, and evaluates outputs using automatic proxies for the rubric categories. The main contribution is not a state-of-the-art Bridge commentator, but a controlled and inspectable architecture that separates parsing, meaning representation, generation, and evaluation.
+The AL is produced by a rule-based parser and makes partnership roles and conventional meanings explicit, for example \texttt{OVERCALL(West, 2H, artificial)} or \texttt{DOUBLE(South, takeout)}. The experiment holds the language model and its instructions fixed and changes only the input: raw record or AL.
 
-The results support the usefulness of the intermediate representation. On the test set, the template system using the artificial language achieves the strongest overall result: 4.686 Bridge meaning, 4.947 beginner readability, 0.887 factual preservation, and 0.887 reconstructability. The direct raw-notation model remains readable but loses more information, with 0.737 factual preservation and reconstructability. These results show that an intermediate symbolic representation can make a structured game record easier to verbalize reliably.
+The contributions are:
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+    \item A parser and AL for contested Bridge auctions, with role-aware labels (opening, response, overcall, advance, rebid), seat-aware openings, and context-dependent classification of doubles and redoubles, plus a legality checker for auctions and play.
+    \item A real-data test set of 40 boards from top-level team events, selected so that no auction pattern was seen while the rules were written or tuned, with full hands, verified results, reference explanations and 105 annotated bid meanings.
+    \item A controlled comparison of two local Qwen3 models on raw versus AL input, scored with role-aware fact accuracy, meaning recall, a hallucinated-bid count, readability and reference-based metrics, with paired bootstrap confidence intervals.
+\end{enumerate}
+
+The main result is that the AL at least triples the share of bid meanings the models explain, without costing facts. The model adds little knowledge of its own: it mostly verbalizes what the AL already says, so the quality of the explanation is limited by the quality of the representation.
 
 \section{Related Work}
 
-This project draws on work in data-to-text generation, meaning representation, natural language generation evaluation, and machine translation evaluation.
+\paragraph{Data-to-text generation.} Generating text from structured records has a long history, from pipeline systems with explicit content selection and microplanning \citep{reiter2000building} to neural models. Datasets such as WebNLG \citep{gardent2017webnlg} and E2E \citep{novikova2017e2e} pair meaning representations with text, much as this project pairs AL lines with English. \citet{wiseman2017challenges} showed that neural systems generating basketball summaries from box scores produce fluent text with many factual errors, and \citet{puduppully2019content} improved them with an explicit content plan, an intermediate structure between data and text. Pre-trained text-to-text models now perform well on these benchmarks when fine-tuned on linearized inputs \citep{kale2020text}. Sports-news generation \citep{kanerva2019template} is the closest application area: structured game events must be turned into readable commentary.
 
-Data-to-text generation converts structured records into natural-language text. The WebNLG challenge generates text from RDF triples \citep{gardent2017webnlg}, which is conceptually close to this project: Bridge events such as \texttt{OPEN}, \texttt{CONTRACT}, and \texttt{LEAD} act like structured meaning units that must be verbalized. Similarly, the E2E dataset pairs structured meaning representations with restaurant descriptions \citep{novikova2017e2e}, motivating the alignment of artificial-language predicates with gold English explanations.
+\paragraph{Game commentary.} The nearest prior work on games is chess commentary. \citet{jhamtani2018chess} collected move-by-move commentary from online forums and trained generators conditioned on board features, and \citet{zang2019chess} added a chess engine to supply the analysis that a language model cannot compute. Their finding parallels mine: commentary improves when domain knowledge is supplied explicitly instead of expected from the generator. Computational work on Bridge has focused on playing rather than explaining, from the GIB program \citep{ginsberg2001gib} to neural bidding systems \citep{yeh2016bridge,rong2019bridge}. I am not aware of prior work that generates natural-language explanations of Bridge records.
 
-Sports and game summarization also provide a useful comparison. \citet{wiseman2017challenges} show that neural data-to-document systems can produce fluent text while still making factual errors. That observation is directly relevant here because a Bridge explanation can sound natural while changing the declarer, suit, trick winner, or meaning of a bid. Work on sports-news generation, such as \citet{kanerva2019template}, similarly treats structured event data as the input to natural-language commentary.
+\paragraph{Meaning representations.} Semantic representations such as AMR \citep{banarescu2013amr} make the predicate--argument structure of a sentence explicit so that downstream systems need not recover it. The AL plays the same role for Bridge notation, but it also adds information that is absent from the surface, namely the conventional meaning of a call, which makes it closer to a knowledge-enriched content plan than to a pure parse \citep{jurafsky2025slp3}.
 
-Evaluation of NLG and machine translation also informs the project. BLEU \citep{papineni2002bleu} and METEOR \citep{banerjee2005meteor} are useful as secondary similarity metrics, but they cannot fully judge whether Bridge facts and strategic meanings are correct. \citet{belz2006comparing} argue that automatic and human evaluation may diverge in NLG, motivating my use of task-specific criteria such as factual preservation, Bridge meaning correctness, beginner readability, and reconstructability.
-
-Finally, the project follows the general NLP idea that formal or semi-formal meaning representations can support downstream language tasks \citep{jurafsky2008speech}. The artificial Bridge language is therefore not only a formatting device. It is the central semantic representation used by the generator.
+\paragraph{Evaluation.} BLEU \citep{papineni2002bleu} and chrF \citep{popovic2015chrf} measure overlap with a reference, and I report them using sacrebleu \citep{post2018call}. Overlap metrics correlate poorly with human judgments of generated text \citep{belz2006comparing}, and they do not detect hallucination, a central failure of neural generators \citep{ji2023hallucination}. Work on semantic accuracy checks whether each input fact is expressed in the output \citep{dusek2020evaluating}. My fact and meaning metrics follow this idea with domain-specific matching rules. I test differences with the paired bootstrap \citep{koehn2004statistical}.
 
 \section{Task Definition}
 
-The input is a short Bridge game segment containing some combination of auction, final contract, opening lead, simple play record, and optional strategic note. The output is a beginner-readable English explanation.
+\paragraph{Bridge in brief.} Bridge is played by four players, called North, East, South and West, in two partnerships: North--South against East--West. One deal of the cards is a \emph{board}. Each board has two phases. In the \emph{auction}, players take turns, starting with the \emph{dealer}, making \emph{calls}. A call is a bid (a level from 1 to 7 and a strain, one of the four suits or no-trump, as in \texttt{1NT} or \texttt{4S}), a pass, a double or a redouble. Each bid must be higher than the last, and the auction ends after three passes in a row. The last bid becomes the \emph{contract}: the number of tricks, out of 13, that the bidding side promises to win (the level plus six). The player who first named the contract's strain is the \emph{declarer}. The first bid is the \emph{opening}; a bid by the opener's partner is a \emph{response}; a bid by the other side is an \emph{overcall}, and their partner's reply an \emph{advance}. In the \emph{play}, the player to declarer's left leads the first card (the \emph{opening lead}), and the side that played the highest card of the suit led, or the highest trump, wins the trick. Most bids also carry agreed meanings about the bidder's hand: a 1NT opening usually shows an even distribution of the suits and 15--17 \emph{high-card points} (ace 4, king 3, queen 2, jack 1). An \emph{artificial} bid, which players must \emph{alert} to their opponents, says nothing about the suit named. A \emph{double} either asks partner to bid (\emph{takeout}) or to defend for a bonus (\emph{penalty}), depending on the auction.
 
-For example, the raw input may be:
+\paragraph{Input and output.} The input is a board: the dealer, the four hands, the auction, the final contract, the opening lead, the first trick and the number of tricks declarer won. The output is a one-paragraph English explanation for a beginner that states what happened and explains what each call means. Figure~\ref{fig:example} shows a board from the real test set, its AL translation and the reference explanation.
 
-\begin{lstlisting}[style=bridgecode]
-Auction: North 1NT - East Pass - South 3NT - West Pass - North Pass - East Pass
-Contract: 3NT by North
-Opening lead: West S4
+\begin{figure*}[t]
+\centering
+\begin{lstlisting}[style=bridgecode,basicstyle=\ttfamily\footnotesize]
+Raw record
+  Dealer: North   Hands (spades.hearts.diamonds.clubs):
+    North .J87.QJ987.KQ532     East Q982.964.KT2.J98
+    South J654.AKQ532.654.     West AKT73.T.A3.AT764
+  Auction: North Pass - East Pass - South 1H - West 2H! - North 3H - East 4S
+           - South 5H - West Double - North Pass - East Pass - South Pass
+  Contract: 5HX by South   Opening lead: West SA   Tricks taken by declarer: 9
+
+Artificial language (hand and play lines shortened)
+  HAND(South, hcp=10, shape=4-6-3-0)  ...
+  PASS(North)   PASS(East)
+  OPEN(South, 1H, suit_opening, opening_strength, seat=3)
+  OVERCALL(West, 2H, artificial)
+  RESPOND(North, 3H, raise)
+  ADVANCE(East, 4S, new_suit)
+  REBID(South, 5H, agreed_suit)
+  DOUBLE(West, penalty)
+  PASS(North)   PASS(East)   PASS(South)
+  CONTRACT(5H, declarer=South, doubled=X)
+  LEAD(West, SA)  ...  WIN_TRICK(North, trick_number=1, card=H7)
+  RESULT(South, contract=5H, tricks=9)
+
+Reference (first three sentences)
+  North and East pass, and South opens 1H in third seat with only 10 high-card points
+  but six hearts; third-seat openings can be light. West bids 2H in the opponents'
+  suit, a Michaels cue-bid showing a two-suited hand with five spades and a five-card
+  minor. North raises to 3H with three-card support. ...
+
+Annotated meanings (call: accepted keywords)
+  South 1H: third seat, light        West 2H: Michaels, two-suited
+  North 3H: raise, support           West Double: penalty
 \end{lstlisting}
+\caption{A board from the real test set (real\_test001). The exclamation mark marks an alerted (artificial) call. Suits are written as letters: S, H, D, C for spades, hearts, diamonds, clubs; SA is the ace of spades.}
+\label{fig:example}
+\end{figure*}
 
-The artificial-language representation is:
-
-\begin{lstlisting}[style=bridgecode]
-OPEN(North, 1NT, balanced, 15-17_HCP)
-PASS(East)
-RAISE_TO_GAME(South, 3NT)
-PASS(West)
-PASS(North)
-PASS(East)
-CONTRACT(3NT, declarer=North)
-LEAD(West, S4)
-\end{lstlisting}
-
-The generated English is:
-
-\begin{quote}
-North opens 1NT, showing a balanced hand with about 15--17 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. West leads the four of spades to begin the play.
-\end{quote}
-
-The task is deliberately narrower than full Bridge commentary. The implemented system handles common auctions, final contracts, opening leads, selected trick outcomes, and simple finesse notes. The goal is to evaluate the value of a structured intermediate representation, not to solve all Bridge interpretation.
+The task is narrower than full commentary. Systems are not asked to judge whether a bid or play was good, to analyze the play beyond the first trick, or to take vulnerability and scoring into account.
 
 \section{Data}
 
-The dataset contains 90 examples, divided into 60 training, 15 development, and 15 test examples. Each example contains five fields: raw Bridge notation, gold artificial-language representation, gold English explanation, fact dictionary for evaluation, and metadata marking the auction pattern and whether the example includes play, doubles, redoubles, or finesse.
-
-The dataset covers 1NT and 2NT openings, one-level suit openings, strong 2C openings, game contracts such as 3NT, 4H, 4S, 5C, and 5D, passes, doubles, redoubles, opening leads, simple trick-by-trick play, trick winners, and simple finesse attempts. Because the dataset is manually constructed and rule-oriented, it should be understood as a controlled evaluation set rather than a naturally occurring corpus of Bridge records. This is appropriate for the project goal: testing whether an artificial language improves controlled generation.
+I use two sources: a small synthetic set written for an earlier version of the project, and real boards from Bridge Base Online (BBO) vugraph broadcasts. Table~\ref{tab:data} summarizes the splits.
 
 \begin{table}[t]
 \centering
 \small
-\begin{tabular}{lrr}
+\begin{tabular}{lrrrl}
 \toprule
-Split & Examples & Purpose \\
+Split & Boards & Calls & Refs & Used for \\
 \midrule
-Train & 60 & Rule/template design \\
-Development & 15 & Debugging/error analysis \\
-Test & 15 & Final evaluation \\
+Synthetic train & 60 & 6.4 & yes & writing rules \\
+Synthetic dev & 15 & 6.4 & yes & debugging \\
+Synthetic test & 15 & 6.4 & yes & secondary test \\
+Real dev & 40 & 10.5 & no & tuning rules \\
+Real test & 40 & 12.5 & yes & main test \\
 \bottomrule
 \end{tabular}
-\caption{Dataset split used in the Bridge translation project.}
+\caption{Dataset splits. Calls is the mean number of calls per auction (pooled over the synthetic splits). Only the real data include hands.}
 \label{tab:data}
 \end{table}
 
+\subsection{Synthetic Data}
+
+The synthetic set has 90 hand-written records (60 train, 15 development, 15 test) covering seven auction patterns: no-trump and suit openings, strong 2\suitC{} openings, game contracts, doubles, redoubles, opening leads, simple play and finesses. Each record has a raw record, a gold AL translation, a reference explanation and a fact dictionary. When the parser was extended for this version, the gold AL and references were updated to the new labels, and an automatic legality check found and repaired illegal auctions and out-of-order tricks in the original set. The references follow the template wording, so this set favors the template system and is used only as a secondary test.
+
+\subsection{Real BBO Data}
+
+BBO broadcasts top-level matches as vugraph files in the LIN format, which record the dealer, all four hands, the auction with alerts, every card played and the official result. I downloaded 18 files from national and international team events; 15 contained usable boards. I wrote readers for LIN and for the PBN format. Each parsed board was replayed through the legality checker, and I kept it only if its contract, declarer and trick count agreed with the official result line in the file. Of 397 parsed boards, 392 passed and 5 were rejected. Player names, team names and broadcast commentary are discarded.
+
+Boards were split by deal, so the two tables that played the same cards always fall in the same split, after shuffling the deals with a fixed random seed. The first 40 boards form the real development set. I used it to find and fix errors in the parser rules (Section~\ref{sec:dev}), so it has no references.
+
+\paragraph{Unseen-pattern test set.} To test generalization rather than memorization of rule-covered cases, I defined an auction pattern as the sequence of non-pass calls with the non-opening side in parentheses, e.g.\ \texttt{1H-(2H)-3H-(4S)-5H-(X)}. The test set consists only of boards whose pattern appears neither in the synthetic training set nor in the real development set. From the remaining deals I chose one board per deal, 40 in total, greedily maximizing coverage of auction features. The resulting set has 39 distinct patterns. 30 boards are contested, 26 contain a double, 23 contain at least one alerted call (37 alerted calls in total), 13 open in third or fourth seat, 11 end in a doubled contract, 7 are slams, and in 26 the contract fails. Auctions average 12.5 calls, twice the synthetic average.
+
+\paragraph{References and meaning annotations.} Each test board has a reference explanation (mean 84 words) and annotated meaning facts: 105 in total, each a call such as \texttt{West 2H} with a list of acceptable keywords such as \emph{Michaels} or \emph{two-suited}. The references and annotations were drafted by an AI assistant (Claude) from the raw record alone, before any system was run on the test set, and I then reviewed and approved all 40. They describe what the call most likely means in expert practice, not what the parser rules say, so they can and do disagree with the AL. They have not been checked by a second Bridge player.
+
+\paragraph{Facts.} For every board, a fact dictionary lists the opener and opening bid, the first overcaller and overcall, the full sequence of calls, the contract, whether it was doubled, the declarer, the opening leader and lead, and declarer's trick count (9.8 facts per board on average). Facts are computed from the record, not annotated by hand.
+
 \section{Methodology}
 
-\subsection{System Architecture}
+The system is a pipeline: raw record $\rightarrow$ parser $\rightarrow$ artificial language $\rightarrow$ generator. The parser and AL are the components I implemented; the generators are either my templates or an off-the-shelf language model.
 
-The system uses a four-stage pipeline:
+\subsection{Parser and Legality Checker}
 
-\begin{center}
-\begin{tabular}{c}
-Raw Bridge notation \\
-$\downarrow$ \\
-Bridge parser \\
-$\downarrow$ \\
-Controlled artificial Bridge language \\
-$\downarrow$ \\
-English generator
-\end{tabular}
-\end{center}
+The parser reads players, calls (including the alert marker), contracts with doubled or redoubled status, opening leads, tricks and results, and computes each hand's high-card points and shape. A separate checker validates every record: turn order starting from the dealer, increasing bids, legal doubles and redoubles, the end of the auction, the declarer (the first player of the winning side to name the strain), the opening leader, following suit, and the winner of each trick. It runs on every record in the data as a unit test.
 
-This decomposition makes the system interpretable. If the output is wrong, the error can be traced to parsing, artificial-language conversion, template generation, or evaluation.
+\subsection{The Artificial Language}
 
-\subsection{Bridge Parser}
+Each event becomes one predicate. The parser tracks the auction state (the opener, which players have acted, the last bid and whether it was artificial, which players have made takeout doubles) and uses it to choose a predicate and a meaning tag:
 
-The parser is rule-based. It uses regular-expression-like patterns to identify players, bids, passes, doubles, redoubles, contracts, opening leads, play events, and finesse notes. For example, it recognizes bids such as \texttt{1NT}, \texttt{4S}, and \texttt{5D}, player names such as \texttt{North} and \texttt{West}, and card strings such as \texttt{S4} or \texttt{HA}.
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+    \item \textbf{Roles.} The first bid is an \texttt{OPEN}. Later bids are a \texttt{REBID} if the player has already acted, a \texttt{RESPOND} if the player is the opener's partner, an \texttt{ADVANCE} if the player's partner has acted for the other side, and otherwise an \texttt{OVERCALL}.
+    \item \textbf{Openings.} Openings are tagged as balanced 15--17 or 20--21 no-trump, strong artificial 2\suitC{}, weak two, preempt or suit opening, with \texttt{seat=3} or \texttt{seat=4} after passes. Alerted openings are tagged artificial.
+    \item \textbf{Other bids.} Bids are tagged as Stayman, transfer, waiting response, raise, jump or simple overcall, no-trump overcall, cue-bid, unusual 2NT, new suit, own suit, agreed suit or second suit, or artificial when alerted.
+    \item \textbf{Doubles.} A double of an artificial bid is lead-directing; a double of a no-trump bid is penalty; a double by responder of an overcall at the one to three level is negative; a double after partner's takeout double and an opponent's raise is responsive; a double after the doubler's partner has bid is penalty; other low-level doubles of suit bids are takeout; everything else is penalty. A redouble after a takeout double of partner's bid shows strength; otherwise it is to play.
+\end{itemize}
 
-The parser normalizes suit symbols and card notation so that equivalent records are represented consistently. This is important because the generator should not treat \texttt{S4} and ``four of spades'' as unrelated facts.
-
-\subsection{Controlled Artificial Language}
-
-The artificial language uses predicate-style expressions. The main predicate types are:
-
-\begin{lstlisting}[style=bridgecode]
-OPEN(player, bid, shape, strength)
-PASS(player)
-DOUBLE(player)
-REDOUBLE(player)
-RESPOND(player, bid, meaning)
-RAISE_TO_GAME(player, bid)
-CONTRACT(contract, declarer=player)
-LEAD(player, card)
-PLAY(player, card, trick_number=n)
-WIN_TRICK(player, trick_number=n, card=card)
-FINESSE_ATTEMPT(player, suit=suit, target=rank, outcome=result)
-\end{lstlisting}
-
-This representation makes implicit game structure explicit. For example, \texttt{OPEN(North, 1NT, balanced, 15-17\_HCP)} contains both the surface bid and a conventional interpretation. This helps the generator produce explanations rather than merely restating notation.
+The rules encode a simplified Standard American system. They know nothing of the agreements of a specific pair, so alerted calls outside the rule set can only be labeled \texttt{artificial}.
 
 \subsection{Generation Systems}
 
-I compare seven systems:
+All systems receive the same board. I compare:
 
-\begin{enumerate}[leftmargin=*]
-    \item \textbf{Generic baseline}: produces vague commentary.
-    \item \textbf{Literal baseline}: restates each bid and pass in sentence form.
-    \item \textbf{Raw-copy baseline}: copies raw fields into a readable string.
-    \item \textbf{Direct raw model}: simulated model-style generation directly from raw notation.
-    \item \textbf{Model + artificial language}: simulated model-style generation from the artificial representation.
-    \item \textbf{Template + artificial language}: beginner-friendly template generation from the artificial representation.
-    \item \textbf{Expert template + artificial language}: more compact expert-style template generation.
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+    \item \textbf{Generic baseline:} a fixed sentence about the deal.
+    \item \textbf{Literal baseline:} one sentence per call (``North bids 1NT.''), then the contract and lead.
+    \item \textbf{Raw-copy baseline:} the raw fields copied into a sentence.
+    \item \textbf{Template (beginner, expert):} hand-written templates over the AL, in a beginner style that explains each tag and a shorter expert style.
+    \item \textbf{LLM, raw:} a language model given the raw record: dealer, hands, auction, contract, opening lead, first trick and trick count.
+    \item \textbf{LLM, AL:} the same model given the AL lines, which carry the same information (hands become \texttt{HAND} lines with points and shape) plus the role and meaning labels.
 \end{enumerate}
 
-The model systems are simulated rather than API-based. This keeps the project reproducible without external services while still allowing a comparison between direct raw notation and generation from the controlled representation. The simulated model from artificial language compresses some pass details and produces smoother commentary, while the direct raw model gives a high-level explanation from raw fields.
-
-\section{Evaluation}
-
-The evaluation follows four task-specific criteria: factual preservation, Bridge meaning correctness, beginner readability, and reconstructability. I also compute BLEU-like and ROUGE-L-like similarity scores against the gold English explanation. These automatic scores should be interpreted as approximations, not replacements for human evaluation.
-
-\subsection{Factual Preservation}
-
-Factual preservation measures whether the generated explanation preserves key facts from the original record. The fact dictionary includes items such as opener, opening bid, responder, response, final contract, declarer, opening leader, opening lead, double/redouble information, trick winner, and finesse outcome when available.
-
-\subsection{Bridge Meaning}
-
-Bridge meaning correctness measures whether the explanation captures the meaning of the Bridge actions. For example, ``North bids 1NT'' is factually correct but less useful than ``North opens 1NT, showing a balanced hand with about 15--17 high-card points.'' The automatic proxy rewards explanatory terms such as \textit{balanced}, \textit{game-level}, \textit{contract}, \textit{penalty}, and \textit{finesse}, while also depending on factual coverage.
-
-\subsection{Beginner Readability}
-
-Beginner readability estimates whether a non-expert reader could understand the explanation. The heuristic penalizes long sentences and unexplained jargon. This criterion matters because an output can preserve facts while still being unhelpful to beginners. The raw-copy baseline illustrates this problem: it often contains facts but remains notation-heavy.
-
-\subsection{Reconstructability}
-
-Reconstructability measures whether the reader could recover the original Bridge facts from the English output. In the implementation, this is approximated by checking how many fact values can be found in the generated explanation. Although a human reconstruction study would be stronger, this metric captures the project's central question: does the English output preserve enough information to reconstruct the Bridge record?
+The two LLM conditions differ only in the user message. The system prompt asks the model to act as a Bridge teacher, go through the auction in order explaining each call, state the contract, declarer, opening lead, first trick and result, use only information in the record, and write one paragraph of prose. I use two Qwen3 models \citep{yang2025qwen3} run locally with Ollama in its default 4-bit quantization: Qwen3-4B-Instruct-2507, which does not produce reasoning traces, and Qwen3-1.7B with thinking disabled; I call them 4B and 1.7B below. A third candidate, the Qwen3-4B build available locally, could not be run without reasoning and was not used. Decoding is greedy (temperature 0, seed 0) with up to 700 output tokens. Every output is cached with a hash of its prompt, so all results can be reproduced without rerunning the models.
 
 \section{Experiments}
 
-All systems are evaluated on the development and test sets. Development results are used to inspect behavior and error patterns. Test results are used for final reported conclusions. The training set is used to design rules, templates, and artificial-language specifications.
+\subsection{Metrics}
 
-For each system, the evaluator produces factual preservation, Bridge meaning, beginner readability, reconstructability, BLEU-like score, and ROUGE-L-like score. The artificial-language systems also receive an artificial-language exact-match score, which measures whether the predicted predicate sequence matches the gold predicate sequence.
+\paragraph{Fact accuracy.} The fraction of facts the output states in the right role. A value counts only if it appears in a sentence that also contains a cue for its role (e.g.\ \emph{open} or \emph{start} for the opener, \emph{lead} or \emph{led} for the opening lead, \emph{contract} or \emph{declarer} for the declarer), or the value of its paired fact (``South bids 1\suitH{}'' states both opener and opening bid). Bids and cards are matched in several spellings (\texttt{3NT}, \emph{three no-trump}, \emph{six of hearts}). The call-sequence fact is correct only if every non-pass call is mentioned in order.
 
-\begin{table*}[t]
-\centering
-\small
-\begin{tabular}{lrrrrrr}
-\toprule
-System & Fact & Meaning & Readability & Recon. & BLEU-like & ROUGE-L \\
-\midrule
-Generic baseline & 0.000 & 1.300 & 5.000 & 0.000 & 0.000 & 0.057 \\
-Literal baseline & 0.888 & 3.520 & 5.000 & 0.888 & 0.187 & 0.384 \\
-Raw-copy baseline & 0.899 & 3.588 & 3.810 & 0.899 & 0.001 & 0.276 \\
-Direct raw model & 0.738 & 2.846 & 5.000 & 0.738 & 0.000 & 0.169 \\
-Model + AL & 0.888 & 4.380 & 4.973 & 0.888 & 0.629 & 0.729 \\
-Template + AL & 0.888 & 4.708 & 4.947 & 0.888 & 0.987 & 1.000 \\
-Expert template + AL & 0.888 & 4.380 & 4.973 & 0.888 & 0.798 & 0.855 \\
-\bottomrule
-\end{tabular}
-\caption{Development-set results. Recon. = reconstructability. AL = artificial language.}
-\label{tab:dev-results}
-\end{table*}
+\paragraph{Meaning recall.} The fraction of annotated meanings explained: the calling player and one of the keywords must appear in the same sentence. On the synthetic set, meaning facts are read from the gold AL (e.g.\ \emph{balanced} and \emph{15-17} for a 1NT opening), which favors systems that copy AL tags.
 
-\begin{table*}[t]
-\centering
-\small
-\begin{tabular}{lrrrrrr}
-\toprule
-System & Fact & Meaning & Readability & Recon. & BLEU-like & ROUGE-L \\
-\midrule
-Generic baseline & 0.000 & 1.300 & 5.000 & 0.000 & 0.000 & 0.057 \\
-Literal baseline & 0.887 & 3.519 & 5.000 & 0.887 & 0.194 & 0.389 \\
-Raw-copy baseline & 0.898 & 3.586 & 3.823 & 0.898 & 0.001 & 0.279 \\
-Direct raw model & 0.737 & 2.843 & 5.000 & 0.737 & 0.000 & 0.172 \\
-Model + AL & 0.887 & 4.379 & 4.973 & 0.887 & 0.633 & 0.732 \\
-Template + AL & 0.887 & 4.686 & 4.947 & 0.887 & 0.984 & 1.000 \\
-Expert template + AL & 0.887 & 4.379 & 4.973 & 0.887 & 0.809 & 0.862 \\
-\bottomrule
-\end{tabular}
-\caption{Test-set results. The template system using the artificial language has the strongest overall performance.}
-\label{tab:test-results}
-\end{table*}
+\paragraph{Unsupported bids.} The number of bids per output that the auction never contains, counted only after a calling word such as \emph{bids}, \emph{opens} or \emph{raises to}, so that cards and hand shapes (``two hearts'') are not counted. This is a hallucination check; lower is better.
+
+\paragraph{Readability and overlap.} Flesch--Kincaid grade level \citep{kincaid1975derivation} (lower is easier), output length, and corpus BLEU and chrF against the reference, computed with sacrebleu. On the synthetic set I also report AL exact match against the gold AL.
+
+\paragraph{Significance.} For the main comparison I compute per-board differences between the AL and raw conditions of the same model and a 95\% confidence interval from 10,000 paired bootstrap resamples over boards \citep{koehn2004statistical}.
+
+\subsection{Development Process}
+\label{sec:dev}
+
+The system has no trained parameters: the rules and templates were written from the synthetic training set and tuned on the development sets. Because nothing is fitted to data, I did not use cross-validation. Reviewing template output on the real development set exposed six rule errors, all fixed before the test set was built: a double was not treated as a side entering the auction; no-trump bids were classified as cue-bids; natural no-trump overcalls were described as suits; cue-bids by responder or advancer were called new suits; rebidding an agreed suit was described wrongly; and responsive doubles were classified as penalty. No rule was changed after looking at the test set.
+
+One change to the scorer was made after seeing test outputs. The first version of fact accuracy required a role word in the sentence, and it marked correct sentences such as ``East started the auction by bidding one club'' and ``East led with the two of clubs'' as wrong. I added the paired-fact rule and the cues \emph{start}, \emph{first} and \emph{led}, and removed the generic cue \emph{bids} for overcalls. The change applies equally to all systems, and Section~\ref{sec:results} reports the main comparison under both versions.
 
 \section{Results}
-
-Table~\ref{tab:test-results} shows the main test results. The template system using the artificial language is the best overall system. It obtains 0.887 factual preservation, 4.686 Bridge meaning, 4.947 beginner readability, and 0.887 reconstructability. It also achieves the strongest reference similarity, with 0.984 BLEU-like and 1.000 ROUGE-L-like scores.
-
-The model-from-artificial-language system is the second strongest system. It obtains the same factual preservation and reconstructability score as the template system, but lower Bridge meaning and reference similarity. This is expected because the simulated model compresses details and uses more varied phrasing. Its output is still much stronger than the direct raw model, suggesting that the artificial language helps even when the final generation stage is less rigid.
-
-The direct raw model is readable but less complete. It achieves 5.000 beginner readability, but only 0.737 factual preservation and 0.737 reconstructability. This supports the hypothesis that direct generation from raw notation tends to omit important structure.
-
-The raw-copy baseline has high factual preservation, 0.898, but much lower readability, 3.823, and near-zero BLEU-like similarity. This is an important result: copying notation can preserve surface facts, but it does not solve the explanatory task. A useful Bridge translator must both preserve facts and explain what the notation means.
-
+\label{sec:results}
 
 \begin{table*}[t]
 \centering
 \small
-\begin{tabular}{p{0.21\linewidth}p{0.72\linewidth}}
+\begin{tabular}{lrrrrrrr}
 \toprule
-System & Output for one representative test example \\
+System & Facts $\uparrow$ & Meaning $\uparrow$ & Unsup.\ $\downarrow$ & FK grade & Words & BLEU & chrF \\
 \midrule
-Direct raw model & The deal starts with South 2C. The auction reaches 3NT by South. The play begins with West ♦J. This gives a short summary of the Bridge record. \\
-Model + AL & South opens a strong artificial 2C. After 1 pass, the auction continues. North responds 2D, keeping the auction open after partner's strong opening. After 1 pass, the auction continues. South bids 3NT. After 3 passes, the auction continues. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
-Template + AL & South opens 2C, a strong artificial opening that usually shows a very powerful hand. West passes. North responds 2D, keeping the auction open after partner's strong opening. East passes. South bids 3NT. West passes. North passes. East passes. The final contract is 3NT by South. West leads the jack of diamonds to begin the play. \\
+Generic baseline & 0.00 & 0.00 & 0.00 & 4.8 & 10 & 0.0 & 7.2 \\
+Literal baseline & 0.86 & 0.03 & 0.00 & 0.5 & 61 & 12.7 & 36.3 \\
+Raw-copy baseline & 0.88 & 0.04 & 0.00 & 12.7 & 62 & 1.4 & 28.0 \\
+\midrule
+Qwen3-1.7B, raw & 0.82 & 0.05 & 0.07 & 5.1 & 113 & 7.3 & 41.8 \\
+Qwen3-1.7B, AL & 0.80 & 0.31 & 0.00 & 5.7 & 122 & 7.7 & 42.4 \\
+Qwen3-4B, raw & 0.90 & 0.21 & 0.00 & 7.5 & 203 & 4.2 & 40.5 \\
+Qwen3-4B, AL & 0.90 & \textbf{0.63} & 0.00 & 8.1 & 233 & 5.6 & 41.7 \\
+\midrule
+Template (expert), AL & \textbf{1.00} & 0.45 & 0.00 & 1.4 & 117 & \textbf{18.4} & 51.2 \\
+Template (beginner), AL & \textbf{1.00} & \textbf{0.64} & 0.00 & 3.5 & 206 & 16.8 & \textbf{52.1} \\
 \bottomrule
 \end{tabular}
-\caption{Qualitative comparison of three systems on a representative test example. AL = artificial language.}
-\label{tab:qualitative}
+\caption{Results on the real test set (40 boards, all auction patterns unseen). Facts and Meaning are mean fractions per board; Unsup.\ is unsupported bids per output (lower is better); FK grade is the Flesch--Kincaid reading grade (lower is easier); BLEU and chrF are corpus-level. References average 84 words.}
+\label{tab:real}
 \end{table*}
 
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llrl}
+\toprule
+Model & Metric & AL $-$ raw & 95\% CI \\
+\midrule
+4B & Meaning & $+0.42$ & $[+0.31, +0.53]$ \\
+4B & Facts & $+0.00$ & $[-0.04, +0.05]$ \\
+4B & chrF & $+1.2$ & $[+0.3, +2.1]$ \\
+1.7B & Meaning & $+0.26$ & $[+0.16, +0.36]$ \\
+1.7B & Facts & $-0.02$ & $[-0.08, +0.05]$ \\
+1.7B & chrF & $+0.5$ & $[-0.4, +1.3]$ \\
+\bottomrule
+\end{tabular}
+\caption{Paired differences between AL and raw input on the real test set, with paired bootstrap confidence intervals (chrF is sentence-level here).}
+\label{tab:boot}
+\end{table}
+
+Table~\ref{tab:real} gives the main results and Table~\ref{tab:boot} the paired comparisons.
+
+\paragraph{The AL improves meaning without costing facts.} With the same model and instructions, AL input raises meaning recall from 0.21 to 0.63 for the 4B model and from 0.05 to 0.31 for the 1.7B model. Both intervals exclude zero. On a per-board basis the 4B model explains more meanings with AL input on 28 boards and fewer on none; the 1.7B model is better on 21 and worse on 2. Fact accuracy does not change measurably for either model. Under the original, stricter fact scorer, AL input helped facts as well (4B: 0.63 raw, 0.85 AL; 1.7B: 0.73 and 0.75; beginner template 1.00); the relaxed scorer mainly credits correct paraphrases in raw-input outputs, so the change works against my hypothesis, not for it.
+
+\paragraph{Hallucinated bids are rare.} Only the 1.7B model on raw input invents bids, at 0.07 per output (one invented bid in each of three outputs). The larger problem with raw input is not invented calls but wrong explanations of real ones (Section~\ref{sec:discussion}).
+
+\paragraph{The template system matches the best model.} The beginner template states every fact and explains 64\% of meanings. The difference from the 4B model with AL input is $-0.01$ (95\% CI $[-0.08, +0.05]$), so neither is better on meaning. The template is far easier to read (grade 3.5 against 8.1) and closer to the references (chrF 52.1 against 41.7). The LLMs write long paragraphs, 2.5 times the reference length, which lowers BLEU for all of them. The expert template also states every fact but explains fewer meanings (0.45), because it names bids without spelling out what they show, which is the intended difference between the two styles.
+
+\paragraph{Baselines.} The literal and raw-copy baselines state most facts (0.86 and 0.88) but explain almost nothing, which confirms that fact accuracy alone does not measure the task. The generic baseline scores zero on both.
+
+\paragraph{Synthetic test set.} Table~\ref{tab:synth} shows the same pattern on the 15 synthetic test examples: AL input raises 4B meaning recall from 0.17 to 0.83 and 1.7B from 0.08 to 0.32. Template scores are near-perfect because the references follow the template wording and meaning facts come from the gold AL. The parser's AL matches the gold AL exactly on all 15 examples, which shows consistency on the seven synthetic patterns rather than general parsing accuracy.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+System & Facts & Meaning & chrF \\
+\midrule
+Literal baseline & 0.97 & 0.00 & 46.2 \\
+Raw-copy baseline & 0.99 & 0.00 & 34.4 \\
+Qwen3-1.7B, raw & 0.95 & 0.08 & 45.0 \\
+Qwen3-1.7B, AL & 0.88 & 0.32 & 50.0 \\
+Qwen3-4B, raw & 0.97 & 0.17 & 48.4 \\
+Qwen3-4B, AL & 0.94 & 0.83 & 46.6 \\
+Template (beginner), AL & 1.00 & 1.00 & 99.6 \\
+\bottomrule
+\end{tabular}
+\caption{Results on the synthetic test set (15 examples). Template scores are inflated because the references follow the template wording.}
+\label{tab:synth}
+\end{table}
 
 \section{Discussion}
+\label{sec:discussion}
 
-The main pattern is that the artificial-language systems provide the best balance between accuracy and explanation. The controlled representation makes the hidden structure of Bridge notation explicit before generation. This helps the generator state not only what happened but also what it means.
+\subsection{What the AL Contributes}
 
-The comparison between the template system and the raw-copy baseline is especially revealing. Raw copying can score well on factual preservation because it repeats the original facts. However, it is not beginner-oriented. It leaves the burden of interpretation on the reader. The template system, by contrast, turns \texttt{1NT} into a phrase like ``showing a balanced hand with about 15--17 high-card points'' and turns \texttt{3NT} into ``a game-level no-trump contract.'' These explanations are exactly the kind of information a beginner lacks.
+Given the raw record, the models read bids literally. On the board in Figure~\ref{fig:example}, the 4B model with raw input says that South's 1\suitH{} showed ``at least one heart'' and that West's 2\suitH{} ``meant they had at least two hearts'', reading the bid level as a card count. West's bid is a Michaels cue-bid in the opponents' suit and says nothing about hearts. Given the AL line \texttt{OVERCALL(West, 2H, artificial)}, the same model writes that West made ``an artificial overcall of two hearts, not showing strength in hearts but signaling a different kind of hand''. That is still not the full meaning, but it is correct. The template writes that the bid is ``an alerted artificial bid whose meaning depends on the partnership's system''. The AL gives the model the facts a beginner's teacher would start from, partnership role and the type of each call, and the model passes them on.
 
-The comparison between the direct raw model and the model-from-artificial-language system also supports the research question. Both are model-style systems, but the model with access to the artificial language preserves more facts and achieves stronger meaning scores. This suggests that the representation, not just the final wording style, contributes to better generation.
+\subsection{The Model Adds Little Knowledge}
 
-The artificial exact-match score is 1.000 for every artificial-language system on both the development and test sets. This should not be read as strong evidence for the parser. The dataset covers only seven auction patterns, and the gold artificial language follows the same predicate format as the parser, so a perfect match mainly shows that the parser handles those patterns consistently. Before evaluation, every record is checked by an automatic legality validator (turn order, bid order, legal doubles and redoubles, declarer, opening leader, and trick order and winner); an earlier version of the dataset contained illegal auctions and out-of-order tricks that this check caught and that were corrected.
+Comparing the 4B model with AL input against the beginner template on the 105 meaning facts, both explain 62, the model alone explains 4, the template alone explains 6, and neither explains 33. The model almost never recovers a meaning that is not already in the AL. Its gain over raw input therefore comes from the representation, and its ceiling is the representation's coverage. This is the same lesson as in chess commentary \citep{zang2019chess}: a small language model verbalizes knowledge well but does not supply it.
 
-\section{Error Analysis}
+\subsection{Error Analysis}
 
-The main error categories are player-role errors, bid-sequence errors, card errors, overgeneralization, hallucinated strategy, readability problems, parsing errors, and template coverage errors.
+\paragraph{Missing conventions.} The beginner template misses 37 of the 105 meanings. Most of them (29) involve conventions or treatments that the simplified Standard American rules do not model: Multi 2\suitD{} openings and the pass-or-correct responses to them (6 facts), weak no-trump openings (3), two-suited cue-bids such as Michaels (3), and single cases of Lebensohl, key-card asking, inverted minor raises, reverses and strong club openings. For alerted calls the AL says only \texttt{artificial}, which is honest but uninformative. Five misses are doubles where the rule-based classification disagrees with the expert reading. Three takeout doubles are labeled lead-directing (two) or penalty (one); a penalty double is labeled lead-directing; and a lead-directing double is labeled penalty. The rule that a double of an artificial bid is lead-directing fails most often: over an opponent's Multi 2\suitD{}, for example, a double is normally takeout.
 
-The direct raw model most often fails by overgeneralizing. It states that the auction reaches a contract and that the play begins with a lead, but it often omits details about the intermediate bids, why a bid matters, or how a trick is won. This makes the output readable but less reconstructable.
+\paragraph{Metric artifacts.} Three misses are seat notes that the template does state, but in a separate sentence without the player's name (``This opening comes in third seat\ldots''), which the same-sentence rule does not credit. The fact scorer has the opposite weakness: the call-sequence fact checks that calls appear in order but not who made them, and I observed outputs, especially from the 1.7B model, that credit a call to the wrong player without penalty.
 
-The raw-copy baseline has the opposite problem. It preserves many facts but does not explain them. A beginner can see the original notation, but the system has not translated the notation into accessible English. This is why it scores relatively well on factual preservation but lower on beginner readability.
+\paragraph{Readability.} The LLMs write at grade 7.5--8.1 against 3.5 for the beginner template, and produce 2.5 times the reference length. The instruction to explain every call encourages long, clause-heavy sentences. A beginner reader would likely prefer the template, but only a human study can show this.
 
-The artificial-language template system mostly fails when the coverage of the representation or templates is too shallow. For example, some Bridge actions can have multiple strategic interpretations depending on partnership agreements or vulnerability. The current system uses conservative, generic interpretations rather than attempting to infer all possible meanings. This avoids hallucination but limits the sophistication of the commentary.
+\paragraph{Smaller model.} The 1.7B model writes about half as much as the 4B model and, in longer auctions, skips calls and confuses players even with AL input. On one 15-call board it says North opened 1NT and West doubled, when West opened and North doubled, and it omits the redouble and East's 2\suitC{}. This explains its low meaning recall in both conditions.
 
-\section{Limitations}
+\subsection{Comparison with Previous Work and the State of the Art}
 
-This project has several limitations. First, the dataset is small and manually constructed. It is useful for controlled evaluation, but it does not represent the full diversity of real Bridge records. Second, the evaluation uses automatic approximations of human judgments. Human annotators would provide more reliable scores for Bridge meaning, beginner readability, and reconstructability. Third, the model-based systems are simulated rather than real neural generation systems. This keeps the project reproducible but limits claims about modern language models. Fourth, the Bridge knowledge is intentionally conservative. Many bids depend on partnership conventions, vulnerability, scoring form, and hand context, none of which are fully modeled here.
-
-\section{Ethical Considerations}
-
-This project does not involve personal data, user profiling, or sensitive human-subject information. The dataset was constructed from synthetic Bridge examples. The main ethical concern is transparency: generated explanations should not pretend to know strategic facts that are not present in the record. For that reason, the system uses conservative Bridge interpretations and treats unsupported strategic claims as errors.
-
-\section{Future Work}
-
-Future work should expand the dataset using real Bridge records and add richer annotations for vulnerability, scoring, conventions, declarer/dummy roles, and full trick-by-trick play. A stronger version could compare real neural generation systems using two prompts: one prompt for raw notation and one prompt for artificial-language input. Another useful extension would be a human evaluation study in which Bridge experts score correctness while beginners score readability and reconstructability.
-
-The artificial language could also be expanded into a more formal grammar. This would make it easier to validate whether a representation is well formed, detect parser failures, and compare different semantic representations. Finally, the project could add a reverse reconstruction task: given the generated English, ask a system or human to recover the original Bridge record.
+There is no previous Bridge commentary system to compare against directly, so the baselines and the template system serve as reference points. Relative to data-to-text work, the findings match two established results: fluent neural output is not faithful by default \citep{wiseman2017challenges}, and an explicit intermediate plan improves content selection \citep{puduppully2019content}. The present system is far from a state-of-the-art commentator. Approaching one would need (1) a much larger aligned corpus, which could be built from BBO's archive of millions of boards with model-drafted, expert-reviewed references; (2) knowledge of each pair's system, which BBO records partially as convention cards and alert explanations; (3) larger or fine-tuned generators \citep{kale2020text} trained on AL--English pairs; (4) a double-dummy solver, as GIB uses \citep{ginsberg2001gib}, to judge whether bids and plays were good; and (5) human evaluation by Bridge players and beginners.
 
 \section{Conclusion}
 
-This paper presented a Bridge-to-English translation system that converts raw Bridge notation into a controlled artificial language before generating English explanations. The results show that the artificial-language template system gives the best overall balance of factual preservation, Bridge meaning, beginner readability, and reconstructability. Direct raw-notation generation is readable but less faithful, while raw copying preserves surface facts but does not explain the game. The main conclusion is that a controlled intermediate representation is useful for translating compact, domain-specific notation into natural language.
+I asked whether translating Bridge records into a controlled artificial language helps a language model explain them. On 40 real boards with unseen auction patterns, it does: with the AL, a 4B model explains three times as many bid meanings, without losing facts and without inventing bids. A template generator reading the same AL performs as well as the best model on meaning, states every fact and is easier to read. The model's explanations are bounded by what the AL encodes, so improving the representation, above all its coverage of conventions, is the most direct way to improve the output.
+
+\section{Future Work}
+
+The most valuable next step is extending the AL with partnership agreements, for example reading alert explanations and convention cards from BBO records so that \texttt{artificial} can become \texttt{Multi} or \texttt{Michaels}. A human evaluation should replace the automatic proxies: Bridge players scoring correctness and beginners scoring readability and whether they could reconstruct the auction from the text. The fact scorer should check who made each call. A formal grammar for the AL would let malformed representations be detected automatically, and a reverse task, rebuilding the record from the English, would measure reconstructability directly. Finally, larger models and fine-tuning on AL--English pairs would show whether the AL's benefit shrinks as models know more Bridge.
+
+\section*{Limitations}
+
+The real test set has 40 boards, so confidence intervals are wide for all but the largest effects. The references and meaning annotations were drafted by an AI assistant and reviewed by one author, not by independent Bridge experts, and meaning recall depends on their keyword lists. All metrics are automatic and based on word matching; they can miss correct paraphrases and credit sentences that mention the right words in a wrong claim. One scorer change was made after viewing test outputs (Section~\ref{sec:dev}). Only two small quantized models were tested, with one prompt, and larger models may know more conventions. The bidding rules assume a simplified Standard American system and ignore vulnerability and scoring.
+
+\section*{Ethical Considerations}
+
+The real boards come from public BBO vugraph broadcasts. Player and team names and broadcast commentary are discarded, and only the cards, calls and results are kept. The models run locally, so no data is sent to external services. The main risk of an explanation system is false confidence: a fluent explanation of a convention the pair did not play would mislead a beginner. The AL therefore labels unknown alerted calls as artificial rather than guessing, and unsupported bids are counted as errors.
+
+\section*{Contributions and AI Assistance}
+
+This is a single-author project. I defined the task and research questions, chose the data sources and models, and reviewed and approved all test references. An AI coding assistant (Claude, Anthropic) was used to help write the code, draft the test references and annotations, and draft parts of this paper; all of its output was reviewed by me.
 
 \bibliography{custom}
 
 \appendix
 
-\section{Example System Output}
+\section{Prompts}
+\label{app:prompts}
+
+System prompt, shared by all LLM conditions:
+
+\begin{lstlisting}[style=bridgecode]
+You are a bridge teacher. Explain the bridge deal record you are given to a beginner in plain English. Go through the auction in order and say what each bid, double or redouble means. Then state the final contract and who is declarer, the opening lead, what happens on the first trick, and how many tricks declarer took, if the record says. Use only the information in the record and do not invent bids, cards or results. Write one paragraph of plain prose with no headings, lists or markdown.
+\end{lstlisting}
+
+The raw condition's user message starts with ``Bridge record:'' followed by the dealer, hands, auction, contract, opening lead, play and trick count, one field per line. The AL condition's user message starts with ``Bridge record, one event per line in a structured meaning representation:'' followed by the AL lines.
+
+\section{Synthetic Example}
 
 \begin{lstlisting}[style=bridgecode]
 Raw:
@@ -341,8 +379,8 @@ PASS(East)
 CONTRACT(3NT, declarer=North)
 LEAD(West, S4)
 
-English:
-North opens 1NT, showing a balanced hand with about 15--17 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. West leads the four of spades to begin the play.
+English (beginner template):
+North opens 1NT, showing a balanced hand with about 15-17 high-card points. East passes. South raises directly to 3NT, which is a game-level no-trump contract. West passes. North passes. East passes. The final contract is 3NT by North. West leads the four of spades to begin the play.
 \end{lstlisting}
 
 \end{document}
