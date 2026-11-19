@@ -1,0 +1,62 @@
+[
+  {
+    "system": "generic_baseline",
+    "n": 40,
+    "fact_accuracy": 0.0,
+    "meaning_recall": null,
+    "unsupported_bids": 0.0,
+    "fk_grade": 4.830000000000002,
+    "words": 10.0,
+    "artificial_exact_match": null,
+    "bleu": null,
+    "chrf": null
+  },
+  {
+    "system": "literal_baseline",
+    "n": 40,
+    "fact_accuracy": 0.8992803030303029,
+    "meaning_recall": null,
+    "unsupported_bids": 0.0,
+    "fk_grade": 0.3884965628725673,
+    "words": 56.975,
+    "artificial_exact_match": null,
+    "bleu": null,
+    "chrf": null
+  },
+  {
+    "system": "raw_copy_baseline",
+    "n": 40,
+    "fact_accuracy": 0.9066035353535353,
+    "meaning_recall": null,
+    "unsupported_bids": 0.0,
+    "fk_grade": 13.084989972107966,
+    "words": 55.425,
+    "artificial_exact_match": null,
+    "bleu": null,
+    "chrf": null
+  },
+  {
+    "system": "template_beginner",
+    "n": 40,
+    "fact_accuracy": 1.0,
+    "meaning_recall": null,
+    "unsupported_bids": 0.0,
+    "fk_grade": 3.243792328985548,
+    "words": 190.35,
+    "artificial_exact_match": null,
+    "bleu": null,
+    "chrf": null
+  },
+  {
+    "system": "template_expert",
+    "n": 40,
+    "fact_accuracy": 1.0,
+    "meaning_recall": null,
+    "unsupported_bids": 0.0,
+    "fk_grade": 1.346235781426228,
+    "words": 113.4,
+    "artificial_exact_match": null,
+    "bleu": null,
+    "chrf": null
+  }
+]

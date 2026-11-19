@@ -1,0 +1,222 @@
+{
+  "test001": {
+    "prompt_sha": "56bca126e5503f44",
+    "output": "The bridge record shows an auction where East opened with 1C, followed by South passing, then West passing, and finally North passing. East then passed again, leading to a final contract of 5C by East. The opening lead was South ♥2. On the first trick, South led with the 2 of hearts, West followed with the 3 of hearts, North led with the 7 of hearts, and East led with the Ace of hearts. East won the first trick. The play continued with the next tricks, and declarer, East, took two tricks in total. The final contract was 5C, and East was the declarer."
+  },
+  "test002": {
+    "prompt_sha": "42011164148d987f",
+    "output": "The bridge record shows an auction where South opened with 1C, then West passed, North passed, East passed, and South bid 2D. Then West passed again, North passed, and East passed, leading to South bidding 3NT. The contract was 3NT by South. The opening lead was West ♦J. \n\nOn the first trick, West led the jack of diamonds. South responded with a club, and the play proceeded with the rest of the bidding. Declarer, South, took three tricks in total. The final contract was 3NT, and the bidding reflected a strong suit in clubs and a strong heart suit, with South leading the way."
+  },
+  "test003": {
+    "prompt_sha": "844d3f7e434dbc36",
+    "output": "The bridge deal starts with an opening bid of 1NT by West, followed by a pass from North, then an East 3NT bid, a pass from South, and a West pass. Finally, North bids another pass. The contract is 3NT by West. The opening lead was the club of North, which was a♣. West led the club of♣, and the play was finesse: West led♣, and the queen was played by North. The deal ended with West taking three tricks."
+  },
+  "test004": {
+    "prompt_sha": "e77a1f0fcea77c66",
+    "output": "The bridge record shows an auction where North opened with 2NT, East passed, South passed, West passed, and North passed. The contract was 3NT by North. The opening lead was East ♠K. On the first trick, East led King of Spades, South followed with 2 of Spades, West led 7 of Spades, and North led Ace of Spades. The winner of the first trick was North, who led the Ace. Declarer, North, took two tricks on the first round. The record indicates that the final contract was 3NT, and North was the declarer."
+  },
+  "test005": {
+    "prompt_sha": "dfd1af60c9e6d63d",
+    "output": "The bridge record shows an auction where East opened with 1S, followed by South passing, then West passing, and finally North passing. East then passed, and South passed again. The contract was 4S by East. The opening lead was South ♥7. \n\nIn this auction, East opened with 1S, which is a weak opening, indicating that they have a weak hand. South passed, which is a common response to a weak opening, showing that they have a strong hand. West passed, which is a standard response to a weak opening, showing that they have a strong hand. North passed, which is a strong response to a weak opening, indicating that they have a strong hand. East then passed, and South passed again, which is a standard way to show that the bidding is not competitive. The final contract was 4S by East, meaning that East was able to win the contract with their hand. The number of tricks declarer took was four, indicating that East was able to win all four tricks."
+  },
+  "test006": {
+    "prompt_sha": "634b2f3f0ccd3b2e",
+    "output": "The bridge record shows an auction where the opening lead was West ♦Q. South opened with 1H, then West passed, North passed, East passed, and South passed. The contract was 4H by South. \n\nThe opening lead was West ♦Q, which means that the opener, South, had a high card in the heart suit. South then led a heart, which was a strong signal that they had a strong hand in hearts. The auction indicates that South had a strong hand in hearts and was trying to make a contract. The bidding continued with West passing, which usually means that the bidder is not interested in continuing the contract. North and East also passed, indicating they were not interested in continuing. Finally, South made the contract, which means they were able to make a strong hand in hearts and had the necessary tricks to win the contract.\n\nDeclarer was South, and they took four tricks. The contract was won by South with a strong hand in hearts."
+  },
+  "test007": {
+    "prompt_sha": "a22b8b1799859d5f",
+    "output": "The bridge record shows an auction where West opened with 1D, North passed, East opened with 5D, South passed, and West passed again. Then North passed again, leading to a contract of 5D by West. The opening lead was the North♣3. On the first trick, North led the club, East responded with a club, South followed with a club, and West led with a club. The winner was West's club, and he took the first trick. The record indicates that declarer, West, took two tricks on the first round. The contract was 5D, and it was a double, meaning West had a strong hand and was trying to force a contract. The final contract was 5D, and West was the declarer."
+  },
+  "test008": {
+    "prompt_sha": "d040c523e33f421b",
+    "output": "The bridge record shows an auction where North opened with 1C, East passed, South passed, West passed, and North passed again. This indicates that North had a strong hand and was trying to make a contract. The contract was 5C by North, meaning North was trying to win five clubs. The opening lead was East ♠4, which was a strong start for North. On the first trick, East led a spade, and North responded with a club, showing that North had a good hand. Declarer, North, took four tricks in total, securing the contract. The final contract was 5C, and North was able to win five clubs, making the deal."
+  },
+  "test009": {
+    "prompt_sha": "31da81558b09a5f0",
+    "output": "The bridge record shows an auction where East opened with 2C, followed by South passing, then West passing 2D, and North passing. Then East led 3NT, and South passed again. The contract was 3NT by East. The opening lead was South ♥2. \n\nIn this auction, East opened 2C, which typically means they have a strong hand and are trying to make a contract. South passed, indicating they didn't have a strong hand. West passed 2D, which usually means they have a strong hand and are trying to make a contract. North passed, showing they also have a strong hand. Then East led 3NT, which is a strong contract, and South passed again, indicating they are committed to the contract. \n\nThe final contract was 3NT by East, and the number of tricks declarer took was three. The auction suggests that East had a strong hand and was able to take three tricks in the contract."
+  },
+  "test010": {
+    "prompt_sha": "bcd949b27bef06bc",
+    "output": "The bridge record shows an auction where South opened with 1NT, West passed, North bid 3NT, East doubled, and South passed again. West then passed, North passed, and finally South passed. The contract was 3NTX by South. \n\nThe opening lead was the West ♦J. On the first trick, West led the ♦J, North responded with ♦2, East led ♦7, and South led ♦A. The winner of the first trick was South, who led the ♦A. The note indicates that South successfully finesseed with the ♦A against the queen, which was a key play in the contract.\n\nDeclarer was South, and they took three tricks in total. The contract was a 3NTX, meaning South was the declarer and they won three tricks. The record shows that South was able to win the contract with a successful finesse."
+  },
+  "test011": {
+    "prompt_sha": "d352a116936f223c",
+    "output": "The bridge record shows a standard auction where each player bids according to the rules of bridge. West opened with 2NT, which is a standard opening bid indicating a balanced hand and a weak suit. North then passed, meaning they did not bid, and East bid 3NT, which is a strong suit bid, indicating a strong hand and a strong suit. South then passed, and West bid 2NT again, showing they still have a balanced hand. Finally, North bid 2NT again, showing they still have a balanced hand. The contract was 3NT by West, meaning West was the declarer and North was the defender. The opening lead was the club of North, which was the king of clubs. On the first trick, North led the club, and West took it. Declarer, West, took two tricks in total, and the contract was successfully completed."
+  },
+  "test012": {
+    "prompt_sha": "c62397ddf82c281b",
+    "output": "The bridge record shows an auction where North opens with 1S, followed by East passing, then South passing, West passing, and finally North passing. This indicates that North has a strong hand and is trying to make a contract. The contract is 4S by North, meaning North is trying to win four spades. The opening lead was East ♠A, which is a strong start, showing that East has a good hand. On the first trick, North led the Ace of Spades, and East responded with the King of Spades, showing a strong partnership. Declarer, North, took two tricks in total, securing the contract. The final contract was 4S, and North was able to win all four spades."
+  },
+  "test013": {
+    "prompt_sha": "851fe4bc741e228f",
+    "output": "The bridge record shows an auction where East opened with 1H, followed by South passing, West passing, North passing, and then East passing. The contract was 4H by East. The opening lead was South ♥7. On the first trick, South led the 7 of hearts, West followed with 2 of hearts, North led 9 of hearts, and East led the Ace of hearts. East won the trick. Declarer, East, took two tricks on the first round. The contract was then completed with East leading the 4 of hearts, and the game ended with East winning the final trick."
+  },
+  "test014": {
+    "prompt_sha": "95209ff3423c9579",
+    "output": "The bridge record shows an auction where the opening lead was West ♦Q. The bidding went as follows: South bid 1D, West passed, North bid 5D, East passed, South passed, and West passed. The contract was 5D by South. \n\nDeclarer is South, and the opening lead was West ♦Q. On the first trick, West led the ♦Q, and South responded with the ♠K. The play continued with West leading ♠A, and South leading ♣A. The bidding showed a strong South response, indicating a strong hand and a desire to win the contract. Declarer took four tricks, securing the contract."
+  },
+  "test015": {
+    "prompt_sha": "a40da484a5d767d6",
+    "output": "The bridge record shows an auction where West opened with 1C, North passed, East opened with 5C, South passed, West passed, and North passed. The contract was 5C by West. The opening lead was North ♣3. \n\nIn this auction, West opened with 1C, which is a weak opening, indicating they have a weak hand. North passed, which is a common way to show that they have a strong hand and are not trying to bid for tricks. East then opened with 5C, which is a strong opening, showing they have a strong hand and are trying to win the contract. South passed, which is a common way to show that they have a strong hand and are not trying to bid for tricks. West then passed, and North passed again. \n\nThe final contract was 5C by West, which means that West was able to win the contract with a strong hand and good play. The declarer was West, and they took four tricks. The bidding indicated that West had a strong hand and was able to win the contract with good play."
+  },
+  "real_test001": {
+    "prompt_sha": "8de50d29dd4a54bb",
+    "output": "The bridge record shows a complex auction where the bidding leads to a final contract of 5H by South. The opening lead was West ♠A, and the bidding proceeded with North passing, East passing, South opening with 1H, West doubling, and then both North and East passing. North then bid 3H, and East bid 4S, followed by South bidding 5H. The final contract was 5H, and South was declared the declarer. On the first trick, West led with the Ace of Spades, North led with the Seven of Hearts, East led with the Nine of Spades, and South led with the Four of Spades. North won the first trick with the Seven of Hearts. The remaining tricks were played with declarer taking nine tricks."
+  },
+  "real_test002": {
+    "prompt_sha": "15b21a79462441c4",
+    "output": "The bridge record shows an auction where East opened with a pass, South followed with a pass, West bid 1NT, North doubled, East passed again, South passed, West redoubled, North passed, and then East bid 2C. The contract was 2D by North. The opening lead was East♣2. On the first trick, East led a club, South followed with a club, West led a club, and North won with their club. North won the first trick. Declarer, North, took eight tricks in total. The final contract was 2D, and North was the declarer."
+  },
+  "real_test003": {
+    "prompt_sha": "e71c2d961dc50e8d",
+    "output": "The bridge record shows a complex auction where the declarer was East, and the contract was 6S. The opening lead was South ♣A, indicating a strong suit in clubs. North bid 3H, East 3S, South passed, and West doubled. Then North passed, East doubled, South passed, West doubled again, and North doubled. The final contract was 6S, with East as the declarer. On the first trick, South led the club ace, West led the nine, North led the three, and East led the six. South won the first trick with the ace. The declarer took 11 tricks, showing a strong club suit and effective control of the game."
+  },
+  "real_test004": {
+    "prompt_sha": "ee6e1e40a0ffe472",
+    "output": "The bridge record shows a deal where the North side opened with a 1♣, and the South led with an Ace of clubs. The West doubled, and North passed. Then East led a club, and South followed with a club, West led a club, and North led a club. The contract was 3DX by North, meaning North was the declarer and won the contract. The opening lead was the club Ace of clubs, led by East. On the first trick, East led a club, South followed with a club, West led a club, and North led a club. South won the first trick, and the declarer took seven tricks. The final contract was 3DX, and North was the declarer."
+  },
+  "real_test005": {
+    "prompt_sha": "7fd742b0b92e25e8",
+    "output": "The bridge record shows a standard auction where North opens 1NT, East doubles, South responds with 2H, and West passes. North then doubles again, and East passes, leading to a final contract of 2SX by North. The opening lead was East's heart 3. On the first trick, East led heart 3, South followed with heart 9, West led heart J, and North led heart A. North won the first trick, and the declarer, North, took five tricks in total. The contract was won by North, who successfully led the game with strong hearts and controlled the play."
+  },
+  "real_test006": {
+    "prompt_sha": "c1bc67c9f532b978",
+    "output": "The bridge record shows an auction where East opened with a pass, South followed with a pass, West bid 2H, North doubled, East passed, South bid 2NT, West passed, North bid 3C, East passed, South bid 3D, West passed, and North passed, ending with East leading a club. The contract was 3D by South. The opening lead was West ♦2. On the first trick, West led a club, North responded with a club, East led a club, and South led a club, with North winning the trick. Declarer, South, took six tricks. The final contract was 3D, and South was the declarer."
+  },
+  "real_test007": {
+    "prompt_sha": "96954546bd553819",
+    "output": "The bridge record shows a standard auction where West opened with 3C, and North passed. East then opened with 3NT, which is a strong bid for a contract of 4D. South doubled, and West passed. North then opened with 4D, which is a strong bid for 4D. East doubled, and South passed. West passed, and North passed again. The final contract was 4D by North, meaning North was the declarer. The opening lead was East's ♣A. On the first trick, East led ♣A, South followed with ♣3, West led ♣6, and North led ♣5. East won the first trick with their ♣A. Declarer, North, took five tricks in total."
+  },
+  "real_test008": {
+    "prompt_sha": "a6135e18bffc9861",
+    "output": "The bridge record shows an auction where East opened with 1C, South passed, West doubled, North passed, East bid 3D, South passed, West bid 3H, North passed, East bid 3S, South passed, West bid 4C, North doubled, East passed, South passed, West redoubled, North passed, East bid 5NT, South passed, West bid 6D, and North passed. The final contract was 6D by East. The opening lead was South ♣5. On the first trick, South led♣5, West led♣A, North led♣3, and East led♣7. West won the first trick with the Ace of Spades. Declarer, East, took one trick. The record indicates that East won the contract with 13 tricks."
+  },
+  "real_test009": {
+    "prompt_sha": "93fbf8670e7b1d6f",
+    "output": "The bridge record shows a standard auction where West opened with a pass, followed by North, then East opening with 1NT. South then passed, and West passed again. The auction continued with West leading with a 3 of spades, and East responding with a 2 of diamonds, then South with a 2 of spades, and finally West with a 3 of diamonds. The contract was 3 spades, and South was declared the winner. The opening lead was West's ♠5. On the first trick, West led with a 5 of spades, North followed with a 10 of spades, East led with a 6 of spades, and South led with a 3 of spades. East won the first trick with their 6, and the contract was won by South with 8 tricks."
+  },
+  "real_test010": {
+    "prompt_sha": "28953cef416e8f59",
+    "output": "The bridge record shows a standard auction where the opening lead was South ♠Q. North passed, East passed, South bid 2D, West passed, North bid 2S, East passed, South passed, West doubled, North passed, East bid 2NT, and South passed. The contract was 2NT by East. The declarer, East, took seven tricks. The play on the first trick was South ♠Q followed by West ♣3, then North ♠A, and East ♠3. North won the first trick with their ♠A. The auction indicates a strong partnership in hearts and diamonds, with East leading the bidding to show a strong hand and a strong suit. The final contract was 2NT, which is a strong suit and fit contract, and East was able to take seven tricks to win the contract."
+  },
+  "real_test011": {
+    "prompt_sha": "c4471a2ecd2af7bb",
+    "output": "The bridge record shows a deal where the dealer was South. The opening bid was North's 1NT, which is a strong suit bid indicating that North has a strong hand and is trying to win the contract. West then bid 2H, showing a strong hand in hearts. Both North and East passed, and South doubled, indicating they wanted to win the contract. West passed, and North passed again. The contract was then won by West with 2HX. The opening lead was North's ♠7, which was a strong start. On the first trick, North led a seven, East led a two, South led an eight, and West led a four. West won the first trick. The declarer, West, took six tricks in total."
+  },
+  "real_test012": {
+    "prompt_sha": "711e08618066635a",
+    "output": "The bridge record shows an auction where East opened with 2D, and South passed. West then doubled, followed by North passing. East passed, South doubled, and West passed. North then led 3S, and East passed. South passed, and West passed. The contract was 3S, and North was declared the winner with 7 tricks. The opening lead was East ♦4, and the first trick was won by South with their ♦A. The deal went smoothly, with declarer taking all 7 tricks."
+  },
+  "real_test013": {
+    "prompt_sha": "f40bfda270fbf950",
+    "output": "The bridge record shows a standard auction where North opened with a pass, East passed, South opened with a 1C, and West followed with a 1S. Then North doubled, East redoubled, and South responded with a 2C. Finally, West doubled, and North passed, East passed, and South bid 3C. The contract was 3C by South. The opening lead was West ♠Q. On the first trick, West led the club suit with Q, North followed with a two of spades, East led with five of spades, and South led with an ace of spades. The winner of the first trick was South's ace. Declarer took ten tricks in total."
+  },
+  "real_test014": {
+    "prompt_sha": "a7beebc9ef252eee",
+    "output": "The bridge record shows a deal where North opened with a pass, East led with 1NT, South passed, West led with 4C, and then the bidding continued with a series of passes and high-level bids. The final contract was 6H, with East as the declarer. The opening lead was the South♣Q. On the first trick, South led with the club Q, West followed with club J, North led with club 5, and East led with club A. East won the trick with their club A. The play continued with several more tricks, and by the end, declarer took 12 tricks. The final contract was 6H, meaning East was able to win the game with a strong defense."
+  },
+  "real_test015": {
+    "prompt_sha": "dd2a893b82bcc0d5",
+    "output": "The bridge record shows an auction where East opened with 1C, South passed, West opened with 1H, North then doubled to 2C, East doubled to 2H, South doubled to 3C, West doubled to 3H, and North passed, East passed, South passed, and West double. The contract was 4CX by North. The opening lead was East♣5. On the first trick, East led♣5, South led♣3, West led♣T, and North led♣K, with North winning the trick. Declarer, North, took five tricks. The final contract was 4CX, and North was the declarer."
+  },
+  "real_test016": {
+    "prompt_sha": "53a61edbf3e6e058",
+    "output": "The bridge record shows a complex auction where the bidding leads to a final contract of 6H by East. The opening lead was the South ♣Q, indicating a strong hand in hearts. North passed, East bid 1C, South passed, West bid 1NT, and North passed again. Then, East bid 3H, South passed, West bid 3NT, and North passed. Finally, East bid 4C, South passed, West bid 4S, and North passed. East then bid 5C, South passed, West bid 5NT, and North passed. The final contract was 6H, with East as the declarer. On the first trick, South led the club Q, West led club 3, North led club 5, and East led club A. East won the first trick with the club A. The declarer took 10 tricks in total."
+  },
+  "real_test017": {
+    "prompt_sha": "7068cfd4c81e36a3",
+    "output": "The bridge record shows a complex auction that reflects a strategic game. East opened with 1C, then South followed with 2C, West with 2D, and North with 3C. East then doubled, which is a strong signal of a strong hand and a desire to win the contract. South redoubled, indicating they are also committed to the contract. West passed, and North followed with 3D. East passed, and South passed. Finally, West led 3NT, and North passed, East passed, and South passed. The contract was 3NT by West, meaning West was the declarer and they won the contract.\n\nThe opening lead was North ♦2, which is a common way to start a contract with a strong hand. On the first trick, North led 2♦, East responded with 4♦, South followed with 9♦, and West led A♦. West won the first trick, which is a strong signal of a strong hand. Declarer, West, took only one trick, which is a small number, indicating they were not able to win the contract. The final contract was 3NT, and West was the declarer."
+  },
+  "real_test018": {
+    "prompt_sha": "2d3840b21d69bd7a",
+    "output": "The bridge record shows a standard auction where the dealer is East. The opening lead was North ♠9, and the bidding progressed as follows: East passed, South passed, West bid 1NT, North passed, East passed, and South passed. The final contract was 1NT by West. The declarer was West, and they took six tricks. The play on the first trick was North ♠9, East ♠2, South ♠3, and West ♠Q, with West winning the trick. This indicated a strong West hand and a solid North suit. The auction suggests a balanced game with West having a strong hand and North having a good suit, leading to a 1NT contract. The declarer, West, successfully took six tricks, indicating a strong and well-played game."
+  },
+  "real_test019": {
+    "prompt_sha": "0283c0424149265a",
+    "output": "The bridge record shows a deal where North opened with 3D, and the bidding progressed with East passing, South passing, West leading 3NT, and then passing again. The final contract was 3NT by West. The opening lead was North's ♦6. On the first trick, North led ♦6, East led ♦T, South led ♦A, and West led ♦9. South won the first trick with their ♦A. The declarer, West, took five tricks in total. The deal ended with West winning the contract."
+  },
+  "real_test020": {
+    "prompt_sha": "1cd1ddd8cfcd0ed1",
+    "output": "The bridge record shows an auction where East opened 1NT, South passed, West passed, North doubled, East passed, South passed, West led 2C, North passed, East passed, South led 2S, and West passed. The contract was 2S by South. The opening lead was West ♦3. On the first trick, West led 3♦, North followed with 2♦, East led K♦, and South led 8♦. East won the trick with K♦. The declarer, South, took five tricks. The final contract was 2S, and South was the declarer."
+  },
+  "real_test021": {
+    "prompt_sha": "c6d86ff2770855a9",
+    "output": "The bridge record shows a deal where South was the declarer, and the contract was 6D. The auction started with West passing, then North, East, and South bidding 1C. West then passed again, North 1S, East passed, and South 2D. West passed again, North 2S, East passed, and South 2NT. West passed, North 3D!, East passed, and South 3H. West passed, North 3S!, and East passed. Finally, South bid 6D. The contract was 6D by South. The opening lead was West ♥J. On the first trick, West led the Jack of hearts, North led two hearts, East led six hearts, and South led the Ace of hearts. South won the first trick. Declarer, South, took one trick. The final contract was 6D, and South was the declarer."
+  },
+  "real_test022": {
+    "prompt_sha": "393ac9f683fba4c5",
+    "output": "The bridge record shows a complex auction where West opened 1NT, and North passed, East then doubled, South passed, West doubled again, and North passed. Then West led a heart, and North led a heart, followed by East and South leading hearts, with North winning the final trick. The contract was 3SX by West, meaning West was the declarer and won the contract. The opening lead was North's heart ace, and the first trick was a heart play by North, followed by East and South leading hearts. Declarer took nine tricks in total."
+  },
+  "real_test023": {
+    "prompt_sha": "75b8fd504281d802",
+    "output": "The bridge record shows an auction where East opened with 2D, followed by South passing, West passing, and North opening with 2NT. Then, East passed, South led 3H, West passed, North led 3S, and East passed. The contract was 3S by North. The opening lead was East♣A. On the first trick, East led the club Ace, South led the club four, West led the club three, and North led the club five. The winner was East♣A. Declarer, North, took eight tricks. The final contract was 3S, and North was the declarer."
+  },
+  "real_test024": {
+    "prompt_sha": "e7c253346c9d53b7",
+    "output": "The bridge record shows a deal where North opened with a 4H, and the bidding went South Pass, West Pass, North 4H, East Pass, South Pass, West Pass, resulting in a contract of 4H by North. The opening lead was East ♦Q. On the first trick, East led with a Queen of Diamonds, South followed with an Ace of Diamonds, West led with a Four of Diamonds, and North led with a Seven of Diamonds. South won the first trick with their Ace of Diamonds. Declarer, North, took one trick. The final contract was 4H, and North was the declarer."
+  },
+  "real_test025": {
+    "prompt_sha": "579799cbef647d0c",
+    "output": "The bridge record shows a deal where North opened with 1H, and West passed. Then North doubled, and East responded with 2H. South then doubled, and West passed again. North then doubled again, and East passed. South then doubled, and West passed once more. North finally passed, and East passed. The contract was 4H, and North was declared the declarer. The opening lead was East ♦K. On the first trick, East led the club, North responded with ♦K, South followed with ♦3, and West led with ♦8. North won the trick with ♦A. The declarer took nine tricks in total."
+  },
+  "real_test026": {
+    "prompt_sha": "c945c4c37d514dc7",
+    "output": "The bridge record shows a complex auction where the bidding leads to a final contract of 6S by South. The opening lead was West ♦8, and the bidding progressed with South starting with a 2C bid, followed by West 2D, then North doubling, East bidding 3D, and South bidding 3S. The bidding continued with West passing, North bidding 4D, East passing, South bidding 4H, West passing, North bidding 4NT, and East passing. Finally, South bid 5D, West passed, North passed, and East passed, leading to South bidding 6S. The contract was 6S, and South was declared the declarer, taking 11 tricks. The auction suggests a strong South suit in spades, with a strong hand and a solid defense, leading to a final contract of 6S."
+  },
+  "real_test027": {
+    "prompt_sha": "8a6f3f3d80319a64",
+    "output": "The bridge record shows a deal where North opened with 1C, and the bidding progressed with South passing, West passing, North bidding 1D, and East passing. Then, South doubled, and the contract was settled on 4C by North. The opening lead was East ♦A. On the first trick, East led with A♦, South followed with 7♦, West led with 5♦, and North led with 8♦. East won the first trick with A♦. The remaining tricks were played with North taking all nine tricks. The final contract was 4C, and North was the declarer."
+  },
+  "real_test028": {
+    "prompt_sha": "a376abd7246054b5",
+    "output": "The bridge record shows a deal where the dealer was West. North opened with a 1♦, followed by East passing, then South doubling. West passed again, and North led with a ♦K. The auction then continued with East leading a ♦A, followed by South leading a ♦A, West leading a ♦2, and North leading a ♦5. The contract was 2S by North. Declarer, North, took nine tricks. The key points are: North opened 1♦, South doubled, and the final contract was 2S. The opening lead was East ♦K, and the first trick was won by South ♦A. The deal ended with North taking all nine tricks."
+  },
+  "real_test029": {
+    "prompt_sha": "a04275d0f9844d7e",
+    "output": "The bridge record shows a deal where North opened with a pass, East led with a 1♠, South doubled, West redoubled, and then played a sequence of bids that led to a 4♠ contract with East as the declarer. The opening lead was the South ♥A, and the contract was 4♠. On the first trick, South led the Ace of Hearts, West led the five of Hearts, North led the four of Hearts, and East led the seven of Hearts. South won the first trick with the Ace of Hearts. Declarer, East, took one trick on the first round. The auction indicates that East had a strong hand and was able to win the contract, taking a total of 11 tricks."
+  },
+  "real_test030": {
+    "prompt_sha": "3e3102fe5c95e081",
+    "output": "The bridge record shows a standard auction where West opened with 2D, and North passed, East passed, South passed, West passed, North doubled, East passed, and South opened 2NT. The final contract was 2NT by South. The opening lead was West's ♠T. On the first trick, West led a club, North led a club, East led a club, and South led a club, with West winning the first trick. Declarer, South, took five tricks. The bidding suggests a strong suit in hearts and a strong club suit, with South having a good hand and a strong club suit. The contract 2NT by South indicates that South has a strong hand and a good club suit, and that they are trying to win the contract. The play on the first trick shows that West had a strong club suit and was able to win the first trick. The declarer, South, took five tricks and was able to win the contract."
+  },
+  "real_test031": {
+    "prompt_sha": "b99d27eadf7f3a4d",
+    "output": "The bridge record shows a complex deal where the opening lead was West ♦J, and the contract was 4SX by South. The auction started with South opening 1S, followed by West passing, then North bidding 2S. East doubled, and South doubled again, leading to a final contract of 4SX. The declarer, South, took nine tricks, showing strong control. The play on the first trick was West ♦J leading, followed by North ♦Q, East ♦K, and South ♦A, with South winning. This indicated a strong defensive position for South, and the final contract was a solid 4SX, showing South's ability to win the game."
+  },
+  "real_test032": {
+    "prompt_sha": "f21ce9ac9ca7a61b",
+    "output": "The bridge record shows an auction where East opened with a pass, South followed with a pass, West then bid 1D, North bid 1S, East doubled, South bid 2H, West bid 4H, and North passed, followed by East passing and South passing. The final contract was 4H by West. The opening lead was North ♠T. On the first trick, North led the club, East led the three of spades, South led the two of spades, and West led the six of spades. North won the first trick. Declarer, West, took eight tricks. The contract was a four-high heart game, and West was able to win all eight tricks."
+  },
+  "real_test033": {
+    "prompt_sha": "86a9a07cf602d885",
+    "output": "The bridge record shows a deal where North opened with a single club, East responded with a club bid, South passed, and West bid a club. North then doubled, and the bidding continued with West leading a club. The final contract was 3NT, and West was the declarer. The opening lead was North's heart Ace. On the first trick, North led the heart Ace, East led the heart Jack, South led the heart three, and West led the heart two. North won the first trick, and the declarer took one trick. The final contract was 3NT, and West was the declarer, taking one trick."
+  },
+  "real_test034": {
+    "prompt_sha": "bf41f50da4a94780",
+    "output": "The bridge record shows a complex auction where West opened with 3H, North responded with 3S, and then East and South passed. West then passed again, followed by North passing again, and finally South passed. The contract was 4S by North, meaning North was the declarer and the contract was agreed upon by the bidding. The opening lead was East's ♥7. On the first trick, East led with ♥7, South followed with ♥2, West led with ♥9, and North led with ♥A. North won the first trick with their ♥A. The declarer, North, took 11 tricks in total."
+  },
+  "real_test035": {
+    "prompt_sha": "b8b80d9dfbbdabd7",
+    "output": "The bridge record shows a complex auction where the bidding leads to a 6NT contract. North opened with a pass, then East bid 1C, South passed, and West bid 2C. North passed again, and East bid 2H, South passed, and West bid 3C. North passed, and East bid 3D, South passed, and West bid 6NT. The final contract was 6NT by West. The opening lead was North's ♥8. On the first trick, North led the 8 of hearts, East led 3 of hearts, South led 6 of hearts, and West led the king of hearts. West won the first trick. Declarer, West, took one trick. The record indicates that West was able to take 11 tricks, securing the 6NT contract."
+  },
+  "real_test036": {
+    "prompt_sha": "6623beb1c34d4591",
+    "output": "The bridge record shows a typical auction where North opens with 1NT, which is a strong suit bid in hearts, indicating they have a strong hand and are looking to win the contract. East doubles, which is a strong signal that they have a good hand and are trying to win the contract. South passes, which is a common response to a double, showing they are not in the game. West then bids 2D, indicating they have a good hand and are trying to win the contract. North passes, which is a common response to a 2D bid, showing they are not in the game. East passes, which is a common response to a 2D bid, showing they are not in the game. South passes, which is a common response to a 2D bid, showing they are not in the game. The contract is 2D by West, meaning West is the declarer and they are trying to win the contract. The opening lead was North ♠7, which is a strong start. On the first trick, North led a seven, East led an ace, South led a ten, and West led a nine. The winner of the first trick was East's ace. Declarer took eight tricks in total."
+  },
+  "real_test037": {
+    "prompt_sha": "b067820069c30a1c",
+    "output": "The bridge record shows a complex auction where West opened with 1C, North responded with 1S, and then East and South played a pass. West then doubled, followed by North passing, East passing, and South passing. Finally, West doubled again, and North passed, East passed, and South passed. The contract was 4SX by North. The opening lead was East ♦5. On the first trick, East led with ♦5, South followed with ♦K, West led with ♦A, and North led with ♠2. North won the first trick with ♠2. The declarer, North, took eight tricks in total."
+  },
+  "real_test038": {
+    "prompt_sha": "36d89f4b678a6f42",
+    "output": "The bridge record shows a standard auction where North opened with a pass, East followed with a pass, and then South led a 1NT bid. West then passed, North passed again, and East passed. The final contract was 1NT by South, indicating that South was the declarer. The opening lead was West ♥4, and the first trick was a trick of hearts, with East winning the trick by playing the king of hearts. Declarer, South, took seven tricks in total during the game. The record provides a clear picture of the bidding and play, showing that South was able to win the contract with a strong hand and effective play."
+  },
+  "real_test039": {
+    "prompt_sha": "e188e9174767a273",
+    "output": "The bridge record shows a deal where West was the dealer. North opened with a 2D, which means they were trying to bid for a contract in diamonds. East then doubled, indicating they wanted to take over the contract. South passed, and West passed, followed by North passing again. The final contract was 2S by East, meaning East was the declarer and they won the contract. The opening lead was the South ♦K, which was a strong opening card. On the first trick, South led the king of diamonds, West led the three of diamonds, North led the two of diamonds, and East led the ace of diamonds. East won the first trick with the ace. The declarer took seven tricks in total."
+  },
+  "real_test040": {
+    "prompt_sha": "6f74729e2f4f9b51",
+    "output": "The bridge record shows a standard auction where West opened with a pass, North led with a club, East responded with a club, South passed, West doubled, North passed, East doubled, South passed, West doubled, and North led with a club. The contract was 3CX by North. The opening lead was East ♦A. On the first trick, East led with a club, South followed with a club, West led with a club, and North led with a club. The winner of the first trick was East ♦A. Declarer, North, took all eight tricks. The final contract was 3CX, and North was the declarer."
+  }
+}

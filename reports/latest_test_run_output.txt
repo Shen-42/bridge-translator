@@ -1,68 +1,26 @@
-Evaluation summary
-==================
 
-System: direct_raw_model_simulated
-  n: 15
-  factual preservation: 0.737
-  bridge meaning: 2.843
-  beginner readability: 5.000
-  reconstructability: 0.737
-  BLEU-like: 0.000
-  ROUGE-L-like: 0.169
+Evaluation summary: test
+system                              facts  meaning  unsup.    FK  words   BLEU   chrF  AL em
+--------------------------------------------------------------------------------------------
+generic_baseline                    0.000    0.000    0.00   4.8     10    0.0   10.5      -
+literal_baseline                    0.974    0.000    0.00   0.6     33   28.3   46.2      -
+raw_copy_baseline                   0.989    0.000    0.00   8.4     33    2.6   34.4      -
+template_beginner                   1.000    1.000    0.00   3.1     63   99.0   99.6  1.000
+template_expert                     1.000    0.933    0.00   2.2     54   80.2   84.3  1.000
+llm_raw__qwen3:4b-instruct          0.973    0.167    0.00   7.6    170   13.0   48.4      -
+llm_al__qwen3:4b-instruct           0.941    0.833    0.00   8.4    179   10.0   46.6      -
+llm_raw__qwen3:1.7b                 0.951    0.078    0.00   5.4    125    9.5   45.0      -
+llm_al__qwen3:1.7b                  0.881    0.322    0.00   4.6     94   14.2   50.0      -
 
-System: generic_baseline
-  n: 15
-  factual preservation: 0.000
-  bridge meaning: 1.300
-  beginner readability: 5.000
-  reconstructability: 0.000
-  BLEU-like: 0.000
-  ROUGE-L-like: 0.058
-
-System: literal_baseline
-  n: 15
-  factual preservation: 0.887
-  bridge meaning: 3.519
-  beginner readability: 5.000
-  reconstructability: 0.887
-  BLEU-like: 0.178
-  ROUGE-L-like: 0.379
-
-System: model_from_artificial_simulated
-  n: 15
-  factual preservation: 0.887
-  bridge meaning: 4.379
-  beginner readability: 4.973
-  reconstructability: 0.887
-  BLEU-like: 0.623
-  ROUGE-L-like: 0.721
-  artificial exact match: 1.000
-
-System: raw_copy_baseline
-  n: 15
-  factual preservation: 0.898
-  bridge meaning: 3.586
-  beginner readability: 3.823
-  reconstructability: 0.898
-  BLEU-like: 0.001
-  ROUGE-L-like: 0.274
-
-System: template_beginner
-  n: 15
-  factual preservation: 0.887
-  bridge meaning: 4.726
-  beginner readability: 4.947
-  reconstructability: 0.887
-  BLEU-like: 0.986
-  ROUGE-L-like: 1.000
-  artificial exact match: 1.000
-
-System: template_expert
-  n: 15
-  factual preservation: 0.887
-  bridge meaning: 4.379
-  beginner readability: 4.973
-  reconstructability: 0.887
-  BLEU-like: 0.781
-  ROUGE-L-like: 0.844
-  artificial exact match: 1.000
+Evaluation summary: real_test
+system                              facts  meaning  unsup.    FK  words   BLEU   chrF  AL em
+--------------------------------------------------------------------------------------------
+generic_baseline                    0.000    0.000    0.00   4.8     10    0.0    7.2      -
+literal_baseline                    0.856    0.033    0.00   0.5     61   12.7   36.3      -
+raw_copy_baseline                   0.882    0.042    0.00  12.7     62    1.4   28.0      -
+template_beginner                   1.000    0.644    0.00   3.5    206   16.8   52.1      -
+template_expert                     1.000    0.454    0.00   1.4    117   18.4   51.2      -
+llm_raw__qwen3:4b-instruct          0.896    0.212    0.00   7.5    203    4.2   40.5      -
+llm_al__qwen3:4b-instruct           0.900    0.631    0.00   8.1    233    5.6   41.7      -
+llm_raw__qwen3:1.7b                 0.822    0.050    0.07   5.1    113    7.3   41.8      -
+llm_al__qwen3:1.7b                  0.804    0.310    0.00   5.7    122    7.7   42.4      -

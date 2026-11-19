@@ -115,6 +115,8 @@ def facts(raw) -> dict:
     if overcall:
         out["overcaller"] = overcall.args["player"]
         out["overcall"] = overcall.args["bid"]
+    calls = {"PASS": "PASS", "DOUBLE": "DOUBLE", "REDOUBLE": "REDOUBLE"}
+    out["bid_sequence"] = " ".join(f"{e.args['player']}:{e.args.get('bid') or calls[e.type]}" for e in events)
     out["contract"] = contract.args["contract"]
     if contract.args.get("doubled"):
         out["contract_doubled"] = {"X": "doubled", "XX": "redoubled"}[contract.args["doubled"]]

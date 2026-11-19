@@ -6,5 +6,8 @@ readme = "README.md"
 requires-python = ">=3.9"
 authors = [{name = "Kevin Chen"}]
 
+[project.optional-dependencies]
+eval = ["sacrebleu>=2.4"]
+
 [tool.setuptools.packages.find]
 where = ["src"]

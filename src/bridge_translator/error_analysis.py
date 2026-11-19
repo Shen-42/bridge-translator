@@ -18,6 +18,7 @@ ERROR_TYPES = [
     "overgeneralization_error",
     "hallucinated_strategy_error",
     "readability_error",
+    "hallucinated_bid_error",
     "artificial_language_parsing_error",
     "template_coverage_error",
 ]
@@ -29,13 +30,16 @@ def classify_error(row: Dict) -> str:
     """
     output = row.get("output", "").lower()
 
-    if row.get("fact_preservation", 1.0) < 0.4:
+    if (row.get("fact_accuracy") or 0.0) < 0.4:
         return "overgeneralization_error"
+
+    if row.get("unsupported_bids", 0) > 0:
+        return "hallucinated_bid_error"
 
     if row.get("artificial_exact_match") is not None and row.get("artificial_exact_match") < 0.8:
         return "artificial_language_parsing_error"
 
-    if row.get("beginner_readability", 5.0) < 3.5:
+    if (row.get("fk_grade") or 0.0) > 12:
         return "readability_error"
 
     if "unknown" in output:

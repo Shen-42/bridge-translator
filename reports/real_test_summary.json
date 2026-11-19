@@ -1,0 +1,110 @@
+[
+  {
+    "system": "generic_baseline",
+    "n": 40,
+    "fact_accuracy": 0.0,
+    "meaning_recall": 0.0,
+    "unsupported_bids": 0.0,
+    "fk_grade": 4.830000000000002,
+    "words": 10.0,
+    "artificial_exact_match": null,
+    "bleu": 0.0005832441005245622,
+    "chrf": 7.1860801291800485
+  },
+  {
+    "system": "literal_baseline",
+    "n": 40,
+    "fact_accuracy": 0.8562878787878787,
+    "meaning_recall": 0.03333333333333333,
+    "unsupported_bids": 0.0,
+    "fk_grade": 0.48238964908074083,
+    "words": 61.475,
+    "artificial_exact_match": null,
+    "bleu": 12.712308370215172,
+    "chrf": 36.314270183956424
+  },
+  {
+    "system": "raw_copy_baseline",
+    "n": 40,
+    "fact_accuracy": 0.8822979797979797,
+    "meaning_recall": 0.041666666666666664,
+    "unsupported_bids": 0.0,
+    "fk_grade": 12.72206165964053,
+    "words": 61.5,
+    "artificial_exact_match": null,
+    "bleu": 1.3578816775678135,
+    "chrf": 28.009783248661208
+  },
+  {
+    "system": "template_beginner",
+    "n": 40,
+    "fact_accuracy": 1.0,
+    "meaning_recall": 0.64375,
+    "unsupported_bids": 0.0,
+    "fk_grade": 3.467240663620907,
+    "words": 206.25,
+    "artificial_exact_match": null,
+    "bleu": 16.786656152593796,
+    "chrf": 52.14317666232906
+  },
+  {
+    "system": "template_expert",
+    "n": 40,
+    "fact_accuracy": 1.0,
+    "meaning_recall": 0.4541666666666667,
+    "unsupported_bids": 0.0,
+    "fk_grade": 1.4307311493373025,
+    "words": 117.225,
+    "artificial_exact_match": null,
+    "bleu": 18.426710842414465,
+    "chrf": 51.15039535750032
+  },
+  {
+    "system": "llm_raw__qwen3:4b-instruct",
+    "n": 40,
+    "fact_accuracy": 0.8962626262626262,
+    "meaning_recall": 0.2125,
+    "unsupported_bids": 0.0,
+    "fk_grade": 7.515708778633429,
+    "words": 203.45,
+    "artificial_exact_match": null,
+    "bleu": 4.226615202983887,
+    "chrf": 40.54485665668391
+  },
+  {
+    "system": "llm_al__qwen3:4b-instruct",
+    "n": 40,
+    "fact_accuracy": 0.8997348484848485,
+    "meaning_recall": 0.63125,
+    "unsupported_bids": 0.0,
+    "fk_grade": 8.11032415954501,
+    "words": 233.45,
+    "artificial_exact_match": null,
+    "bleu": 5.637827155489077,
+    "chrf": 41.73810735026237
+  },
+  {
+    "system": "llm_raw__qwen3:1.7b",
+    "n": 40,
+    "fact_accuracy": 0.8215719696969697,
+    "meaning_recall": 0.05,
+    "unsupported_bids": 0.075,
+    "fk_grade": 5.083999394328747,
+    "words": 112.9,
+    "artificial_exact_match": null,
+    "bleu": 7.321582420528627,
+    "chrf": 41.837147057081914
+  },
+  {
+    "system": "llm_al__qwen3:1.7b",
+    "n": 40,
+    "fact_accuracy": 0.8041666666666666,
+    "meaning_recall": 0.3104166666666667,
+    "unsupported_bids": 0.0,
+    "fk_grade": 5.687223731188011,
+    "words": 121.625,
+    "artificial_exact_match": null,
+    "bleu": 7.697072964073264,
+    "chrf": 42.36119219492157
+  }
+]

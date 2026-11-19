@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Run all Bridge Translator systems on the test set."""
+"""Run all Bridge Translator systems on the synthetic and real test sets.
+
+Pass --llm to generate missing Qwen outputs through a local Ollama server; without it,
+LLM systems are scored from the cached outputs in reports/llm_outputs/ when complete.
+"""
 
 from pathlib import Path
 import sys
@@ -10,4 +14,5 @@ sys.path.insert(0, str(ROOT / "src"))
 from bridge_translator.main_runner import run_all
 
 if __name__ == "__main__":
-    run_all(split="test", save_reports=True, show_examples=False)
+    for split in ["test", "real_test"]:
+        run_all(split=split, save_reports=True, generate_llm="--llm" in sys.argv)

@@ -14,5 +14,4 @@ test012,generic_baseline,overgeneralization_error,Automatic flag based on scores
 test013,generic_baseline,overgeneralization_error,Automatic flag based on scores. Output: The players complete the auction and reach a final contract.
 test014,generic_baseline,overgeneralization_error,Automatic flag based on scores. Output: The players complete the auction and reach a final contract.
 test015,generic_baseline,overgeneralization_error,Automatic flag based on scores. Output: The players complete the auction and reach a final contract.
-test003,raw_copy_baseline,readability_error,Automatic flag based on scores. Output: auction: West 1NT - North Pass - East 3NT - South Pass - West Pass - North Pass contract: 3NT by West opening_lead: North ♣K note: Finesse: West in ♣ against queen; failure
 test010,raw_copy_baseline,readability_error,Automatic flag based on scores. Output: auction: South 1NT - West Pass - North 3NT - East Double - South Pass - West Pass - North Pass contract: 3NTX by South opening_lead: West ♦J play: Trick 1: West ♦J - North ♦2 - East ♦7 - South ♦A; Win
